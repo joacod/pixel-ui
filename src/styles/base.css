@@ -1,0 +1,5 @@
+/* Pixel UI - Base Styles */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

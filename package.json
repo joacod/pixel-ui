@@ -4,16 +4,17 @@
   "description": "Opinionated pixel-art styled React component library built on Base UI",
   "type": "module",
   "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js"
+      "import": "./dist/index.js"
     },
-    "./styles": "./dist/styles.css",
-    "./preset": "./dist/preset.js"
+    "./styles": "./dist/styles/base.css",
+    "./preset": {
+      "types": "./dist/styles/preset.d.ts",
+      "import": "./dist/styles/preset.js"
+    }
   },
   "files": [
     "dist"
