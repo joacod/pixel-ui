@@ -16,3 +16,6 @@ export {
   type Size,
   type PixelComponentBaseProps,
 } from './styles/tokens'
+
+// Export components
+export { Button, type ButtonProps } from './components/Button'
