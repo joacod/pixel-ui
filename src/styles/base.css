@@ -1,5 +1,65 @@
 /* Pixel UI - Base Styles */
 
+/* Import Press Start 2P font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Global pixel rendering styles */
+@layer base {
+  /* Pixel-perfect rendering for images and canvases */
+  img,
+  canvas {
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+  }
+
+  /* Disable font smoothing for pixel-perfect text */
+  body,
+  html {
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeSpeed;
+  }
+}
+
+/* Pixel UI utility classes */
+@layer utilities {
+  /* Pixel rendering utility */
+  .pixel-render {
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+  }
+
+  /* Pixel text rendering utility */
+  .pixel-text {
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeSpeed;
+  }
+
+  /* Disable transitions for instant pixel feel */
+  .pixel-instant {
+    transition: none !important;
+  }
+
+  /* Pixel border utility using box-shadow */
+  .pixel-border {
+    box-shadow: 2px 0 0 0 currentColor, /* right */ 0 2px 0 0 currentColor,
+      /* bottom */ -2px 0 0 0 currentColor, /* left */ 0 -2px 0 0 currentColor; /* top */
+  }
+
+  /* 3D Pixel border (NES-style beveled) */
+  .pixel-border-3d {
+    box-shadow: -4px -4px 0 0 rgba(255, 255, 255, 0.3),
+      /* top-left highlight */ 4px 4px 0 0 rgba(0, 0, 0, 0.3),
+      /* bottom-right shadow */ -4px 0 0 0 rgba(255, 255, 255, 0.3),
+      /* left highlight */ 0 -4px 0 0 rgba(255, 255, 255, 0.3),
+      /* top highlight */ 4px 0 0 0 rgba(0, 0, 0, 0.3),
+      /* right shadow */ 0 4px 0 0 rgba(0, 0, 0, 0.3); /* bottom shadow */
+  }
+}
