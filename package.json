@@ -22,7 +22,10 @@
   "scripts": {
     "build": "tsdown",
     "dev": "tsdown --watch",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "changeset": "changeset",
+    "version": "changeset version",
+    "release": "npm run build && changeset publish"
   },
   "keywords": [
     "pixel-art",
@@ -55,6 +58,7 @@
   },
   "devDependencies": {
     "@base-ui-components/react": "1.0.0-beta.4",
+    "@changesets/cli": "2.29.7",
     "@types/node": "24.6.2",
     "@types/react": "19.2.0",
     "@types/react-dom": "19.2.0",
