@@ -1,6 +1,6 @@
 {
   "name": "pixel-ui",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Opinionated pixel-art styled React component library built on Base UI",
   "type": "module",
   "main": "./dist/index.js",
