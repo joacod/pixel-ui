@@ -1,13 +1,13 @@
 # 👾 Pixel UI
 
-Opinionated pixel-art styled React component library built on [Base UI](https://base-ui.com).
+Opinionated pixel-art styled React component library built on [Base UI](https://base-ui.com) and Tailwind CSS v4.
 
 ## Features
 
 - 🎮 **Authentic pixel-art aesthetic** - NES-inspired 8-bit design system
 - ⚡ **Built on Base UI** - Accessible, unstyled React primitives
-- 🎨 **Tailwind CSS v4** - Customizable through Tailwind configuration
-- 📦 **Zero-config** - Works out of the box with minimal setup
+- 🎨 **Tailwind CSS powered** - CSS-first configuration
+- 📦 **Zero-config** - Just import and use
 - 🔒 **Type-safe** - Full TypeScript support
 
 ## Installation
@@ -18,39 +18,36 @@ npm install @joacod/pixel-ui
 
 ## Quick Start
 
-### 1. Install Tailwind CSS v4 (if not already installed)
+### 1. Setup PostCSS (if not already configured)
 
-```bash
-npm install tailwindcss@next
-```
+Create or update `postcss.config.js` in your project root:
 
-### 2. Import the preset in your Tailwind config
-
-```ts
-// tailwind.config.ts
-import pixelPreset from '@joacod/pixel-ui/preset'
-
+```js
 export default {
-  presets: [pixelPreset],
-  // your other config...
+  plugins: {
+    '@tailwindcss/postcss': {},
+  },
 }
 ```
 
-### 3. Import the base styles
+### 2. Import the Pixel UI preset
 
-```tsx
-// app/layout.tsx or your root component
-import '@joacod/pixel-ui/styles'
+In your app's CSS file (e.g., `app/globals.css` or `src/index.css`):
+
+```css
+@import '@joacod/pixel-ui/preset';
 ```
 
-### 4. Use the components
+> The preset takes care of loading the design tokens, Tailwind CSS, and the library base styles in the correct order. If you need more control, you can import `@joacod/pixel-ui/theme`, `tailwindcss`, and `@joacod/pixel-ui/styles` individually.
+
+### 3. Use Components
 
 ```tsx
 import { Button } from '@joacod/pixel-ui'
 
 export default function App() {
   return (
-    <Button variant="primary" onClick={() => alert('Hello!')}>
+    <Button variant="primary" size="md" onClick={() => alert('Hello!')}>
       Click me
     </Button>
   )
