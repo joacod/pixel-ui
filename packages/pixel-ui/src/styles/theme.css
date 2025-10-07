@@ -1,0 +1,124 @@
+/* Pixel UI - Tailwind v4 Theme Configuration */
+/* Define design tokens using CSS custom properties with @theme */
+
+@theme {
+  /* ============================================
+     NES 8-bit Color Palette
+     ============================================ */
+
+  /* Dark shades */
+  --color-nes-black: #000000;
+  --color-nes-gray-dark: #585858;
+  --color-nes-gray: #a1a1a1;
+  --color-nes-white: #ffffff;
+
+  /* Primary colors */
+  --color-nes-red: #fe5ec4;
+  --color-nes-red-dark: #a62721;
+  --color-nes-blue: #0b53d7;
+  --color-nes-blue-dark: #00237c;
+  --color-nes-green: #79d300;
+  --color-nes-green-dark: #093e00;
+  --color-nes-yellow: #f4d199;
+  --color-nes-yellow-dark: #864300;
+  --color-nes-purple: #bc6afe;
+  --color-nes-purple-dark: #6621f7;
+
+  /* UI semantic colors */
+  --color-nes-primary: #3337fe;
+  --color-nes-secondary: #f15bfe;
+  --color-nes-accent: #51df21;
+  --color-nes-error: #fe7269;
+  --color-nes-warning: #adb600;
+  --color-nes-success: #51df21;
+
+  /* ============================================
+     Typography - Press Start 2P pixel font
+     ============================================ */
+
+  --font-family-pixel: 'Press Start 2P', monospace;
+
+  /* ============================================
+     Pixel border box-shadow utilities
+     ============================================ */
+
+  --shadow-pixel: 2px 2px 0 0 currentColor;
+  --shadow-pixel-lg: 4px 4px 0 0 currentColor;
+  --shadow-pixel-xl: 6px 6px 0 0 currentColor;
+  --shadow-pixel-inset: inset 2px 2px 0 0 rgb(0 0 0 / 0.2);
+  --shadow-pixel-inset-lg: inset 4px 4px 0 0 rgb(0 0 0 / 0.2);
+
+  /* ============================================
+     8px base grid spacing (overrides defaults)
+     ============================================ */
+
+  --spacing-px: 1px;
+  --spacing-0: 0;
+  --spacing-1: 8px;
+  --spacing-2: 16px;
+  --spacing-3: 24px;
+  --spacing-4: 32px;
+  --spacing-5: 40px;
+  --spacing-6: 48px;
+  --spacing-7: 56px;
+  --spacing-8: 64px;
+  --spacing-10: 80px;
+  --spacing-12: 96px;
+  --spacing-16: 128px;
+  --spacing-20: 160px;
+  --spacing-24: 192px;
+  --spacing-32: 256px;
+
+  /* ============================================
+     Component size scale (height values)
+     ============================================ */
+
+  --height-xs: 16px;
+  --height-sm: 24px;
+  --height-md: 32px;
+  --height-lg: 40px;
+  --height-xl: 48px;
+
+  /* ============================================
+     Font sizes aligned to pixel grid
+     ============================================ */
+
+  --font-size-xs: 8px;
+  --font-size-sm: 12px;
+  --font-size-base: 16px;
+  --font-size-lg: 20px;
+  --font-size-xl: 24px;
+  --font-size-2xl: 32px;
+
+  --line-height-xs: 1.5;
+  --line-height-sm: 1.5;
+  --line-height-base: 1.5;
+  --line-height-lg: 1.5;
+  --line-height-xl: 1.5;
+  --line-height-2xl: 1.2;
+
+  /* ============================================
+     Border radius - minimal for pixel aesthetic
+     ============================================ */
+
+  --radius-none: 0;
+  --radius-sm: 2px;
+  --radius-DEFAULT: 4px;
+  --radius-lg: 8px;
+
+  /* ============================================
+     Border widths for pixel borders
+     ============================================ */
+
+  --border-width-0: 0;
+  --border-width-DEFAULT: 2px;
+  --border-width-2: 2px;
+  --border-width-4: 4px;
+  --border-width-8: 8px;
+
+  /* ============================================
+     Animation - simple, no easing for retro feel
+     ============================================ */
+
+  --timing-function-pixel: steps(4, end);
+}

@@ -11,10 +11,7 @@
       "import": "./dist/index.js"
     },
     "./styles": "./dist/styles/base.css",
-    "./preset": {
-      "types": "./dist/styles/preset.d.ts",
-      "import": "./dist/styles/preset.js"
-    }
+    "./theme": "./dist/styles/theme.css"
   },
   "files": [
     "dist"
@@ -59,6 +56,7 @@
   "devDependencies": {
     "@base-ui-components/react": "1.0.0-beta.4",
     "@changesets/cli": "2.29.7",
+    "@tailwindcss/postcss": "4.1.14",
     "@types/node": "24.6.2",
     "@types/react": "19.2.0",
     "@types/react-dom": "19.2.0",

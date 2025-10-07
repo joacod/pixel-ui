@@ -1,11 +1,11 @@
 ---
 title: Installation
-description: How to install and use pixel-ui in your project
+description: How to install and use pixel-ui in your project with Tailwind CSS v4
 ---
 
 ## Installation
 
-Install pixel-ui using your preferred package manager:
+Install pixel-ui and its peer dependencies using your preferred package manager:
 
 ```package-install
 @joacod/pixel-ui
@@ -21,27 +21,27 @@ react react-dom tailwindcss @base-ui-components/react
 
 ## Setup
 
-### 1. Configure Tailwind CSS
+pixel-ui uses **Tailwind CSS v4's CSS-first configuration** approach. No JavaScript config files needed!
 
-Add the pixel-ui preset to your existing `tailwind.config.ts`:
+### 1. Configure PostCSS
 
-```ts
-import { pixelPreset } from '@joacod/pixel-ui/preset';
+Create or update `postcss.config.js` in your project root:
 
+```js
 export default {
-  presets: [pixelPreset],
-  // ... your existing config
+  plugins: {
+    '@tailwindcss/postcss': {},
+  },
 }
 ```
 
-The preset automatically includes pixel-ui's content paths and design tokens.
+### 2. Import Pixel UI Theme
 
-### 2. Import Base Styles
+In your app's main CSS file (e.g., `app/globals.css` or `src/index.css`):
 
-Import the pixel-ui base styles in your app entry point or root layout:
-
-```tsx
-import '@joacod/pixel-ui/styles';
+```css
+@import 'tailwindcss';
+@import '@joacod/pixel-ui/theme';
 ```
 
 ## Usage
@@ -49,14 +49,14 @@ import '@joacod/pixel-ui/styles';
 You can now import and use pixel-ui components:
 
 ```tsx
-import { Button } from '@joacod/pixel-ui';
+import { Button } from '@joacod/pixel-ui'
 
 export default function App() {
   return (
     <Button variant="primary" size="md">
       Click me!
     </Button>
-  );
+  )
 }
 ```
 
