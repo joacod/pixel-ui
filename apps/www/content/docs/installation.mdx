@@ -7,36 +7,34 @@ description: How to install and use pixel-ui in your project
 
 Install pixel-ui using your preferred package manager:
 
-```bash npm2yarn
-npm install @joacod/pixel-ui
+```package-install
+@joacod/pixel-ui
 ```
 
 ## Peer Dependencies
 
 pixel-ui requires the following peer dependencies:
 
-```bash npm2yarn
-npm install react react-dom tailwindcss @base-ui-components/react
+```package-install
+react react-dom tailwindcss @base-ui-components/react
 ```
 
 ## Setup
 
 ### 1. Configure Tailwind CSS
 
-Import the pixel-ui preset in your `tailwind.config.ts`:
+Add the pixel-ui preset to your existing `tailwind.config.ts`:
 
 ```ts
-import type { Config } from 'tailwindcss';
 import { pixelPreset } from '@joacod/pixel-ui/preset';
 
 export default {
   presets: [pixelPreset],
-  content: [
-    './src/**/*.{js,ts,jsx,tsx}',
-    './node_modules/@joacod/pixel-ui/dist/**/*.js',
-  ],
-} satisfies Config;
+  // ... your existing config
+}
 ```
+
+The preset automatically includes pixel-ui's content paths and design tokens.
 
 ### 2. Import Base Styles
 
