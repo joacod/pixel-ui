@@ -1,45 +1,73 @@
-# www
+# 👾 Pixel UI Documentation Site
 
-This is a Next.js application generated with
-[Create Fumadocs](https://github.com/fuma-nama/fumadocs).
+The official documentation site for Pixel UI, built with [Fumadocs](https://fumadocs.dev) and Next.js.
 
-Run development server:
+This site serves as both the documentation and a live showcase of the Pixel UI component library.
+
+## Development
+
+Run the development server:
 
 ```bash
-npm run dev
-# or
 pnpm dev
-# or
-yarn dev
 ```
 
-Open http://localhost:3000 with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the site.
 
-## Explore
+## Project Structure
 
-In the project, you can see:
+```
+apps/www/
+├── app/
+│   ├── (home)/           # Landing page
+│   ├── docs/             # Documentation pages
+│   └── api/search/       # Search API
+├── content/
+│   └── docs/             # MDX documentation files
+│       ├── index.mdx
+│       ├── installation.mdx
+│       └── components/   # Component documentation
+├── lib/
+│   ├── source.ts         # Content source adapter
+│   └── layout.shared.tsx # Shared layout options
+└── source.config.ts      # MDX configuration
+```
 
-- `lib/source.ts`: Code for content source adapter, [`loader()`](https://fumadocs.dev/docs/headless/source-api) provides the interface to access your content.
-- `lib/layout.shared.tsx`: Shared options for layouts, optional but preferred to keep.
+## Adding Documentation
 
-| Route                     | Description                                            |
-| ------------------------- | ------------------------------------------------------ |
-| `app/(home)`              | The route group for your landing page and other pages. |
-| `app/docs`                | The documentation layout and pages.                    |
-| `app/api/search/route.ts` | The Route Handler for search.                          |
+### 1. Create MDX file
 
-### Fumadocs MDX
+Create a new `.mdx` file in `content/docs/`:
 
-A `source.config.ts` config file has been included, you can customise different options like frontmatter schema.
+```mdx
+---
+title: New Component
+description: Description of the component
+---
 
-Read the [Introduction](https://fumadocs.dev/docs/mdx) for further details.
+import { NewComponent } from '@joacod/pixel-ui'
+
+# New Component
+
+Component documentation here...
+```
+
+### 2. Add live examples
+
+Import and use components directly from `@joacod/pixel-ui`:
+
+```tsx
+import { Button } from '@joacod/pixel-ui'
+
+;<Button variant="primary">Example</Button>
+```
+
+### 3. See it live
+
+Changes to MDX files are automatically reflected in the development server.
 
 ## Learn More
 
-To learn more about Next.js and Fumadocs, take a look at the following
-resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js
-  features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-- [Fumadocs](https://fumadocs.dev) - learn about Fumadocs
+- [Fumadocs Documentation](https://fumadocs.dev)
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Pixel UI GitHub](https://github.com/joacod/pixel-ui)
