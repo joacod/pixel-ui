@@ -1,0 +1,65 @@
+---
+title: Installation
+description: How to install and use pixel-ui in your project
+---
+
+## Installation
+
+Install pixel-ui using your preferred package manager:
+
+```package-install
+@joacod/pixel-ui
+```
+
+## Peer Dependencies
+
+pixel-ui requires the following peer dependencies:
+
+```package-install
+react react-dom tailwindcss @base-ui-components/react
+```
+
+## Setup
+
+### 1. Configure Tailwind CSS
+
+Add the pixel-ui preset to your existing `tailwind.config.ts`:
+
+```ts
+import { pixelPreset } from '@joacod/pixel-ui/preset';
+
+export default {
+  presets: [pixelPreset],
+  // ... your existing config
+}
+```
+
+The preset automatically includes pixel-ui's content paths and design tokens.
+
+### 2. Import Base Styles
+
+Import the pixel-ui base styles in your app entry point or root layout:
+
+```tsx
+import '@joacod/pixel-ui/styles';
+```
+
+## Usage
+
+You can now import and use pixel-ui components:
+
+```tsx
+import { Button } from '@joacod/pixel-ui';
+
+export default function App() {
+  return (
+    <Button variant="primary" size="md">
+      Click me!
+    </Button>
+  );
+}
+```
+
+## TypeScript Support
+
+pixel-ui is written in TypeScript and includes type definitions out of the box. No additional setup is required.

@@ -1,0 +1,153 @@
+---
+title: Button
+description: A pixel-art styled button component with accessibility features
+---
+
+import { Button } from '@joacod/pixel-ui';
+
+## Overview
+
+The Button component provides a pixel-art styled button with multiple variants, sizes, and built-in loading states.
+
+## Preview
+
+<ComponentPreview>
+  <Button variant="primary">Primary</Button>
+  <Button variant="secondary">Secondary</Button>
+  <Button variant="success">Success</Button>
+  <Button variant="danger">Danger</Button>
+</ComponentPreview>
+
+## Installation
+
+See the [Installation](/docs/installation) guide for setup instructions.
+
+## Usage
+
+```tsx
+import { Button } from '@joacod/pixel-ui';
+
+export default function Example() {
+  return (
+    <Button variant="primary" onClick={() => console.log('clicked')}>
+      Click me
+    </Button>
+  );
+}
+```
+
+## Variants
+
+The Button component supports multiple color variants:
+
+<ComponentPreview>
+  <Button variant="primary">Primary</Button>
+  <Button variant="secondary">Secondary</Button>
+  <Button variant="success">Success</Button>
+  <Button variant="danger">Danger</Button>
+  <Button variant="warning">Warning</Button>
+  <Button variant="info">Info</Button>
+</ComponentPreview>
+
+```tsx
+<Button variant="primary">Primary</Button>
+<Button variant="secondary">Secondary</Button>
+<Button variant="success">Success</Button>
+<Button variant="danger">Danger</Button>
+<Button variant="warning">Warning</Button>
+<Button variant="info">Info</Button>
+```
+
+## Sizes
+
+Three size options are available:
+
+<ComponentPreview>
+  <Button size="sm">Small</Button>
+  <Button size="md">Medium</Button>
+  <Button size="lg">Large</Button>
+</ComponentPreview>
+
+```tsx
+<Button size="sm">Small</Button>
+<Button size="md">Medium</Button>
+<Button size="lg">Large</Button>
+```
+
+## States
+
+### Loading State
+
+Show a loading indicator and disable interaction:
+
+<ComponentPreview>
+  <Button loading>Loading...</Button>
+  <Button variant="secondary" loading>Processing</Button>
+</ComponentPreview>
+
+```tsx
+<Button loading>Loading...</Button>
+<Button variant="secondary" loading>Processing</Button>
+```
+
+### Disabled State
+
+Disable user interaction:
+
+<ComponentPreview>
+  <Button disabled>Disabled</Button>
+  <Button variant="secondary" disabled>Can't Click</Button>
+</ComponentPreview>
+
+```tsx
+<Button disabled>Disabled</Button>
+<Button variant="secondary" disabled>Can't Click</Button>
+```
+
+## API Reference
+
+### Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `variant` | `"primary" \| "secondary" \| "success" \| "danger" \| "warning" \| "info"` | `"primary"` | Visual style variant |
+| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Button size |
+| `loading` | `boolean` | `false` | Shows loading spinner and disables interaction |
+| `disabled` | `boolean` | `false` | Disables user interaction |
+| `className` | `string` | - | Additional CSS classes |
+| `children` | `ReactNode` | - | Button content |
+
+All standard HTML button attributes are also supported through spread props.
+
+## Accessibility
+
+- Supports keyboard navigation (Enter and Space keys)
+- Proper ARIA attributes for disabled and loading states
+- Screen reader friendly with appropriate semantic HTML
+- Focus management built-in
+
+## Examples
+
+### With Icon (Example)
+
+```tsx
+<Button>
+  <span>⚔️</span>
+  Attack
+</Button>
+```
+
+<ComponentPreview>
+  <Button>
+    <span style={{ marginRight: '0.5rem' }}>⚔️</span>
+    Attack
+  </Button>
+</ComponentPreview>
+
+### Full Width
+
+```tsx
+<Button className="w-full">
+  Full Width Button
+</Button>
+```

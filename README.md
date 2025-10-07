@@ -1,39 +1,83 @@
-# 👾 Pixel UI
+# 👾 Pixel UI Monorepo
 
 Opinionated pixel-art styled React component library built on [Base UI](https://base-ui.com).
 
-## Features
+This is a monorepo containing:
+- **packages/pixel-ui** - The component library (published to npm)
+- **apps/www** - Documentation site
 
-- 🎮 **Authentic pixel-art aesthetic** - NES-inspired 8-bit design system
-- ⚡ **Built on Base UI** - Accessible, unstyled React primitives
-- 🎨 **Tailwind CSS** - Customizable through Tailwind configuration
-- 📦 **Zero-config** - Works out of the box with minimal setup
-- 🔒 **Type-safe** - Full TypeScript support
+## For Users
 
-## Development
+Looking to use Pixel UI in your project? Check out the [npm package](https://www.npmjs.com/package/@joacod/pixel-ui).
+
+## For Contributors
+
+### Prerequisites
+
+- Node.js 20+
+- pnpm 9+
 
 ### Setup
 
-Install dependencies:
-
 ```bash
-npm install
+# Install dependencies
+pnpm install
 ```
 
-Type check:
+### Development
 
 ```bash
-npm run type-check
+# Run docs site (with hot reload)
+pnpm dev
+
+# Build library only
+pnpm build:lib
+
+# Build docs only
+pnpm build:docs
+
+# Build everything
+pnpm build
+
+# Type check library
+pnpm type-check
 ```
 
-Build:
+### Project Structure
+
+```
+pixel-ui/
+├── packages/
+│   └── pixel-ui/          # Component library
+│       ├── src/           # Source code
+│       ├── dist/          # Built files (published to npm)
+│       └── package.json   # Published as @joacod/pixel-ui
+└── apps/
+    └── www/               # Documentation site
+        ├── app/           # Next.js app
+        └── content/       # MDX documentation
+```
+
+### Publishing
+
+The library uses [Changesets](https://github.com/changesets/changesets) for version management:
 
 ```bash
-npm run build
+# Create a changeset
+pnpm changeset
+
+# Build and publish (CI handles this automatically)
+pnpm release
 ```
 
-Development mode (watch):
+### Contributing
 
-```bash
-npm run dev
-```
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+MIT © [Joaquin Diaz](https://github.com/joacod)

@@ -4,6 +4,9 @@
 import type { Config } from 'tailwindcss'
 
 const pixelPreset: Partial<Config> = {
+  content: [
+    './node_modules/@joacod/pixel-ui/dist/**/*.js',
+  ],
   theme: {
     extend: {
       // NES 8-bit Color Palette
