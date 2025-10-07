@@ -3,7 +3,7 @@ title: Button
 description: A pixel-art styled button component with accessibility features
 ---
 
-import { Button } from '@joacod/pixel-ui';
+import { Button } from '@joacod/pixel-ui'
 
 ## Overview
 
@@ -15,7 +15,7 @@ The Button component provides a pixel-art styled button with multiple variants, 
   <Button variant="primary">Primary</Button>
   <Button variant="secondary">Secondary</Button>
   <Button variant="success">Success</Button>
-  <Button variant="danger">Danger</Button>
+  <Button variant="error">Error</Button>
 </ComponentPreview>
 
 ## Installation
@@ -25,14 +25,14 @@ See the [Installation](/docs/installation) guide for setup instructions.
 ## Usage
 
 ```tsx
-import { Button } from '@joacod/pixel-ui';
+import { Button } from '@joacod/pixel-ui'
 
 export default function Example() {
   return (
     <Button variant="primary" onClick={() => console.log('clicked')}>
       Click me
     </Button>
-  );
+  )
 }
 ```
 
@@ -44,18 +44,18 @@ The Button component supports multiple color variants:
   <Button variant="primary">Primary</Button>
   <Button variant="secondary">Secondary</Button>
   <Button variant="success">Success</Button>
-  <Button variant="danger">Danger</Button>
+  <Button variant="error">Error</Button>
   <Button variant="warning">Warning</Button>
-  <Button variant="info">Info</Button>
+  <Button variant="accent">Accent</Button>
 </ComponentPreview>
 
 ```tsx
 <Button variant="primary">Primary</Button>
 <Button variant="secondary">Secondary</Button>
 <Button variant="success">Success</Button>
-<Button variant="danger">Danger</Button>
+<Button variant="error">Error</Button>
 <Button variant="warning">Warning</Button>
-<Button variant="info">Info</Button>
+<Button variant="accent">Accent</Button>
 ```
 
 ## Sizes
@@ -82,7 +82,9 @@ Show a loading indicator and disable interaction:
 
 <ComponentPreview>
   <Button loading>Loading...</Button>
-  <Button variant="secondary" loading>Processing</Button>
+  <Button variant="secondary" loading>
+    Processing
+  </Button>
 </ComponentPreview>
 
 ```tsx
@@ -96,7 +98,9 @@ Disable user interaction:
 
 <ComponentPreview>
   <Button disabled>Disabled</Button>
-  <Button variant="secondary" disabled>Can't Click</Button>
+  <Button variant="secondary" disabled>
+    Can't Click
+  </Button>
 </ComponentPreview>
 
 ```tsx
@@ -108,14 +112,14 @@ Disable user interaction:
 
 ### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `variant` | `"primary" \| "secondary" \| "success" \| "danger" \| "warning" \| "info"` | `"primary"` | Visual style variant |
-| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Button size |
-| `loading` | `boolean` | `false` | Shows loading spinner and disables interaction |
-| `disabled` | `boolean` | `false` | Disables user interaction |
-| `className` | `string` | - | Additional CSS classes |
-| `children` | `ReactNode` | - | Button content |
+| Prop        | Type                                                                                   | Default     | Description                                    |
+| ----------- | -------------------------------------------------------------------------------------- | ----------- | ---------------------------------------------- |
+| `variant`   | `"primary" \| "secondary" \| "accent" \| "ghost" \| "error" \| "success" \| "warning"` | `"primary"` | Visual style variant                           |
+| `size`      | `"xs" \| "sm" \| "md" \| "lg" \| "xl"`                                                 | `"md"`      | Button size                                    |
+| `loading`   | `boolean`                                                                              | `false`     | Shows loading spinner and disables interaction |
+| `disabled`  | `boolean`                                                                              | `false`     | Disables user interaction                      |
+| `className` | `string`                                                                               | -           | Additional CSS classes                         |
+| `children`  | `ReactNode`                                                                            | -           | Button content                                 |
 
 All standard HTML button attributes are also supported through spread props.
 
@@ -147,7 +151,5 @@ All standard HTML button attributes are also supported through spread props.
 ### Full Width
 
 ```tsx
-<Button className="w-full">
-  Full Width Button
-</Button>
+<Button className="w-full">Full Width Button</Button>
 ```

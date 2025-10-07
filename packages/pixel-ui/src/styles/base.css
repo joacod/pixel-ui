@@ -1,13 +1,4 @@
-/* Pixel UI - Base Styles & Theme */
-
-/* Import Tailwind v4 */
-@import 'tailwindcss';
-
-/* Import Pixel UI theme with design tokens */
-@import './theme.css';
-
-/* Import Press Start 2P font from Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+/* Pixel UI - Base Styles & Utilities */
 
 /* Global pixel rendering styles */
 @layer base {

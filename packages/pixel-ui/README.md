@@ -30,14 +30,15 @@ export default {
 }
 ```
 
-### 2. Import Pixel UI Theme
+### 2. Import the Pixel UI preset
 
 In your app's CSS file (e.g., `app/globals.css` or `src/index.css`):
 
 ```css
-@import 'tailwindcss';
-@import '@joacod/pixel-ui/theme';
+@import '@joacod/pixel-ui/preset';
 ```
+
+> The preset takes care of loading the design tokens, Tailwind CSS, and the library base styles in the correct order. If you need more control, you can import `@joacod/pixel-ui/theme`, `tailwindcss`, and `@joacod/pixel-ui/styles` individually.
 
 ### 3. Use Components
 

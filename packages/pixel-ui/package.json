@@ -11,14 +11,16 @@
       "import": "./dist/index.js"
     },
     "./styles": "./dist/styles/base.css",
+    "./preset": "./dist/styles/preset.css",
     "./theme": "./dist/styles/theme.css"
   },
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "tsdown",
+    "build": "tsdown && node scripts/copy-styles.mjs",
     "dev": "tsdown --watch",
+    "copy-styles": "node scripts/copy-styles.mjs",
     "type-check": "tsc --noEmit",
     "changeset": "changeset",
     "version": "changeset version",
