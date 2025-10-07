@@ -1,19 +1,18 @@
-import Link from 'next/link';
+import Link from 'next/link'
 
 export default function HomePage() {
   return (
     <main className="flex flex-1 flex-col justify-center text-center">
-      <h1 className="mb-4 text-2xl font-bold">Hello World</h1>
+      <h1 className="mb-4 text-2xl font-bold">Pixel UI</h1>
       <p className="text-fd-muted-foreground">
-        You can open{' '}
+        Retro pixel-art styled React component library built on Base UI.{' '}
         <Link
           href="/docs"
           className="text-fd-foreground font-semibold underline"
         >
-          /docs
-        </Link>{' '}
-        and see the documentation.
+          Docs
+        </Link>
       </p>
     </main>
-  );
+  )
 }
