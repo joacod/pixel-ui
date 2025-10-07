@@ -63,10 +63,6 @@ export default function App() {
 - Tailwind CSS v4+
 - Base UI Components 1.0.0-beta.4+
 
-## License
-
-MIT © [Joaquin Diaz](https://github.com/joacod)
-
 ## Contributing
 
 Contributions are welcome! Please visit our [GitHub repository](https://github.com/joacod/pixel-ui) for more information.

@@ -3,6 +3,7 @@
 Opinionated pixel-art styled React component library built on [Base UI](https://base-ui.com).
 
 This is a monorepo containing:
+
 - **packages/pixel-ui** - The component library (published to npm)
 - **apps/www** - Documentation site
 
@@ -77,7 +78,3 @@ pnpm release
 3. Commit your changes (`git commit -m 'Add amazing feature'`)
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
-
-## License
-
-MIT © [Joaquin Diaz](https://github.com/joacod)
