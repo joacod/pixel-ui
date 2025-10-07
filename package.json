@@ -8,6 +8,7 @@
     "build": "pnpm --recursive build",
     "build:lib": "pnpm --filter @joacod/pixel-ui build",
     "build:docs": "pnpm --filter www build",
+    "type-check": "pnpm --filter @joacod/pixel-ui type-check",
     "changeset": "changeset",
     "version": "changeset version",
     "release": "pnpm build:lib && changeset publish"
