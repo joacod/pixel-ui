@@ -1,5 +1,18 @@
 # www
 
+## 0.0.5
+
+### Patch Changes
+
+- d316b84: Update installation documentation and peer dependencies
+
+  - Improve installation instructions for better clarity
+  - Update peer dependency documentation
+  - Enhance setup guidance for consumers
+
+- Updated dependencies [d316b84]
+  - @joacod/pixel-ui@0.5.1
+
 ## 0.0.4
 
 ### Patch Changes
