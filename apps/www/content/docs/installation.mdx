@@ -16,12 +16,10 @@ Install pixel-ui and its peer dependencies using your preferred package manager:
 pixel-ui requires the following peer dependencies:
 
 ```package-install
-react react-dom tailwindcss @base-ui-components/react
+react react-dom tailwindcss @tailwindcss/postcss @base-ui-components/react
 ```
 
 ## Setup
-
-pixel-ui uses **Tailwind CSS v4's CSS-first configuration** approach. No JavaScript config files needed!
 
 ### 1. Configure PostCSS
 
@@ -35,14 +33,20 @@ export default {
 }
 ```
 
-### 2. Import Pixel UI Theme
+### 2. Import Pixel UI Styles
 
 In your app's main CSS file (e.g., `app/globals.css` or `src/index.css`):
 
 ```css
-@import 'tailwindcss';
-@import '@joacod/pixel-ui/theme';
+@import '@joacod/pixel-ui/components';
 ```
+
+That's it! This single import includes everything you need:
+
+- ✅ **Design tokens** - NES-inspired 8-bit color palette, 8px grid spacing, pixel fonts
+- ✅ **Tailwind CSS** - Full utility classes for layout and styling
+- ✅ **Base utilities** - Pixel-art helpers like `.pixel-border`, `.pixel-render`, `.pixel-text`
+- ✅ **Component styles** - Pre-built styles for Button, Input, Checkbox, and all other components
 
 ## Usage
 
@@ -63,3 +67,21 @@ export default function App() {
 ## TypeScript Support
 
 pixel-ui is written in TypeScript and includes type definitions out of the box. No additional setup is required.
+
+## Troubleshooting
+
+### Styles not applying
+
+If your styles aren't working, check:
+
+1. **PostCSS is configured** - Ensure `postcss.config.js` includes `@tailwindcss/postcss`
+2. **CSS import is present** - Verify `@import '@joacod/pixel-ui/components'` is in your main CSS file
+3. **Build process** - Restart your dev server after adding the PostCSS config
+
+### TypeScript errors with peer dependencies
+
+Ensure you have all peer dependencies installed:
+
+```bash
+npm install react react-dom tailwindcss @tailwindcss/postcss @base-ui-components/react
+```

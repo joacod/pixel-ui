@@ -21,6 +21,11 @@
 
 /* Pixel UI utility classes */
 @layer utilities {
+  /* Pixel font utility */
+  .font-pixel {
+    font-family: var(--font-family-pixel);
+  }
+
   /* Pixel rendering utility */
   .pixel-render {
     image-rendering: pixelated;

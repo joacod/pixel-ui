@@ -1,3 +1,14 @@
-@import '@joacod/pixel-ui/preset';
+/*
+ * Monorepo Dev Setup - Import from source files
+ * External consumers use: @import '@joacod/pixel-ui/components';
+ */
+@import '../../../packages/pixel-ui/src/styles/theme.css';
+@import 'tailwindcss';
+@import '../../../packages/pixel-ui/src/styles/base.css';
+
+/* Import Fumadocs styles */
 @import 'fumadocs-ui/css/neutral.css';
 @import 'fumadocs-ui/css/preset.css';
+
+/* Scan Pixel UI component source for Tailwind class generation */
+@source '../../../packages/pixel-ui/src/**/*.{ts,tsx}';
