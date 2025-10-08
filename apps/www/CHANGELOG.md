@@ -1,5 +1,22 @@
 # www
 
+## 0.0.4
+
+### Patch Changes
+
+- db6ed9b: Add pre-built component styles CSS - Eliminate consumer build configuration
+
+  - New `components.css` file with pre-built component styles extracted from all `*.styles.ts` files
+  - Automated build step via `generate-components-css.mjs` that scans component styles and generates CSS at build time
+  - Consumers no longer need to scan `node_modules` or use Tailwind `@source` directives
+  - Single import workflow: `@import '@joacod/pixel-ui/components'` includes everything (theme + base + components)
+  - Updated installation documentation with simplified setup instructions
+  - New PostCSS configuration for CSS generation pipeline
+  - Added `.pixel-render` utility class to base.css for consistent pixel-art rendering
+
+- Updated dependencies [db6ed9b]
+  - @joacod/pixel-ui@0.5.0
+
 ## 0.0.3
 
 ### Patch Changes
