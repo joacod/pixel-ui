@@ -1,0 +1,372 @@
+---
+title: Checkbox
+description: A pixel-art styled checkbox component with accessibility features
+---
+
+import { Checkbox } from '@joacod/pixel-ui'
+
+## Overview
+
+The Checkbox component provides a pixel-art styled checkbox with support for checked, unchecked, and indeterminate states. It's built on Base UI's Checkbox primitive for full accessibility support and follows a compound component pattern for maximum flexibility.
+
+## Preview
+
+<ComponentPreview>
+  <Checkbox.Root defaultChecked>
+    <Checkbox.Indicator />
+  </Checkbox.Root>
+  <Checkbox.Root>
+    <Checkbox.Indicator />
+  </Checkbox.Root>
+  <Checkbox.Root indeterminate>
+    <Checkbox.Indicator>
+      <span>-</span>
+    </Checkbox.Indicator>
+  </Checkbox.Root>
+</ComponentPreview>
+
+## Installation
+
+See the [Installation](/docs/installation) guide for setup instructions.
+
+## Usage
+
+The Checkbox uses a compound component pattern with `Checkbox.Root` and `Checkbox.Indicator`:
+
+```tsx
+import { Checkbox } from '@joacod/pixel-ui'
+
+export default function Example() {
+  return (
+    <Checkbox.Root defaultChecked>
+      <Checkbox.Indicator />
+    </Checkbox.Root>
+  )
+}
+```
+
+## Basic Examples
+
+### Uncontrolled Checkbox
+
+Use `defaultChecked` for uncontrolled checkboxes:
+
+<ComponentPreview>
+  <Checkbox.Root defaultChecked>
+    <Checkbox.Indicator />
+  </Checkbox.Root>
+</ComponentPreview>
+
+```tsx
+<Checkbox.Root defaultChecked>
+  <Checkbox.Indicator />
+</Checkbox.Root>
+```
+
+### Controlled Checkbox
+
+Use `checked` and `onCheckedChange` for controlled checkboxes:
+
+```tsx
+import { Checkbox } from '@joacod/pixel-ui'
+import { useState } from 'react'
+
+export default function Example() {
+  const [checked, setChecked] = useState(false)
+
+  return (
+    <Checkbox.Root
+      checked={checked}
+      onCheckedChange={(isChecked) => setChecked(isChecked as boolean)}
+    >
+      <Checkbox.Indicator />
+    </Checkbox.Root>
+  )
+}
+```
+
+### With Label
+
+Wrap the checkbox with a label for better accessibility:
+
+<ComponentPreview>
+  <label className="flex items-center gap-2 cursor-pointer">
+    <Checkbox.Root defaultChecked>
+      <Checkbox.Indicator />
+    </Checkbox.Root>
+    <span>Accept terms and conditions</span>
+  </label>
+</ComponentPreview>
+
+```tsx
+<label className="flex items-center gap-2 cursor-pointer">
+  <Checkbox.Root defaultChecked>
+    <Checkbox.Indicator />
+  </Checkbox.Root>
+  <span>Accept terms and conditions</span>
+</label>
+```
+
+## States
+
+### Indeterminate State
+
+The indeterminate state represents a partial selection (useful for "select all" scenarios):
+
+<ComponentPreview>
+  <Checkbox.Root indeterminate>
+    <Checkbox.Indicator>
+      <span>-</span>
+    </Checkbox.Indicator>
+  </Checkbox.Root>
+</ComponentPreview>
+
+```tsx
+<Checkbox.Root indeterminate>
+  <Checkbox.Indicator>
+    <span>-</span>
+  </Checkbox.Indicator>
+</Checkbox.Root>
+```
+
+### Disabled State
+
+Disable user interaction:
+
+<ComponentPreview>
+  <Checkbox.Root disabled>
+    <Checkbox.Indicator />
+  </Checkbox.Root>
+  <Checkbox.Root disabled defaultChecked>
+    <Checkbox.Indicator />
+  </Checkbox.Root>
+</ComponentPreview>
+
+```tsx
+<Checkbox.Root disabled>
+  <Checkbox.Indicator />
+</Checkbox.Root>
+<Checkbox.Root disabled defaultChecked>
+  <Checkbox.Indicator />
+</Checkbox.Root>
+```
+
+### Read-only State
+
+Make the checkbox read-only:
+
+<ComponentPreview>
+  <Checkbox.Root readOnly defaultChecked>
+    <Checkbox.Indicator />
+  </Checkbox.Root>
+</ComponentPreview>
+
+```tsx
+<Checkbox.Root readOnly defaultChecked>
+  <Checkbox.Indicator />
+</Checkbox.Root>
+```
+
+## Custom Indicator
+
+You can provide custom content for the indicator:
+
+```tsx
+import { Checkbox } from '@joacod/pixel-ui'
+
+// Custom check icon
+<Checkbox.Root defaultChecked>
+  <Checkbox.Indicator>
+    <svg width="16" height="16" viewBox="0 0 16 16">
+      <path d="M2 8l4 4 8-8" stroke="currentColor" strokeWidth="2" fill="none" />
+    </svg>
+  </Checkbox.Indicator>
+</Checkbox.Root>
+
+// Text indicator
+<Checkbox.Root defaultChecked>
+  <Checkbox.Indicator>
+    <span>✓</span>
+  </Checkbox.Indicator>
+</Checkbox.Root>
+```
+
+## API Reference
+
+### Checkbox.Root
+
+The root container for the checkbox.
+
+| Prop              | Type                                              | Default | Description                              |
+| ----------------- | ------------------------------------------------- | ------- | ---------------------------------------- |
+| `name`            | `string`                                          | -       | Name of the field when form is submitted |
+| `defaultChecked`  | `boolean`                                         | `false` | Default checked state (uncontrolled)     |
+| `checked`         | `boolean`                                         | -       | Controlled checked state                 |
+| `onCheckedChange` | `(checked: boolean \| 'indeterminate', event: Event) => void` | -       | Callback when checked state changes      |
+| `indeterminate`   | `boolean`                                         | `false` | Indeterminate/mixed state                |
+| `value`           | `string`                                          | -       | Value when submitted in form             |
+| `disabled`        | `boolean`                                         | `false` | Disables user interaction                |
+| `readOnly`        | `boolean`                                         | `false` | Makes the checkbox read-only             |
+| `required`        | `boolean`                                         | `false` | Whether checkbox is required             |
+| `inputRef`        | `React.Ref<HTMLInputElement>`                     | -       | Ref to the hidden input element          |
+| `className`       | `string`                                          | -       | Additional CSS classes                   |
+| `children`        | `React.ReactNode`                                 | -       | Checkbox content (typically Indicator)   |
+
+### Checkbox.Indicator
+
+The visual indicator that appears when the checkbox is checked.
+
+| Prop          | Type              | Default | Description                                    |
+| ------------- | ----------------- | ------- | ---------------------------------------------- |
+| `keepMounted` | `boolean`         | `false` | Keep indicator in DOM when unchecked           |
+| `className`   | `string`          | -       | Additional CSS classes                         |
+| `children`    | `React.ReactNode` | `✓`     | Custom indicator content (defaults to checkmark) |
+
+## Accessibility
+
+- Built on Base UI's Checkbox primitive with full accessibility support
+- Proper ARIA attributes for all states (checked, unchecked, indeterminate, disabled, read-only)
+- Full keyboard navigation support:
+  - `Space` - Toggle checked state
+  - `Tab` - Move focus to/from checkbox
+- Screen reader friendly with semantic HTML
+- Includes hidden input for form submission
+- Works seamlessly with the Field component for form validation
+
+## State Attributes
+
+The Checkbox component automatically applies data attributes reflecting its state:
+
+- `data-checked`: When checkbox is checked
+- `data-unchecked`: When checkbox is not checked
+- `data-indeterminate`: When checkbox is in indeterminate state
+- `data-disabled`: When checkbox is disabled
+- `data-readonly`: When checkbox is read-only
+- `data-required`: When checkbox is required
+
+These attributes can be used for custom styling via CSS or Tailwind.
+
+## Examples
+
+### Form Integration
+
+```tsx
+<form>
+  <label className="flex items-center gap-2">
+    <Checkbox.Root name="terms" required>
+      <Checkbox.Indicator />
+    </Checkbox.Root>
+    <span>I accept the terms and conditions</span>
+  </label>
+
+  <label className="flex items-center gap-2">
+    <Checkbox.Root name="newsletter">
+      <Checkbox.Indicator />
+    </Checkbox.Root>
+    <span>Subscribe to newsletter</span>
+  </label>
+
+  <button type="submit">Submit</button>
+</form>
+```
+
+### Select All Pattern
+
+```tsx
+import { Checkbox } from '@joacod/pixel-ui'
+import { useState } from 'react'
+
+export default function SelectAllExample() {
+  const [items, setItems] = useState({
+    item1: false,
+    item2: false,
+    item3: false,
+  })
+
+  const allChecked = Object.values(items).every(Boolean)
+  const someChecked = Object.values(items).some(Boolean)
+
+  const handleSelectAll = (checked: boolean | 'indeterminate') => {
+    setItems({
+      item1: checked === true,
+      item2: checked === true,
+      item3: checked === true,
+    })
+  }
+
+  return (
+    <div className="flex flex-col gap-2">
+      <label className="flex items-center gap-2 font-bold">
+        <Checkbox.Root
+          checked={allChecked}
+          indeterminate={someChecked && !allChecked}
+          onCheckedChange={handleSelectAll}
+        >
+          <Checkbox.Indicator>
+            {someChecked && !allChecked ? <span>-</span> : null}
+          </Checkbox.Indicator>
+        </Checkbox.Root>
+        <span>Select All</span>
+      </label>
+
+      <div className="flex flex-col gap-1 ml-6">
+        <label className="flex items-center gap-2">
+          <Checkbox.Root
+            checked={items.item1}
+            onCheckedChange={(checked) =>
+              setItems((prev) => ({ ...prev, item1: checked as boolean }))
+            }
+          >
+            <Checkbox.Indicator />
+          </Checkbox.Root>
+          <span>Item 1</span>
+        </label>
+
+        <label className="flex items-center gap-2">
+          <Checkbox.Root
+            checked={items.item2}
+            onCheckedChange={(checked) =>
+              setItems((prev) => ({ ...prev, item2: checked as boolean }))
+            }
+          >
+            <Checkbox.Indicator />
+          </Checkbox.Root>
+          <span>Item 2</span>
+        </label>
+
+        <label className="flex items-center gap-2">
+          <Checkbox.Root
+            checked={items.item3}
+            onCheckedChange={(checked) =>
+              setItems((prev) => ({ ...prev, item3: checked as boolean }))
+            }
+          >
+            <Checkbox.Indicator />
+          </Checkbox.Root>
+          <span>Item 3</span>
+        </label>
+      </div>
+    </div>
+  )
+}
+```
+
+### With Field Component
+
+Use with the Field component (when available) for labels, validation, and error messages:
+
+```tsx
+import { Checkbox, Field } from '@joacod/pixel-ui'
+
+<Field.Root>
+  <label className="flex items-center gap-2">
+    <Field.Control>
+      <Checkbox.Root name="terms" required>
+        <Checkbox.Indicator />
+      </Checkbox.Root>
+    </Field.Control>
+    <span>I accept the terms and conditions</span>
+  </label>
+  <Field.Error>You must accept the terms to continue</Field.Error>
+</Field.Root>
+```
