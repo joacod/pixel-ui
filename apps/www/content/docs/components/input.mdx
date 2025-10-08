@@ -1,0 +1,222 @@
+---
+title: Input
+description: A pixel-art styled input component with accessibility features
+---
+
+import { Input } from '@joacod/pixel-ui'
+
+## Overview
+
+The Input component provides a pixel-art styled text input with multiple variants, sizes, and built-in state management. It's built on Base UI's Input primitive for full accessibility support.
+
+## Preview
+
+<ComponentPreview>
+  <Input variant="primary" placeholder="Enter your name..." />
+  <Input variant="secondary" placeholder="Secondary input..." />
+  <Input variant="error" placeholder="Error state..." />
+</ComponentPreview>
+
+## Installation
+
+See the [Installation](/docs/installation) guide for setup instructions.
+
+## Usage
+
+```tsx
+import { Input } from '@joacod/pixel-ui'
+
+export default function Example() {
+  return (
+    <Input
+      variant="primary"
+      placeholder="Enter text..."
+      onValueChange={(value) => console.log(value)}
+    />
+  )
+}
+```
+
+## Variants
+
+The Input component supports three color variants:
+
+<ComponentPreview>
+  <Input variant="primary" placeholder="Primary input" />
+  <Input variant="secondary" placeholder="Secondary input" />
+  <Input variant="error" placeholder="Error input" />
+</ComponentPreview>
+
+```tsx
+<Input variant="primary" placeholder="Primary input" />
+<Input variant="secondary" placeholder="Secondary input" />
+<Input variant="error" placeholder="Error input" />
+```
+
+## Sizes
+
+Five size options are available:
+
+<ComponentPreview>
+  <Input size="xs" placeholder="Extra small" />
+  <Input size="sm" placeholder="Small" />
+  <Input size="md" placeholder="Medium" />
+  <Input size="lg" placeholder="Large" />
+  <Input size="xl" placeholder="Extra large" />
+</ComponentPreview>
+
+```tsx
+<Input size="xs" placeholder="Extra small" />
+<Input size="sm" placeholder="Small" />
+<Input size="md" placeholder="Medium" />
+<Input size="lg" placeholder="Large" />
+<Input size="xl" placeholder="Extra large" />
+```
+
+## States
+
+### Disabled State
+
+Disable user interaction:
+
+<ComponentPreview>
+  <Input disabled placeholder="Disabled input" />
+  <Input disabled value="Can't edit this" />
+</ComponentPreview>
+
+```tsx
+<Input disabled placeholder="Disabled input" />
+<Input disabled value="Can't edit this" />
+```
+
+### Read-only State
+
+Make the input read-only:
+
+<ComponentPreview>
+  <Input readOnly value="Read-only value" />
+  <Input readOnly placeholder="This is read-only" />
+</ComponentPreview>
+
+```tsx
+<Input readOnly value="Read-only value" />
+<Input readOnly placeholder="This is read-only" />
+```
+
+### With Value Change Handler
+
+Handle input changes with the `onValueChange` callback:
+
+```tsx
+import { Input } from '@joacod/pixel-ui'
+import { useState } from 'react'
+
+export default function Example() {
+  const [value, setValue] = useState('')
+
+  return (
+    <div>
+      <Input
+        placeholder="Type something..."
+        onValueChange={(newValue) => setValue(newValue)}
+      />
+      <p>Current value: {value}</p>
+    </div>
+  )
+}
+```
+
+## API Reference
+
+### Props
+
+| Prop            | Type                                     | Default     | Description                           |
+| --------------- | ---------------------------------------- | ----------- | ------------------------------------- |
+| `variant`       | `"primary" \| "secondary" \| "error"`    | `"primary"` | Visual style variant                  |
+| `size`          | `"xs" \| "sm" \| "md" \| "lg" \| "xl"`   | `"md"`      | Input size                            |
+| `disabled`      | `boolean`                                | `false`     | Disables user interaction             |
+| `readOnly`      | `boolean`                                | `false`     | Makes the input read-only             |
+| `className`     | `string`                                 | -           | Additional CSS classes                |
+| `onValueChange` | `(value: string, event: Event) => void`  | -           | Callback fired when the value changes |
+| `placeholder`   | `string`                                 | -           | Placeholder text                      |
+| `value`         | `string`                                 | -           | Controlled value                      |
+| `defaultValue`  | `string`                                 | -           | Default uncontrolled value            |
+
+All standard HTML input attributes are also supported through spread props.
+
+## Accessibility
+
+- Built on Base UI's Input primitive with full accessibility support
+- Automatic state tracking via data attributes (focused, filled, dirty, touched, valid, invalid)
+- Proper ARIA attributes for disabled and read-only states
+- Screen reader friendly with semantic HTML
+- Full keyboard navigation support
+- Works seamlessly with the Field component for form validation
+
+## State Attributes
+
+The Input component automatically applies data attributes reflecting its state:
+
+- `data-disabled`: When input is disabled
+- `data-focused`: When input has focus
+- `data-filled`: When input has a value
+- `data-dirty`: When value has changed from initial
+- `data-touched`: When input has been blurred after focus
+- `data-valid`: When input value is valid
+- `data-invalid`: When input value is invalid
+
+These attributes can be used for custom styling via CSS or Tailwind.
+
+## Examples
+
+### Basic Form Integration
+
+```tsx
+<form>
+  <Input
+    name="username"
+    placeholder="Username"
+    required
+  />
+  <Input
+    name="email"
+    type="email"
+    placeholder="Email"
+    required
+  />
+  <Input
+    name="password"
+    type="password"
+    placeholder="Password"
+    required
+  />
+</form>
+```
+
+### With Field Component
+
+Use with the Field component (coming soon) for labels, validation, and error messages:
+
+```tsx
+import { Input, Field } from '@joacod/pixel-ui'
+
+<Field.Root>
+  <Field.Label>Username</Field.Label>
+  <Field.Control>
+    <Input placeholder="Enter username..." />
+  </Field.Control>
+  <Field.Description>Choose a unique username</Field.Description>
+  <Field.Error>Username is required</Field.Error>
+</Field.Root>
+```
+
+### Different Input Types
+
+```tsx
+<Input type="text" placeholder="Text input" />
+<Input type="email" placeholder="Email input" />
+<Input type="password" placeholder="Password input" />
+<Input type="number" placeholder="Number input" />
+<Input type="tel" placeholder="Phone input" />
+<Input type="url" placeholder="URL input" />
+```
