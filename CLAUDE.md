@@ -24,6 +24,56 @@ pnpm changeset          # Create a changeset for version management
 pnpm release            # Build library and publish to npm (CI handles this)
 ```
 
+### Changeset Format
+
+When completing a changeset, use this format:
+
+```markdown
+---
+'@joacod/pixel-ui': <major|minor|patch>
+'www': <major|minor|patch>
+---
+
+<Title of the change - imperative mood, capitalized>
+
+<Optional: Brief description paragraph>
+
+- <Bullet point describing the change>
+- <Bullet point describing the change>
+- <Bullet point describing the change>
+
+<Optional: Additional sections for features, fixes, breaking changes, etc.>
+```
+
+**Version bump guidelines:**
+
+- `major` - Breaking changes to the public API
+- `minor` - New features, new components, significant enhancements
+- `patch` - Bug fixes, documentation updates, minor tweaks
+
+**Example:**
+
+```markdown
+---
+'@joacod/pixel-ui': minor
+'www': patch
+---
+
+Add Checkbox and CheckboxGroup components - Pixel-art styled form controls with accessibility features
+
+- New Checkbox component built on Base UI Checkbox primitive
+- Compound component pattern with `Checkbox.Root` and `Checkbox.Indicator`
+- States: checked, unchecked, indeterminate, disabled, readonly, required
+- Pixel-art styling with box-shadow borders and instant transitions
+- Full accessibility support with keyboard navigation and ARIA attributes
+
+- New CheckboxGroup component for managing multiple checkbox state
+- Supports controlled and uncontrolled modes
+- Parent checkbox functionality for "select all" behavior via `allValues` prop
+- Group-wide disabled state with proper propagation
+- Comprehensive MDX documentation with interactive examples
+```
+
 ## Architecture
 
 ### Monorepo Structure
