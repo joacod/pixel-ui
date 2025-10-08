@@ -12,7 +12,7 @@ async function copyStyles() {
 
   await Promise.all(
     entries
-      .filter((file) => file.endsWith('.css'))
+      .filter((file) => file.endsWith('.css') && !file.includes('-temp'))
       .map((file) =>
         copyFile(
           fileURLToPath(new URL(file, srcDir)),

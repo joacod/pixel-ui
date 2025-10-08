@@ -12,13 +12,14 @@
     },
     "./styles": "./dist/styles/base.css",
     "./preset": "./dist/styles/preset.css",
-    "./theme": "./dist/styles/theme.css"
+    "./theme": "./dist/styles/theme.css",
+    "./components": "./dist/styles/components.css"
   },
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "tsdown && node scripts/copy-styles.mjs",
+    "build": "node scripts/generate-components-css.mjs && tsdown && node scripts/copy-styles.mjs",
     "dev": "tsdown --watch",
     "copy-styles": "node scripts/copy-styles.mjs",
     "type-check": "tsc --noEmit",
@@ -62,6 +63,7 @@
     "@types/node": "24.6.2",
     "@types/react": "19.2.0",
     "@types/react-dom": "19.2.0",
+    "postcss-cli": "11.0.1",
     "react": "19.2.0",
     "react-dom": "19.2.0",
     "tailwindcss": "4.1.14",

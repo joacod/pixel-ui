@@ -3,7 +3,5 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 @import './theme.css';
-@source '../**/*.{js,jsx,ts,tsx,mjs}';
-@source '../../src/**/*.{js,jsx,ts,tsx,mjs}';
 @import 'tailwindcss';
 @import './base.css';

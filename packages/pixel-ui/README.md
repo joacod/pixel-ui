@@ -30,15 +30,22 @@ export default {
 }
 ```
 
-### 2. Import the Pixel UI preset
+### 2. Import Pixel UI styles
 
 In your app's CSS file (e.g., `app/globals.css` or `src/index.css`):
 
 ```css
-@import '@joacod/pixel-ui/preset';
+@import '@joacod/pixel-ui/components';
 ```
 
-> The preset takes care of loading the design tokens, Tailwind CSS, and the library base styles in the correct order. If you need more control, you can import `@joacod/pixel-ui/theme`, `tailwindcss`, and `@joacod/pixel-ui/styles` individually.
+That's it! This single import includes:
+
+- ✅ Design tokens (colors, spacing, fonts)
+- ✅ Tailwind CSS utilities
+- ✅ Base styles (pixel borders, pixel rendering, etc.)
+- ✅ Pre-built component styles (Button, Input, Checkbox, etc.)
+
+> **Note:** All styles are pre-generated at build time, so you don't need to configure Tailwind to scan `node_modules` or add any `@source` directives. Just one import and you're ready to go!
 
 ### 3. Use Components
 

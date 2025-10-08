@@ -62,20 +62,40 @@ These should be kept in sync. The CSS version is the source of truth for Tailwin
 
 ### Styling Architecture (Tailwind v4)
 
+The library exports four CSS files:
+
 - **theme.css**: Defines design tokens using `@theme` directive with CSS custom properties
 - **base.css**: Global pixel rendering styles and utility classes (`.pixel-border`, `.pixel-render`, etc.)
 - **preset.css**: Imports theme → Tailwind CSS → base styles in correct order, includes Press Start 2P font
+- **components.css**: Pre-built component styles generated from `*.styles.ts` files
 
-All three CSS files are:
+The components.css file is generated at build time by:
 
-1. Built and copied to `dist/styles/` via `scripts/copy-styles.mjs`
-2. Exported in package.json under `./styles`, `./preset`, `./theme` paths
+1. Scanning all `*.styles.ts` files for Tailwind class strings
+2. Creating a temporary CSS file with all extracted classes
+3. Processing with Tailwind CLI to generate the final CSS
+4. This eliminates the need for consumers to scan `node_modules` or use `@source` directives
+
+All CSS files are:
+
+1. Generated/copied to `dist/styles/` during build
+2. Exported in package.json under `./styles`, `./preset`, `./theme`, `./components` paths
+
+**Consumer setup (single import):**
+
+```css
+@import '@joacod/pixel-ui/components'; /* Everything: theme + base + components */
+```
 
 ### Build System
 
-- **tsdown**: Bundles TypeScript to ESM in `dist/`
-- **copy-styles.mjs**: Copies CSS files from `src/styles/` to `dist/styles/`
-- Both run in sequence via `pnpm build:lib`
+The library uses a three-step build process:
+
+1. **generate-components-css.mjs**: Extracts Tailwind classes from all `*.styles.ts` files and generates `src/styles/components.css` with pre-built component styles
+2. **tsdown**: Bundles TypeScript to ESM in `dist/`
+3. **copy-styles.mjs**: Copies all CSS files from `src/styles/` to `dist/styles/`
+
+All three run in sequence via `pnpm build:lib`
 
 ### Pixel-Art Design Principles
 
@@ -95,8 +115,11 @@ When adding new components:
 4. Use `cn()` utility (from `utils/cn.ts`) to merge classes
 5. Export component and types from index.ts
 6. Add to main `src/index.ts` exports
-7. Create MDX documentation in `apps/www/content/docs/components/`
-8. Add component to `apps/www/content/docs/components/meta.json` to make it visible in the documentation sidebar
+7. **Run `pnpm build:lib` to regenerate `components.css`** with the new component's styles
+8. Create MDX documentation in `apps/www/content/docs/components/`
+9. Add component to `apps/www/content/docs/components/meta.json` to make it visible in the documentation sidebar
+
+**Important:** Component styles in `.styles.ts` files are extracted at build time and included in `components.css`. After adding or modifying component styles, always rebuild the library to regenerate this file.
 
 ### Type Safety
 

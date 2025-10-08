@@ -35,14 +35,26 @@ export default {
 }
 ```
 
-### 2. Import Pixel UI Theme
+### 2. Import Pixel UI Styles
 
 In your app's main CSS file (e.g., `app/globals.css` or `src/index.css`):
 
 ```css
-@import 'tailwindcss';
-@import '@joacod/pixel-ui/theme';
+@import '@joacod/pixel-ui/components';
 ```
+
+That's it! This single import includes everything you need:
+
+- ✅ **Design tokens** - NES-inspired 8-bit color palette, 8px grid spacing, pixel fonts
+- ✅ **Tailwind CSS** - Full utility classes for layout and styling
+- ✅ **Base utilities** - Pixel-art helpers like `.pixel-border`, `.pixel-render`, `.pixel-text`
+- ✅ **Component styles** - Pre-built styles for Button, Input, Checkbox, and all other components
+
+<Callout type="info">
+  All styles are pre-generated at build time, so you don't need to configure
+  Tailwind to scan `node_modules` or add any `@source` directives. Just one
+  import and you're ready to go!
+</Callout>
 
 ## Usage
 
