@@ -25,3 +25,7 @@ export {
   type CheckboxRootProps,
   type CheckboxIndicatorProps,
 } from './components/Checkbox'
+export {
+  CheckboxGroup,
+  type CheckboxGroupProps,
+} from './components/CheckboxGroup'

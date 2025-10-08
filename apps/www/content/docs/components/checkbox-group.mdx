@@ -1,0 +1,391 @@
+---
+title: Checkbox Group
+description: A container for managing shared state across multiple checkboxes
+---
+
+import { CheckboxGroup, Checkbox } from '@joacod/pixel-ui'
+
+## Overview
+
+The CheckboxGroup component provides shared state management for a group of Checkbox components. It simplifies handling multiple checkboxes by managing their collective state, including support for "select all" functionality with parent checkboxes.
+
+## Preview
+
+<ComponentPreview>
+  <CheckboxGroup defaultValue={['option1', 'option2']}>
+    <label className="flex items-center gap-2 cursor-pointer">
+      <Checkbox.Root value="option1">
+        <Checkbox.Indicator />
+      </Checkbox.Root>
+      <span>Option 1</span>
+    </label>
+    <label className="flex items-center gap-2 cursor-pointer">
+      <Checkbox.Root value="option2">
+        <Checkbox.Indicator />
+      </Checkbox.Root>
+      <span>Option 2</span>
+    </label>
+    <label className="flex items-center gap-2 cursor-pointer">
+      <Checkbox.Root value="option3">
+        <Checkbox.Indicator />
+      </Checkbox.Root>
+      <span>Option 3</span>
+    </label>
+  </CheckboxGroup>
+</ComponentPreview>
+
+## Installation
+
+See the [Installation](/docs/installation) guide for setup instructions.
+
+## Usage
+
+Wrap multiple Checkbox components within a CheckboxGroup to manage their state collectively:
+
+```tsx
+import { CheckboxGroup, Checkbox } from '@joacod/pixel-ui'
+
+export default function Example() {
+  return (
+    <CheckboxGroup defaultValue={['option1']}>
+      <label className="flex items-center gap-2">
+        <Checkbox.Root value="option1">
+          <Checkbox.Indicator />
+        </Checkbox.Root>
+        <span>Option 1</span>
+      </label>
+      <label className="flex items-center gap-2">
+        <Checkbox.Root value="option2">
+          <Checkbox.Indicator />
+        </Checkbox.Root>
+        <span>Option 2</span>
+      </label>
+    </CheckboxGroup>
+  )
+}
+```
+
+## Basic Examples
+
+### Uncontrolled CheckboxGroup
+
+Use `defaultValue` for uncontrolled groups:
+
+<ComponentPreview>
+  <CheckboxGroup defaultValue={['react', 'typescript']}>
+    <label className="flex items-center gap-2 cursor-pointer">
+      <Checkbox.Root value="react">
+        <Checkbox.Indicator />
+      </Checkbox.Root>
+      <span>React</span>
+    </label>
+    <label className="flex items-center gap-2 cursor-pointer">
+      <Checkbox.Root value="typescript">
+        <Checkbox.Indicator />
+      </Checkbox.Root>
+      <span>TypeScript</span>
+    </label>
+    <label className="flex items-center gap-2 cursor-pointer">
+      <Checkbox.Root value="javascript">
+        <Checkbox.Indicator />
+      </Checkbox.Root>
+      <span>JavaScript</span>
+    </label>
+  </CheckboxGroup>
+</ComponentPreview>
+
+```tsx
+<CheckboxGroup defaultValue={['react', 'typescript']}>
+  <label className="flex items-center gap-2">
+    <Checkbox.Root value="react">
+      <Checkbox.Indicator />
+    </Checkbox.Root>
+    <span>React</span>
+  </label>
+  <label className="flex items-center gap-2">
+    <Checkbox.Root value="typescript">
+      <Checkbox.Indicator />
+    </Checkbox.Root>
+    <span>TypeScript</span>
+  </label>
+  <label className="flex items-center gap-2">
+    <Checkbox.Root value="javascript">
+      <Checkbox.Indicator />
+    </Checkbox.Root>
+    <span>JavaScript</span>
+  </label>
+</CheckboxGroup>
+```
+
+### Controlled CheckboxGroup
+
+Use `value` and `onValueChange` for controlled groups:
+
+```tsx
+import { CheckboxGroup, Checkbox } from '@joacod/pixel-ui'
+import { useState } from 'react'
+
+export default function Example() {
+  const [selectedValues, setSelectedValues] = useState<string[]>(['option1'])
+
+  return (
+    <div>
+      <CheckboxGroup
+        value={selectedValues}
+        onValueChange={(values) => setSelectedValues(values)}
+      >
+        <label className="flex items-center gap-2">
+          <Checkbox.Root value="option1">
+            <Checkbox.Indicator />
+          </Checkbox.Root>
+          <span>Option 1</span>
+        </label>
+        <label className="flex items-center gap-2">
+          <Checkbox.Root value="option2">
+            <Checkbox.Indicator />
+          </Checkbox.Root>
+          <span>Option 2</span>
+        </label>
+      </CheckboxGroup>
+      <p>Selected: {selectedValues.join(', ')}</p>
+    </div>
+  )
+}
+```
+
+## Parent Checkbox (Select All)
+
+Create a "select all" parent checkbox by:
+1. Making the CheckboxGroup controlled
+2. Passing all child values to the `allValues` prop
+3. Adding a parent Checkbox with `parent` prop (available in Base UI)
+
+```tsx
+import { CheckboxGroup, Checkbox } from '@joacod/pixel-ui'
+import { useState } from 'react'
+
+export default function SelectAllExample() {
+  const allOptions = ['option1', 'option2', 'option3']
+  const [selectedValues, setSelectedValues] = useState<string[]>([])
+
+  const allChecked = selectedValues.length === allOptions.length
+  const someChecked = selectedValues.length > 0 && !allChecked
+
+  return (
+    <CheckboxGroup
+      value={selectedValues}
+      onValueChange={setSelectedValues}
+      allValues={allOptions}
+    >
+      {/* Parent checkbox */}
+      <label className="flex items-center gap-2 font-bold cursor-pointer">
+        <Checkbox.Root
+          checked={allChecked}
+          indeterminate={someChecked}
+          onCheckedChange={(checked) => {
+            setSelectedValues(checked ? allOptions : [])
+          }}
+        >
+          <Checkbox.Indicator>
+            {someChecked && !allChecked ? <span>-</span> : null}
+          </Checkbox.Indicator>
+        </Checkbox.Root>
+        <span>Select All</span>
+      </label>
+
+      {/* Child checkboxes */}
+      <div className="ml-6 flex flex-col gap-2">
+        <label className="flex items-center gap-2 cursor-pointer">
+          <Checkbox.Root value="option1">
+            <Checkbox.Indicator />
+          </Checkbox.Root>
+          <span>Option 1</span>
+        </label>
+        <label className="flex items-center gap-2 cursor-pointer">
+          <Checkbox.Root value="option2">
+            <Checkbox.Indicator />
+          </Checkbox.Root>
+          <span>Option 2</span>
+        </label>
+        <label className="flex items-center gap-2 cursor-pointer">
+          <Checkbox.Root value="option3">
+            <Checkbox.Indicator />
+          </Checkbox.Root>
+          <span>Option 3</span>
+        </label>
+      </div>
+    </CheckboxGroup>
+  )
+}
+```
+
+## States
+
+### Disabled State
+
+Disable the entire checkbox group:
+
+<ComponentPreview>
+  <CheckboxGroup disabled defaultValue={['option1']}>
+    <label className="flex items-center gap-2 cursor-pointer">
+      <Checkbox.Root value="option1">
+        <Checkbox.Indicator />
+      </Checkbox.Root>
+      <span>Option 1</span>
+    </label>
+    <label className="flex items-center gap-2 cursor-pointer">
+      <Checkbox.Root value="option2">
+        <Checkbox.Indicator />
+      </Checkbox.Root>
+      <span>Option 2</span>
+    </label>
+  </CheckboxGroup>
+</ComponentPreview>
+
+```tsx
+<CheckboxGroup disabled defaultValue={['option1']}>
+  <label className="flex items-center gap-2">
+    <Checkbox.Root value="option1">
+      <Checkbox.Indicator />
+    </Checkbox.Root>
+    <span>Option 1</span>
+  </label>
+  <label className="flex items-center gap-2">
+    <Checkbox.Root value="option2">
+      <Checkbox.Indicator />
+    </Checkbox.Root>
+    <span>Option 2</span>
+  </label>
+</CheckboxGroup>
+```
+
+## API Reference
+
+### CheckboxGroup
+
+The container component for managing checkbox group state.
+
+| Prop            | Type                                                   | Default | Description                                         |
+| --------------- | ------------------------------------------------------ | ------- | --------------------------------------------------- |
+| `value`         | `string[]`                                             | -       | Controlled values of checked checkboxes             |
+| `defaultValue`  | `string[]`                                             | -       | Default values of checked checkboxes (uncontrolled) |
+| `onValueChange` | `(value: string[], eventDetails: EventDetails) => void` | -       | Callback when checkbox selection changes            |
+| `allValues`     | `string[]`                                             | -       | All checkbox values (required for parent checkbox)  |
+| `disabled`      | `boolean`                                              | `false` | Disables the entire group                           |
+| `className`     | `string`                                               | -       | Additional CSS classes                              |
+| `children`      | `React.ReactNode`                                      | -       | Group content (Checkbox components)                 |
+
+## Accessibility
+
+- Built on Base UI's CheckboxGroup primitive with full accessibility support
+- Proper ARIA attributes for group relationships
+- Full keyboard navigation support
+- Screen reader friendly with semantic HTML
+- Works seamlessly with Field and Fieldset components for form integration
+
+## State Attributes
+
+The CheckboxGroup component automatically applies data attributes reflecting its state:
+
+- `data-disabled`: When group is disabled
+
+These attributes can be used for custom styling via CSS or Tailwind.
+
+## Examples
+
+### Form Integration
+
+```tsx
+<form>
+  <fieldset>
+    <legend>Choose your interests:</legend>
+    <CheckboxGroup name="interests">
+      <label className="flex items-center gap-2">
+        <Checkbox.Root value="coding">
+          <Checkbox.Indicator />
+        </Checkbox.Root>
+        <span>Coding</span>
+      </label>
+      <label className="flex items-center gap-2">
+        <Checkbox.Root value="design">
+          <Checkbox.Indicator />
+        </Checkbox.Root>
+        <span>Design</span>
+      </label>
+      <label className="flex items-center gap-2">
+        <Checkbox.Root value="writing">
+          <Checkbox.Indicator />
+        </Checkbox.Root>
+        <span>Writing</span>
+      </label>
+    </CheckboxGroup>
+  </fieldset>
+  <button type="submit">Submit</button>
+</form>
+```
+
+### With Fieldset Component
+
+Use with Fieldset and Field components for better form structure:
+
+```tsx
+import { CheckboxGroup, Checkbox, Fieldset, Field } from '@joacod/pixel-ui'
+
+<Fieldset.Root>
+  <Fieldset.Legend>Select your preferences</Fieldset.Legend>
+
+  <Field.Root>
+    <CheckboxGroup defaultValue={['email']}>
+      <label className="flex items-center gap-2">
+        <Checkbox.Root value="email">
+          <Checkbox.Indicator />
+        </Checkbox.Root>
+        <span>Email notifications</span>
+      </label>
+      <label className="flex items-center gap-2">
+        <Checkbox.Root value="sms">
+          <Checkbox.Indicator />
+        </Checkbox.Root>
+        <span>SMS notifications</span>
+      </label>
+      <label className="flex items-center gap-2">
+        <Checkbox.Root value="push">
+          <Checkbox.Indicator />
+        </Checkbox.Root>
+        <span>Push notifications</span>
+      </label>
+    </CheckboxGroup>
+    <Field.Description>Choose how you want to be notified</Field.Description>
+  </Field.Root>
+</Fieldset.Root>
+```
+
+### Dynamic Options
+
+Generate checkboxes from an array:
+
+```tsx
+import { CheckboxGroup, Checkbox } from '@joacod/pixel-ui'
+
+const options = [
+  { id: 'react', label: 'React' },
+  { id: 'vue', label: 'Vue' },
+  { id: 'angular', label: 'Angular' },
+  { id: 'svelte', label: 'Svelte' },
+]
+
+export default function DynamicExample() {
+  return (
+    <CheckboxGroup defaultValue={['react']}>
+      {options.map((option) => (
+        <label key={option.id} className="flex items-center gap-2">
+          <Checkbox.Root value={option.id}>
+            <Checkbox.Indicator />
+          </Checkbox.Root>
+          <span>{option.label}</span>
+        </label>
+      ))}
+    </CheckboxGroup>
+  )
+}
+```

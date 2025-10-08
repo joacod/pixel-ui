@@ -3,6 +3,7 @@
   "pages": [
     "button",
     "input",
-    "checkbox"
+    "checkbox",
+    "checkbox-group"
   ]
 }
