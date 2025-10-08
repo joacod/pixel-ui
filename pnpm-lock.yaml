@@ -65,10 +65,11 @@ importers:
         version: 5.9.3
 
   packages/pixel-ui:
-    devDependencies:
+    dependencies:
       '@base-ui-components/react':
         specifier: 1.0.0-beta.4
         version: 1.0.0-beta.4(@types/react@19.2.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+    devDependencies:
       '@changesets/cli':
         specifier: 2.29.7
         version: 2.29.7(@types/node@24.6.2)

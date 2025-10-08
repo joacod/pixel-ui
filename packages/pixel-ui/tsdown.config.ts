@@ -5,6 +5,6 @@ export default defineConfig({
   format: ['esm'],
   dts: true,
   clean: true,
-  external: ['react', 'react-dom', '@base-ui-components/react', 'tailwindcss'],
+  external: ['react', 'react-dom', 'tailwindcss'],
   outDir: 'dist',
 })
