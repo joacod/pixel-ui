@@ -18,27 +18,15 @@ npm install @joacod/pixel-ui
 
 ### Peer Dependencies
 
-pixel-ui requires the following peer dependencies:
+pixel-ui requires only React and React DOM:
 
-```
-react react-dom tailwindcss @tailwindcss/postcss @base-ui-components/react
+```bash
+npm install react react-dom
 ```
 
 ## Quick Start
 
-### 1. Configure PostCSS
-
-Create or update `postcss.config.js` in your project root:
-
-```js
-export default {
-  plugins: {
-    '@tailwindcss/postcss': {},
-  },
-}
-```
-
-### 2. Import Pixel UI styles
+### 1. Import Pixel UI
 
 In your app's CSS file (e.g., `app/globals.css` or `src/index.css`):
 
@@ -53,7 +41,7 @@ That's it! This single import includes:
 - ✅ Base styles (pixel borders, pixel rendering, etc.)
 - ✅ Pre-built component styles (Button, Input, Checkbox, etc.)
 
-### 3. Use Components
+### 2. Use Components
 
 ```tsx
 import { Button } from '@joacod/pixel-ui'

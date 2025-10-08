@@ -51,11 +51,8 @@
     "url": "https://github.com/joacod/pixel-ui/issues"
   },
   "peerDependencies": {
-    "@base-ui-components/react": "^1.0.0-beta.4",
-    "@tailwindcss/postcss": "^4.0.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "tailwindcss": "^4.0.0"
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@base-ui-components/react": "1.0.0-beta.4",
