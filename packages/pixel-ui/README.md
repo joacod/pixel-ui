@@ -62,4 +62,4 @@ export default function App() {
 
 ## Contributing
 
-Contributions are welcome! Please visit our [GitHub repository](https://github.com/joacod/pixel-ui) for more information.
+Contributions are welcome! See [CONTRIBUTING.md](https://github.com/joacod/pixel-ui/blob/main/CONTRIBUTING.md) for guidelines.
