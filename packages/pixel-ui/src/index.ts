@@ -20,3 +20,12 @@ export {
 // Export components
 export { Button, type ButtonProps } from './components/Button'
 export { Input, type InputProps } from './components/Input'
+export {
+  Checkbox,
+  type CheckboxRootProps,
+  type CheckboxIndicatorProps,
+} from './components/Checkbox'
+export {
+  CheckboxGroup,
+  type CheckboxGroupProps,
+} from './components/CheckboxGroup'

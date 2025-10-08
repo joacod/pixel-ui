@@ -2,6 +2,8 @@
   "title": "Components",
   "pages": [
     "button",
-    "input"
+    "input",
+    "checkbox",
+    "checkbox-group"
   ]
 }

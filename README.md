@@ -1,4 +1,4 @@
-# 👾 Pixel UI Monorepo
+# 👾 Pixel UI
 
 Opinionated pixel-art styled React component library built on [Base UI](https://base-ui.com).
 
