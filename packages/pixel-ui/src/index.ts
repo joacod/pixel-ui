@@ -36,3 +36,8 @@ export {
   type RadioRootProps,
   type RadioIndicatorProps,
 } from './components/Radio'
+export {
+  Switch,
+  type SwitchRootProps,
+  type SwitchThumbProps,
+} from './components/Switch'

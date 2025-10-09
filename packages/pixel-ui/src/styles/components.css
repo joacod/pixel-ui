@@ -14,6 +14,7 @@
   --color-nes-success: #51df21;
   --font-family-pixel: 'Press Start 2P', monospace;
   --spacing-px: 1px;
+  --spacing-0: 0;
   --spacing-1: 8px;
   --spacing-2: 16px;
   --spacing-3: 24px;
@@ -22,6 +23,9 @@
   --spacing-6: 48px;
   --spacing-7: 56px;
   --spacing-8: 64px;
+  --spacing-10: 80px;
+  --spacing-12: 96px;
+  --spacing-16: 128px;
   --height-xs: 16px;
   --height-sm: 24px;
   --height-md: 32px;
@@ -36,6 +40,7 @@
   --color-gray-500: oklch(55.1% 0.027 264.364);
   --color-black: #000;
   --color-white: #fff;
+  --spacing: 0.25rem;
   --text-xs: 0.75rem;
   --text-xs--line-height: calc(1 / 0.75);
   --text-sm: 0.875rem;
@@ -204,6 +209,9 @@
   .pointer-events-none {
     pointer-events: none;
   }
+  .relative {
+    position: relative;
+  }
   .container {
     width: 100%;
     @media (width >= 40rem) {
@@ -236,6 +244,9 @@
   }
   .inline-flex {
     display: inline-flex;
+  }
+  .aspect-square {
+    aspect-ratio: 1 / 1;
   }
   .h-3 {
     height: var(--spacing-3);
@@ -291,8 +302,23 @@
   .w-8 {
     width: var(--spacing-8);
   }
+  .w-10 {
+    width: var(--spacing-10);
+  }
+  .w-12 {
+    width: var(--spacing-12);
+  }
+  .w-14 {
+    width: calc(var(--spacing) * 14);
+  }
+  .w-16 {
+    width: var(--spacing-16);
+  }
   .w-full {
     width: 100%;
+  }
+  .shrink-0 {
+    flex-shrink: 0;
   }
   .cursor-pointer {
     cursor: pointer;
@@ -372,6 +398,12 @@
   }
   .bg-white {
     background-color: var(--color-white);
+  }
+  .p-0\.5 {
+    padding: calc(var(--spacing) * 0.5);
+  }
+  .p-1 {
+    padding: var(--spacing-1);
   }
   .px-2 {
     padding-inline: var(--spacing-2);
@@ -622,6 +654,12 @@
       opacity: 50%;
     }
   }
+  .data-\[checked\]\:translate-x-full {
+    &[data-checked] {
+      --tw-translate-x: 100%;
+      translate: var(--tw-translate-x) var(--tw-translate-y);
+    }
+  }
   .data-\[checked\]\:border-nes-accent {
     &[data-checked] {
       border-color: var(--color-nes-accent);
@@ -635,6 +673,11 @@
   .data-\[checked\]\:border-nes-error {
     &[data-checked] {
       border-color: var(--color-nes-error);
+    }
+  }
+  .data-\[checked\]\:border-nes-gray {
+    &[data-checked] {
+      border-color: var(--color-nes-gray);
     }
   }
   .data-\[checked\]\:border-nes-primary {
@@ -657,9 +700,44 @@
       border-color: var(--color-nes-warning);
     }
   }
+  .data-\[checked\]\:bg-nes-accent {
+    &[data-checked] {
+      background-color: var(--color-nes-accent);
+    }
+  }
+  .data-\[checked\]\:bg-nes-error {
+    &[data-checked] {
+      background-color: var(--color-nes-error);
+    }
+  }
+  .data-\[checked\]\:bg-nes-gray {
+    &[data-checked] {
+      background-color: var(--color-nes-gray);
+    }
+  }
   .data-\[checked\]\:bg-nes-primary {
     &[data-checked] {
       background-color: var(--color-nes-primary);
+    }
+  }
+  .data-\[checked\]\:bg-nes-secondary {
+    &[data-checked] {
+      background-color: var(--color-nes-secondary);
+    }
+  }
+  .data-\[checked\]\:bg-nes-success {
+    &[data-checked] {
+      background-color: var(--color-nes-success);
+    }
+  }
+  .data-\[checked\]\:bg-nes-warning {
+    &[data-checked] {
+      background-color: var(--color-nes-warning);
+    }
+  }
+  .data-\[checked\]\:bg-white {
+    &[data-checked] {
+      background-color: var(--color-white);
     }
   }
   .data-\[checked\]\:shadow-\[2px_2px_0_0_theme\(colors\.nes\.accent\)\] {
@@ -753,6 +831,17 @@
   .data-\[readonly\]\:cursor-default {
     &[data-readonly] {
       cursor: default;
+    }
+  }
+  .data-\[unchecked\]\:translate-x-0 {
+    &[data-unchecked] {
+      --tw-translate-x: var(--spacing-0);
+      translate: var(--tw-translate-x) var(--tw-translate-y);
+    }
+  }
+  .data-\[unchecked\]\:bg-white {
+    &[data-unchecked] {
+      background-color: var(--color-white);
     }
   }
 }
