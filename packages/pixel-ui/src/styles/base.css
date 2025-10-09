@@ -1,5 +1,8 @@
 /* Pixel UI - Base Styles & Utilities */
 
+/* Import Fusion Pixel font */
+@import '@fontsource/fusion-pixel-12px-proportional-jp';
+
 /* Global pixel rendering styles */
 @layer base {
   /* Pixel-perfect rendering for images and canvases */

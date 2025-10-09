@@ -97,7 +97,6 @@ async function generateTempCss() {
   // Create temp CSS that includes everything: font, theme, tailwind, base, and component classes
   // This creates a single all-in-one CSS file for consumers
   const tempCss = `
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 @import './theme.css';
 @import 'tailwindcss';
 @import './base.css';
