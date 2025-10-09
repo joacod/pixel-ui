@@ -1,5 +1,20 @@
 # www
 
+## 0.0.12
+
+### Patch Changes
+
+- 028c942: Migrate UnifontEX from bundled asset to @fontsource dependency
+
+  - Added @fontsource/unifontex as a library dependency
+  - Removed self-hosted font files from src/assets/fonts/
+  - Updated base.css to import font from @fontsource package
+  - Removed asset copying logic from build script
+  - Font is now automatically installed with the library
+
+- Updated dependencies [028c942]
+  - @joacod/pixel-ui@0.11.0
+
 ## 0.0.11
 
 ### Patch Changes
