@@ -3,7 +3,10 @@
 @layer properties;
 :root, :host {
   --color-nes-black: #000000;
+  --color-nes-gray-dark: #585858;
   --color-nes-gray: #a1a1a1;
+  --color-nes-white: #ffffff;
+  --color-nes-red: #fe5ec4;
   --color-nes-blue-dark: #00237c;
   --color-nes-green-dark: #093e00;
   --color-nes-primary: #3337fe;
@@ -381,6 +384,12 @@
   .bg-nes-error {
     background-color: var(--color-nes-error);
   }
+  .bg-nes-error\/10 {
+    background-color: color-mix(in srgb, #fe7269 10%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-nes-error) 10%, transparent);
+    }
+  }
   .bg-nes-primary {
     background-color: var(--color-nes-primary);
   }
@@ -459,6 +468,9 @@
   }
   .text-nes-error {
     color: var(--color-nes-error);
+  }
+  .text-nes-gray-dark {
+    color: var(--color-nes-gray-dark);
   }
   .text-white {
     color: var(--color-white);
@@ -577,6 +589,23 @@
     &:focus {
       --tw-shadow: 2px 2px 0 0 var(--tw-shadow-color, #f15bfe);
       box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    }
+  }
+  .focus\:ring-2 {
+    &:focus {
+      --tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color, currentcolor);
+      box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    }
+  }
+  .focus\:ring-nes-primary {
+    &:focus {
+      --tw-ring-color: var(--color-nes-primary);
+    }
+  }
+  .focus\:ring-offset-0 {
+    &:focus {
+      --tw-ring-offset-width: 0px;
+      --tw-ring-offset-shadow: var(--tw-ring-inset,) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
     }
   }
   .focus\:outline-none {
@@ -842,6 +871,61 @@
   .data-\[unchecked\]\:bg-white {
     &[data-unchecked] {
       background-color: var(--color-white);
+    }
+  }
+  .dark\:border-nes-red {
+    @media (prefers-color-scheme: dark) {
+      border-color: var(--color-nes-red);
+    }
+  }
+  .dark\:border-nes-white {
+    @media (prefers-color-scheme: dark) {
+      border-color: var(--color-nes-white);
+    }
+  }
+  .dark\:bg-nes-error\/20 {
+    @media (prefers-color-scheme: dark) {
+      background-color: color-mix(in srgb, #fe7269 20%, transparent);
+      @supports (color: color-mix(in lab, red, red)) {
+        background-color: color-mix(in oklab, var(--color-nes-error) 20%, transparent);
+      }
+    }
+  }
+  .dark\:bg-nes-gray-dark {
+    @media (prefers-color-scheme: dark) {
+      background-color: var(--color-nes-gray-dark);
+    }
+  }
+  .dark\:text-nes-gray {
+    @media (prefers-color-scheme: dark) {
+      color: var(--color-nes-gray);
+    }
+  }
+  .dark\:text-nes-red {
+    @media (prefers-color-scheme: dark) {
+      color: var(--color-nes-red);
+    }
+  }
+  .dark\:text-nes-white {
+    @media (prefers-color-scheme: dark) {
+      color: var(--color-nes-white);
+    }
+  }
+  .dark\:read-only\:bg-nes-gray-dark\/50 {
+    @media (prefers-color-scheme: dark) {
+      &:read-only {
+        background-color: color-mix(in srgb, #585858 50%, transparent);
+        @supports (color: color-mix(in lab, red, red)) {
+          background-color: color-mix(in oklab, var(--color-nes-gray-dark) 50%, transparent);
+        }
+      }
+    }
+  }
+  .dark\:focus\:ring-nes-secondary {
+    @media (prefers-color-scheme: dark) {
+      &:focus {
+        --tw-ring-color: var(--color-nes-secondary);
+      }
     }
   }
 }
