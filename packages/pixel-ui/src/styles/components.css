@@ -292,6 +292,21 @@
   .max-h-\[300px\] {
     max-height: 300px;
   }
+  .min-h-lg {
+    min-height: var(--height-lg);
+  }
+  .min-h-md {
+    min-height: var(--height-md);
+  }
+  .min-h-sm {
+    min-height: var(--height-sm);
+  }
+  .min-h-xl {
+    min-height: var(--height-xl);
+  }
+  .min-h-xs {
+    min-height: var(--height-xs);
+  }
   .w-3 {
     width: var(--spacing-3);
   }
@@ -345,6 +360,12 @@
   }
   .touch-none {
     touch-action: none;
+  }
+  .resize {
+    resize: both;
+  }
+  .resize-none {
+    resize: none;
   }
   .\[appearance\:textfield\] {
     appearance: textfield;
@@ -487,6 +508,15 @@
   }
   .py-2 {
     padding-block: var(--spacing-2);
+  }
+  .py-3 {
+    padding-block: var(--spacing-3);
+  }
+  .py-4 {
+    padding-block: var(--spacing-4);
+  }
+  .py-5 {
+    padding-block: var(--spacing-5);
   }
   .text-left {
     text-align: left;

@@ -80,3 +80,4 @@ export {
   type NumberFieldScrubAreaProps,
   type NumberFieldScrubAreaCursorProps,
 } from './components/NumberField'
+export { Textarea, type TextareaProps } from './components/Textarea'
