@@ -115,7 +115,7 @@ These should be kept in sync. The CSS version is the source of truth for Tailwin
 The library exports four CSS files:
 
 - **theme.css**: Defines design tokens using `@theme` directive with CSS custom properties
-- **base.css**: Global pixel rendering styles, utility classes (`.pixel-border`, `.pixel-render`, etc.), and Unifontex pixel font via @font-face
+- **base.css**: Global pixel rendering styles, utility classes (`.pixel-border`, `.pixel-render`, etc.), and Unifontex pixel font imported from @fontsource/unifontex
 - **preset.css**: Imports theme → Tailwind CSS → base styles in correct order
 - **components.css**: Pre-built component styles generated from `*.styles.ts` files
 
@@ -153,7 +153,7 @@ All three run in sequence via `pnpm build:lib`
 - **Pixel borders**: Use `box-shadow` instead of traditional borders (see `.pixel-border` utility)
 - **No transitions**: `transition-none` for instant, retro feel
 - **Pixel-perfect rendering**: `image-rendering: pixelated`, no font smoothing
-- **Unifontex pixel font**: Self-hosted in `src/assets/fonts/`, imported via @font-face in base.css
+- **Unifontex pixel font**: Provided by @fontsource/unifontex npm package, imported in base.css
 
 ### Dark Mode Guidelines
 

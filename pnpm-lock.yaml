@@ -69,6 +69,9 @@ importers:
       '@base-ui-components/react':
         specifier: 1.0.0-beta.4
         version: 1.0.0-beta.4(@types/react@19.2.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+      '@fontsource/unifontex':
+        specifier: ^5.2.5
+        version: 5.2.5
     devDependencies:
       '@changesets/cli':
         specifier: 2.29.7
@@ -390,6 +393,9 @@ packages:
 
   '@floating-ui/utils@0.2.10':
     resolution: {integrity: sha512-aGTxbpbg8/b5JfU1HXSrbH3wXZuLPJcNEcZQFMxLs3oSzgtVu6nFPkbbGGUvBcUjKV2YyB9Wxxabo+HEH9tcRQ==}
+
+  '@fontsource/unifontex@5.2.5':
+    resolution: {integrity: sha512-hsL2My3RqF+9j969qEueTDcs+LhRCn9X4rt6tVstC84LnlytyaqzwCxKAu5zveSalz8d42KhBRASAyDcelWOAA==}
 
   '@formatjs/intl-localematcher@0.6.2':
     resolution: {integrity: sha512-XOMO2Hupl0wdd172Y06h6kLpBz6Dv+J4okPLl4LPtzbr8f66WbIoy4ev98EBuZ6ZK4h5ydTN6XneT4QVpD7cdA==}
@@ -2994,6 +3000,8 @@ snapshots:
       react-dom: 19.2.0(react@19.2.0)
 
   '@floating-ui/utils@0.2.10': {}
+
+  '@fontsource/unifontex@5.2.5': {}
 
   '@formatjs/intl-localematcher@0.6.2':
     dependencies:

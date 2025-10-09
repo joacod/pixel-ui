@@ -1,14 +1,7 @@
 /* Pixel UI - Base Styles & Utilities */
 
-/* Import Unifontex font */
-@font-face {
-  font-family: 'Unifontex';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url('../assets/fonts/unifontex-latin-400-normal.woff2') format('woff2'),
-       url('../assets/fonts/unifontex-latin-400-normal.woff') format('woff');
-}
+/* Import Unifontex font from @fontsource */
+@import '@fontsource/unifontex/latin-400.css';
 
 /* Global pixel rendering styles */
 @layer base {
