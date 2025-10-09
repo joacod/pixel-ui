@@ -56,3 +56,17 @@ export {
   type FieldsetLegendProps,
 } from './components/Fieldset'
 export { Form, type FormProps } from './components/Form'
+export {
+  Select,
+  type SelectItemType,
+  type SelectRootProps,
+  type SelectTriggerProps,
+  type SelectValueProps,
+  type SelectIconProps,
+  type SelectPortalProps,
+  type SelectPositionerProps,
+  type SelectPopupProps,
+  type SelectListProps,
+  type SelectItemProps,
+  type SelectItemTextProps,
+} from './components/Select'
