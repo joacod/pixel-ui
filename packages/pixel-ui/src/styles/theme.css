@@ -33,10 +33,10 @@
   --color-nes-success: #51df21;
 
   /* ============================================
-     Typography - Fusion Pixel 12px Proportional JP pixel font
+     Typography - Unifontex pixel font
      ============================================ */
 
-  --font-family-pixel: 'Fusion Pixel 12px Proportional JP', monospace;
+  --font-family-pixel: 'Unifontex', monospace;
 
   /* ============================================
      Pixel border box-shadow utilities

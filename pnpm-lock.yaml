@@ -69,9 +69,6 @@ importers:
       '@base-ui-components/react':
         specifier: 1.0.0-beta.4
         version: 1.0.0-beta.4(@types/react@19.2.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
-      '@fontsource/fusion-pixel-12px-proportional-jp':
-        specifier: 5.2.5
-        version: 5.2.5
     devDependencies:
       '@changesets/cli':
         specifier: 2.29.7
@@ -393,9 +390,6 @@ packages:
 
   '@floating-ui/utils@0.2.10':
     resolution: {integrity: sha512-aGTxbpbg8/b5JfU1HXSrbH3wXZuLPJcNEcZQFMxLs3oSzgtVu6nFPkbbGGUvBcUjKV2YyB9Wxxabo+HEH9tcRQ==}
-
-  '@fontsource/fusion-pixel-12px-proportional-jp@5.2.5':
-    resolution: {integrity: sha512-Bt7vj6U7KiWOYXhUbqXM+GnLr2Va8RwtkuQwN9XRz1MwO6eZUXwQ2KvOeASV4zW6PCfGSqyh64+KbTSHGWklcw==}
 
   '@formatjs/intl-localematcher@0.6.2':
     resolution: {integrity: sha512-XOMO2Hupl0wdd172Y06h6kLpBz6Dv+J4okPLl4LPtzbr8f66WbIoy4ev98EBuZ6ZK4h5ydTN6XneT4QVpD7cdA==}
@@ -3000,8 +2994,6 @@ snapshots:
       react-dom: 19.2.0(react@19.2.0)
 
   '@floating-ui/utils@0.2.10': {}
-
-  '@fontsource/fusion-pixel-12px-proportional-jp@5.2.5': {}
 
   '@formatjs/intl-localematcher@0.6.2':
     dependencies:
