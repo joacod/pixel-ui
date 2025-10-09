@@ -6,6 +6,7 @@ import { Radio as BaseRadio } from '@base-ui-components/react/radio'
 import { RadioGroup as BaseRadioGroup } from '@base-ui-components/react/radio-group'
 import { cn } from '../../utils/cn'
 import { radioStyles } from './Radio.styles'
+import type { Size, Variant } from '../../styles/tokens'
 
 export interface RadioGroupProps {
   /**
@@ -64,6 +65,16 @@ export interface RadioRootProps {
    */
   value: string
   /**
+   * Visual style variant
+   * @default 'primary'
+   */
+  variant?: Variant
+  /**
+   * Radio button size
+   * @default 'sm'
+   */
+  size?: Size
+  /**
    * Whether the radio button is disabled
    * @default false
    */
@@ -93,6 +104,10 @@ export interface RadioRootProps {
 }
 
 export interface RadioIndicatorProps {
+  /**
+   * Visual style variant (inherits from Radio.Root context if not specified)
+   */
+  variant?: Variant
   /**
    * Whether to keep the indicator mounted when unchecked
    * @default false
@@ -154,6 +169,8 @@ const RadioRoot = React.forwardRef<HTMLButtonElement, RadioRootProps>(
   (
     {
       value,
+      variant = 'primary',
+      size = 'sm',
       disabled = false,
       readOnly = false,
       required = false,
@@ -171,7 +188,12 @@ const RadioRoot = React.forwardRef<HTMLButtonElement, RadioRootProps>(
         readOnly={readOnly}
         required={required}
         inputRef={inputRef}
-        className={cn(radioStyles.root, className)}
+        className={cn(
+          radioStyles.root,
+          radioStyles.variants[variant],
+          radioStyles.sizes[size],
+          className
+        )}
       >
         {children}
       </BaseRadio.Root>
@@ -182,14 +204,16 @@ const RadioRoot = React.forwardRef<HTMLButtonElement, RadioRootProps>(
 RadioRoot.displayName = 'Radio.Root'
 
 const RadioIndicator = React.forwardRef<HTMLSpanElement, RadioIndicatorProps>(
-  ({ keepMounted = false, className, children }, ref) => {
+  ({ variant = 'primary', keepMounted = false, className, children }, ref) => {
     return (
       <BaseRadio.Indicator
         ref={ref}
         keepMounted={keepMounted}
         className={cn(radioStyles.indicator, className)}
       >
-        {children ?? <span className={radioStyles.dot} />}
+        {children ?? (
+          <span className={cn(radioStyles.dot, radioStyles.dotVariants[variant])} />
+        )}
       </BaseRadio.Indicator>
     )
   }

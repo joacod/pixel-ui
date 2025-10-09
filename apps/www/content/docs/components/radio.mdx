@@ -72,47 +72,47 @@ export default function Example() {
 Use `defaultValue` for uncontrolled radio groups:
 
 <ComponentPreview>
-  <RadioGroup defaultValue="small">
+  <RadioGroup defaultValue="option2">
     <label className="flex items-center gap-2 cursor-pointer">
-      <Radio.Root value="small">
+      <Radio.Root value="option1">
         <Radio.Indicator />
       </Radio.Root>
-      <span>Small</span>
+      <span>Option 1</span>
     </label>
     <label className="flex items-center gap-2 cursor-pointer">
-      <Radio.Root value="medium">
+      <Radio.Root value="option2">
         <Radio.Indicator />
       </Radio.Root>
-      <span>Medium</span>
+      <span>Option 2</span>
     </label>
     <label className="flex items-center gap-2 cursor-pointer">
-      <Radio.Root value="large">
+      <Radio.Root value="option3">
         <Radio.Indicator />
       </Radio.Root>
-      <span>Large</span>
+      <span>Option 3</span>
     </label>
   </RadioGroup>
 </ComponentPreview>
 
 ```tsx
-<RadioGroup defaultValue="small">
+<RadioGroup defaultValue="option2">
   <label className="flex items-center gap-2 cursor-pointer">
-    <Radio.Root value="small">
+    <Radio.Root value="option1">
       <Radio.Indicator />
     </Radio.Root>
-    <span>Small</span>
+    <span>Option 1</span>
   </label>
   <label className="flex items-center gap-2 cursor-pointer">
-    <Radio.Root value="medium">
+    <Radio.Root value="option2">
       <Radio.Indicator />
     </Radio.Root>
-    <span>Medium</span>
+    <span>Option 2</span>
   </label>
   <label className="flex items-center gap-2 cursor-pointer">
-    <Radio.Root value="large">
+    <Radio.Root value="option3">
       <Radio.Indicator />
     </Radio.Root>
-    <span>Large</span>
+    <span>Option 3</span>
   </label>
 </RadioGroup>
 ```
@@ -192,6 +192,131 @@ Override the default vertical layout with custom classes:
     <span>No</span>
   </label>
 </RadioGroup>
+```
+
+## Variants
+
+Seven color variants are available to match your design system:
+
+<ComponentPreview>
+  <div className="flex flex-col gap-3">
+    <RadioGroup defaultValue="primary" className="flex flex-row gap-4 items-center flex-wrap">
+      <label className="flex items-center gap-2 cursor-pointer">
+        <Radio.Root value="primary" variant="primary">
+          <Radio.Indicator variant="primary" />
+        </Radio.Root>
+        <span>Primary</span>
+      </label>
+      <label className="flex items-center gap-2 cursor-pointer">
+        <Radio.Root value="secondary" variant="secondary">
+          <Radio.Indicator variant="secondary" />
+        </Radio.Root>
+        <span>Secondary</span>
+      </label>
+      <label className="flex items-center gap-2 cursor-pointer">
+        <Radio.Root value="accent" variant="accent">
+          <Radio.Indicator variant="accent" />
+        </Radio.Root>
+        <span>Accent</span>
+      </label>
+      <label className="flex items-center gap-2 cursor-pointer">
+        <Radio.Root value="ghost" variant="ghost">
+          <Radio.Indicator variant="ghost" />
+        </Radio.Root>
+        <span>Ghost</span>
+      </label>
+      <label className="flex items-center gap-2 cursor-pointer">
+        <Radio.Root value="error" variant="error">
+          <Radio.Indicator variant="error" />
+        </Radio.Root>
+        <span>Error</span>
+      </label>
+      <label className="flex items-center gap-2 cursor-pointer">
+        <Radio.Root value="success" variant="success">
+          <Radio.Indicator variant="success" />
+        </Radio.Root>
+        <span>Success</span>
+      </label>
+      <label className="flex items-center gap-2 cursor-pointer">
+        <Radio.Root value="warning" variant="warning">
+          <Radio.Indicator variant="warning" />
+        </Radio.Root>
+        <span>Warning</span>
+      </label>
+    </RadioGroup>
+  </div>
+</ComponentPreview>
+
+```tsx
+<Radio.Root value="option1" variant="primary">
+  <Radio.Indicator variant="primary" />
+</Radio.Root>
+<Radio.Root value="option2" variant="secondary">
+  <Radio.Indicator variant="secondary" />
+</Radio.Root>
+<Radio.Root value="option3" variant="accent">
+  <Radio.Indicator variant="accent" />
+</Radio.Root>
+<Radio.Root value="option4" variant="error">
+  <Radio.Indicator variant="error" />
+</Radio.Root>
+```
+
+## Sizes
+
+Five size options are available:
+
+<ComponentPreview>
+  <RadioGroup defaultValue="small" className="flex flex-row gap-4 items-center">
+    <label className="flex items-center gap-2 cursor-pointer">
+      <Radio.Root value="xs" size="xs">
+        <Radio.Indicator />
+      </Radio.Root>
+      <span>XS</span>
+    </label>
+    <label className="flex items-center gap-2 cursor-pointer">
+      <Radio.Root value="small" size="sm">
+        <Radio.Indicator />
+      </Radio.Root>
+      <span>Small</span>
+    </label>
+    <label className="flex items-center gap-2 cursor-pointer">
+      <Radio.Root value="medium" size="md">
+        <Radio.Indicator />
+      </Radio.Root>
+      <span>Medium</span>
+    </label>
+    <label className="flex items-center gap-2 cursor-pointer">
+      <Radio.Root value="large" size="lg">
+        <Radio.Indicator />
+      </Radio.Root>
+      <span>Large</span>
+    </label>
+    <label className="flex items-center gap-2 cursor-pointer">
+      <Radio.Root value="xl" size="xl">
+        <Radio.Indicator />
+      </Radio.Root>
+      <span>XL</span>
+    </label>
+  </RadioGroup>
+</ComponentPreview>
+
+```tsx
+<Radio.Root value="option1" size="xs">
+  <Radio.Indicator />
+</Radio.Root>
+<Radio.Root value="option2" size="sm">
+  <Radio.Indicator />
+</Radio.Root>
+<Radio.Root value="option3" size="md">
+  <Radio.Indicator />
+</Radio.Root>
+<Radio.Root value="option4" size="lg">
+  <Radio.Indicator />
+</Radio.Root>
+<Radio.Root value="option5" size="xl">
+  <Radio.Indicator />
+</Radio.Root>
 ```
 
 ## States
@@ -367,25 +492,28 @@ The container that manages a group of radio buttons.
 
 The root container for a single radio button.
 
-| Prop        | Type                          | Default | Description                           |
-| ----------- | ----------------------------- | ------- | ------------------------------------- |
-| `value`     | `string`                      | -       | Unique identifying value              |
-| `disabled`  | `boolean`                     | `false` | Disables this radio button            |
-| `readOnly`  | `boolean`                     | `false` | Makes this radio button read-only     |
-| `required`  | `boolean`                     | `false` | Whether this radio button is required |
-| `inputRef`  | `React.Ref<HTMLInputElement>` | -       | Ref to the hidden input element       |
-| `className` | `string`                      | -       | Additional CSS classes                |
-| `children`  | `React.ReactNode`             | -       | Radio content (typically Indicator)   |
+| Prop        | Type                                                                                   | Default     | Description                           |
+| ----------- | -------------------------------------------------------------------------------------- | ----------- | ------------------------------------- |
+| `value`     | `string`                                                                               | -           | Unique identifying value              |
+| `variant`   | `"primary" \| "secondary" \| "accent" \| "ghost" \| "error" \| "success" \| "warning"` | `"primary"` | Visual style variant                  |
+| `size`      | `"xs" \| "sm" \| "md" \| "lg" \| "xl"`                                                 | `"sm"`      | Radio button size                     |
+| `disabled`  | `boolean`                                                                              | `false`     | Disables this radio button            |
+| `readOnly`  | `boolean`                                                                              | `false`     | Makes this radio button read-only     |
+| `required`  | `boolean`                                                                              | `false`     | Whether this radio button is required |
+| `inputRef`  | `React.Ref<HTMLInputElement>`                                                          | -           | Ref to the hidden input element       |
+| `className` | `string`                                                                               | -           | Additional CSS classes                |
+| `children`  | `React.ReactNode`                                                                      | -           | Radio content (typically Indicator)   |
 
 ### Radio.Indicator
 
 The visual indicator that appears when the radio button is selected.
 
-| Prop          | Type              | Default    | Description                          |
-| ------------- | ----------------- | ---------- | ------------------------------------ |
-| `keepMounted` | `boolean`         | `false`    | Keep indicator in DOM when unchecked |
-| `className`   | `string`          | -          | Additional CSS classes               |
-| `children`    | `React.ReactNode` | filled dot | Custom indicator content             |
+| Prop          | Type                                                                                   | Default     | Description                          |
+| ------------- | -------------------------------------------------------------------------------------- | ----------- | ------------------------------------ |
+| `variant`     | `"primary" \| "secondary" \| "accent" \| "ghost" \| "error" \| "success" \| "warning"` | `"primary"` | Visual style variant for the dot     |
+| `keepMounted` | `boolean`                                                                              | `false`     | Keep indicator in DOM when unchecked |
+| `className`   | `string`                                                                               | -           | Additional CSS classes               |
+| `children`    | `React.ReactNode`                                                                      | filled dot  | Custom indicator content             |
 
 ## Accessibility
 
