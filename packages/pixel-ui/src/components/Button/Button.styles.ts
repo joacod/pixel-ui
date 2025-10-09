@@ -13,10 +13,14 @@ export const buttonStyles = {
     'justify-center',
     'active:translate-y-px', // Pixel "press" effect
     'disabled:cursor-not-allowed',
-    'disabled:opacity-50',
+    'disabled:opacity-60',
+    'disabled:grayscale',
+    'dark:disabled:opacity-40',
+    'dark:disabled:brightness-75',
   ].join(' '),
 
   variants: {
+    base: 'bg-nes-black dark:bg-nes-white text-white dark:text-black hover:brightness-90',
     primary: 'bg-nes-primary text-white hover:bg-nes-blue-dark',
     secondary: 'bg-nes-secondary text-white hover:brightness-90',
     accent: 'bg-nes-accent text-black hover:bg-nes-green-dark hover:text-white',

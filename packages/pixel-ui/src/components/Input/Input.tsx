@@ -5,7 +5,7 @@ import * as React from 'react'
 import { Input as BaseInput } from '@base-ui-components/react/input'
 import { cn } from '../../utils/cn'
 import { inputStyles } from './Input.styles'
-import type { Size } from '../../styles/tokens'
+import type { Size, Variant } from '../../styles/tokens'
 
 export interface InputProps
   extends Omit<React.ComponentPropsWithRef<'input'>, 'size'> {
@@ -13,7 +13,7 @@ export interface InputProps
    * Visual style variant
    * @default 'primary'
    */
-  variant?: 'primary' | 'secondary' | 'error'
+  variant?: Variant
   /**
    * Input size
    * @default 'md'

@@ -155,6 +155,22 @@ All three run in sequence via `pnpm build:lib`
 - **Pixel-perfect rendering**: `image-rendering: pixelated`, no font smoothing
 - **Press Start 2P font**: Loaded from Google Fonts in preset.css
 
+### Dark Mode Guidelines
+
+When adding or modifying component styles, ensure proper dark mode support:
+
+- **Backgrounds**: Use `dark:bg-nes-gray-dark` for component backgrounds
+- **Borders**: Always pair `border-nes-black` with `dark:border-nes-white` for visibility
+- **Box shadows**: Add dark variants like `dark:shadow-[2px_2px_0_0_theme(colors.nes.white)]`
+- **Text colors**: Pair `text-nes-black` with `dark:text-nes-white`
+- **Focus rings**: Use `dark:focus-visible:ring-nes-secondary` for better contrast
+- **Hover states**: Include dark mode shadows for interactive elements
+
+Default dark mode colors:
+- Background: `nes-gray-dark` (#585858)
+- Text/Borders: `nes-white` (#FFFFFF)
+- Primary accent colors (primary, secondary, accent, etc.) remain the same in both modes
+
 ### Component Patterns
 
 When adding new components:

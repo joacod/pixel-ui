@@ -1,0 +1,343 @@
+---
+title: Field
+description: A pixel-art styled form field component with validation and accessibility features
+---
+
+import { Field, Input } from '@joacod/pixel-ui'
+
+## Overview
+
+The Field component provides a complete form field wrapper with labeling, validation, error handling, and accessibility features. It's built as a compound component with multiple parts that work together.
+
+## Preview
+
+<ComponentPreview>
+  <Field.Root>
+    <Field.Label>Username</Field.Label>
+    <Field.Control placeholder="Enter username" required />
+    <Field.Description>Choose a unique username</Field.Description>
+    <Field.Error match="valueMissing">Username is required</Field.Error>
+  </Field.Root>
+</ComponentPreview>
+
+## Installation
+
+See the [Installation](/docs/installation) guide for setup instructions.
+
+## Usage
+
+### Basic Field
+
+```tsx
+import { Field } from '@joacod/pixel-ui'
+
+export default function Example() {
+  return (
+    <Field.Root>
+      <Field.Label>Email</Field.Label>
+      <Field.Control type="email" placeholder="you@example.com" required />
+      <Field.Description>We'll never share your email</Field.Description>
+      <Field.Error match="valueMissing">Email is required</Field.Error>
+      <Field.Error match="typeMismatch">Please enter a valid email</Field.Error>
+    </Field.Root>
+  )
+}
+```
+
+### With Custom Validation
+
+```tsx
+import { Field } from '@joacod/pixel-ui'
+
+export default function Example() {
+  const validatePassword = (value: unknown) => {
+    const password = value as string
+    if (password.length < 8) {
+      return 'Password must be at least 8 characters'
+    }
+    if (!/[A-Z]/.test(password)) {
+      return 'Password must contain an uppercase letter'
+    }
+    return null
+  }
+
+  return (
+    <Field.Root validate={validatePassword}>
+      <Field.Label>Password</Field.Label>
+      <Field.Control type="password" />
+      <Field.Error match="customError">
+        Password must be at least 8 characters or contain an uppercase letter
+      </Field.Error>
+    </Field.Root>
+  )
+}
+```
+
+## Component Parts
+
+The Field component is composed of multiple subcomponents:
+
+- **Field.Root**: Container that manages validation state
+- **Field.Label**: Accessible label element
+- **Field.Control**: Input control (can be replaced with other form controls)
+- **Field.Description**: Helper text for the field
+- **Field.Error**: Conditional error message display
+- **Field.Validity**: Custom validity state renderer
+
+## Validation
+
+### Validation Modes
+
+Control when validation occurs using the `validationMode` prop:
+
+<ComponentPreview>
+  <div className="space-y-4">
+    <Field.Root validationMode="onBlur">
+      <Field.Label>On Blur (default)</Field.Label>
+      <Field.Control required placeholder="Validates on blur" />
+      <Field.Error match="valueMissing">This field is required</Field.Error>
+    </Field.Root>
+
+    <Field.Root validationMode="onChange">
+      <Field.Label>On Change</Field.Label>
+      <Field.Control required placeholder="Validates on every change" />
+      <Field.Error match="valueMissing">This field is required</Field.Error>
+    </Field.Root>
+  </div>
+</ComponentPreview>
+
+```tsx
+<Field.Root validationMode="onBlur">  {/* default */}
+<Field.Root validationMode="onChange">
+<Field.Root validationMode="onSubmit">
+```
+
+### Built-in HTML5 Validation
+
+Field supports all native HTML5 validation attributes:
+
+<ComponentPreview>
+  <div className="space-y-4">
+    <Field.Root>
+      <Field.Label>Email</Field.Label>
+      <Field.Control type="email" required />
+      <Field.Error match="valueMissing">Email is required</Field.Error>
+      <Field.Error match="typeMismatch">Invalid email format</Field.Error>
+    </Field.Root>
+
+    <Field.Root>
+      <Field.Label>Age</Field.Label>
+      <Field.Control type="number" min={18} max={120} />
+      <Field.Error match="rangeUnderflow">Must be at least 18</Field.Error>
+      <Field.Error match="rangeOverflow">Must be less than 120</Field.Error>
+    </Field.Root>
+  </div>
+</ComponentPreview>
+
+### Custom Validation Function
+
+```tsx
+<Field.Root
+  validate={(value) => {
+    if (value === 'admin') return 'Username already taken'
+    if ((value as string).length < 3) return 'Too short'
+    return null // Valid
+  }}
+>
+  <Field.Label>Username</Field.Label>
+  <Field.Control />
+  <Field.Error match="customError">
+    Please check your input
+  </Field.Error>
+</Field.Root>
+```
+
+## Error Matching
+
+The `Field.Error` component supports flexible error matching:
+
+```tsx
+{/* Match specific HTML5 validation error */}
+<Field.Error match="valueMissing">Required field</Field.Error>
+
+{/* Match custom validation errors */}
+<Field.Error match="customError">Custom validation error</Field.Error>
+
+{/* Always show error */}
+<Field.Error match={true}>Always visible error</Field.Error>
+```
+
+## States
+
+### Disabled State
+
+<ComponentPreview>
+  <Field.Root disabled>
+    <Field.Label>Disabled Field</Field.Label>
+    <Field.Control placeholder="This field is disabled" />
+    <Field.Description>This field cannot be edited</Field.Description>
+  </Field.Root>
+</ComponentPreview>
+
+```tsx
+<Field.Root disabled>
+  <Field.Label>Disabled Field</Field.Label>
+  <Field.Control placeholder="This field is disabled" />
+</Field.Root>
+```
+
+### Invalid State
+
+<ComponentPreview>
+  <Field.Root invalid>
+    <Field.Label>Invalid Field</Field.Label>
+    <Field.Control placeholder="This field has an error" />
+    <Field.Error match={true}>Something went wrong</Field.Error>
+  </Field.Root>
+</ComponentPreview>
+
+```tsx
+<Field.Root invalid>
+  <Field.Label>Invalid Field</Field.Label>
+  <Field.Control placeholder="This field has an error" />
+  <Field.Error match={true}>Something went wrong</Field.Error>
+</Field.Root>
+```
+
+## Advanced Usage
+
+### Using Field.Validity for Custom Display
+
+```tsx
+<Field.Root>
+  <Field.Label>Password</Field.Label>
+  <Field.Control type="password" minLength={8} required />
+  <Field.Validity>
+    {({ validity, error }) => (
+      <div>
+        {validity.valueMissing && <span>❌ Required</span>}
+        {validity.tooShort && <span>❌ Too short</span>}
+        {validity.valid && <span>✅ Valid</span>}
+      </div>
+    )}
+  </Field.Validity>
+</Field.Root>
+```
+
+### Integration with Other Form Controls
+
+Field.Control can wrap other form components:
+
+```tsx
+import { Field, Input } from '@joacod/pixel-ui'
+
+<Field.Root>
+  <Field.Label>Custom Input</Field.Label>
+  <Input placeholder="Using custom Input component" />
+</Field.Root>
+```
+
+## API Reference
+
+### Field.Root
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| name | string | - | Field name for form submission |
+| disabled | boolean | false | Disables the field |
+| invalid | boolean | false | Force invalid state |
+| validate | function | - | Custom validation function |
+| validationMode | 'onBlur' \| 'onChange' \| 'onSubmit' | 'onBlur' | When to run validation |
+| className | string | - | Additional CSS classes |
+
+### Field.Label
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| className | string | - | Additional CSS classes |
+| children | ReactNode | - | Label content |
+
+Standard HTML `<label>` attributes are also supported.
+
+### Field.Control
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| className | string | - | Additional CSS classes |
+
+All standard HTML `<input>` attributes are supported.
+
+### Field.Description
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| className | string | - | Additional CSS classes |
+| children | ReactNode | - | Description content |
+
+### Field.Error
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| match | boolean \| ValidityState key | - | Error condition to match (`true` always shows, or match ValidityState key like 'valueMissing') |
+| className | string | - | Additional CSS classes |
+| children | ReactNode | - | Error message content |
+
+### Field.Validity
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| children | function | - | Render function receiving validity state |
+| className | string | - | Additional CSS classes |
+
+## Accessibility
+
+- **Automatic labeling**: Field.Label automatically associates with the control
+- **Error announcements**: Error messages are announced to screen readers
+- **ARIA attributes**: Proper `aria-describedby`, `aria-invalid`, and `aria-required` attributes
+- **Keyboard navigation**: Full keyboard support for all interactions
+- **Focus management**: Proper focus handling during validation
+
+## Examples
+
+### Login Form
+
+```tsx
+<form>
+  <Field.Root>
+    <Field.Label>Email</Field.Label>
+    <Field.Control type="email" required autoComplete="email" />
+    <Field.Error match="valueMissing">Email is required</Field.Error>
+    <Field.Error match="typeMismatch">Invalid email address</Field.Error>
+  </Field.Root>
+
+  <Field.Root>
+    <Field.Label>Password</Field.Label>
+    <Field.Control type="password" required minLength={8} />
+    <Field.Error match="valueMissing">Password is required</Field.Error>
+    <Field.Error match="tooShort">Must be at least 8 characters</Field.Error>
+  </Field.Root>
+
+  <Button type="submit">Sign In</Button>
+</form>
+```
+
+### Registration Form with Custom Validation
+
+```tsx
+<form>
+  <Field.Root
+    validate={(value) => {
+      if ((value as string).length < 3) return 'Username too short'
+      if (!/^[a-zA-Z0-9_]+$/.test(value as string)) return 'Invalid characters'
+      return null
+    }}
+  >
+    <Field.Label>Username</Field.Label>
+    <Field.Control required />
+    <Field.Description>Only letters, numbers, and underscores</Field.Description>
+    <Field.Error match="customError">
+      Username must be at least 3 characters and contain only letters, numbers, and underscores
+    </Field.Error>
+  </Field.Root>
+</form>
+```

@@ -80,6 +80,7 @@ export const fontSize = {
  * Component variant types
  */
 export type Variant =
+  | 'base'
   | 'primary'
   | 'secondary'
   | 'accent'

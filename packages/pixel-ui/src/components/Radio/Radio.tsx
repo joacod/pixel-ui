@@ -90,9 +90,17 @@ export interface RadioRootProps {
    */
   required?: boolean
   /**
+   * Input element identifier
+   */
+  id?: string
+  /**
    * Reference to the hidden input element
    */
   inputRef?: React.Ref<HTMLInputElement>
+  /**
+   * Custom rendering function
+   */
+  render?: (props: React.ComponentPropsWithRef<'button'>) => React.ReactElement
   /**
    * Additional CSS classes
    */
@@ -113,6 +121,10 @@ export interface RadioIndicatorProps {
    * @default false
    */
   keepMounted?: boolean
+  /**
+   * Custom rendering function
+   */
+  render?: (props: React.ComponentPropsWithRef<'span'>) => React.ReactElement
   /**
    * Additional CSS classes
    */
@@ -174,7 +186,9 @@ const RadioRoot = React.forwardRef<HTMLButtonElement, RadioRootProps>(
       disabled = false,
       readOnly = false,
       required = false,
+      id,
       inputRef,
+      render,
       className,
       children,
     },
@@ -187,7 +201,9 @@ const RadioRoot = React.forwardRef<HTMLButtonElement, RadioRootProps>(
         disabled={disabled}
         readOnly={readOnly}
         required={required}
+        id={id}
         inputRef={inputRef}
+        render={render}
         className={cn(
           radioStyles.root,
           radioStyles.variants[variant],
@@ -204,11 +220,12 @@ const RadioRoot = React.forwardRef<HTMLButtonElement, RadioRootProps>(
 RadioRoot.displayName = 'Radio.Root'
 
 const RadioIndicator = React.forwardRef<HTMLSpanElement, RadioIndicatorProps>(
-  ({ variant = 'primary', keepMounted = false, className, children }, ref) => {
+  ({ variant = 'primary', keepMounted = false, render, className, children }, ref) => {
     return (
       <BaseRadio.Indicator
         ref={ref}
         keepMounted={keepMounted}
+        render={render}
         className={cn(radioStyles.indicator, className)}
       >
         {children ?? (
