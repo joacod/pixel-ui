@@ -1,0 +1,482 @@
+---
+title: NumberField
+description: A pixel-art styled number field component with accessibility features
+---
+
+import { NumberField } from '@joacod/pixel-ui'
+
+## Overview
+
+The NumberField component provides a pixel-art styled numeric input with increment/decrement buttons, optional scrub area for dragging to change values, and built-in validation. It's built on Base UI's NumberField primitive for full accessibility support.
+
+## Preview
+
+<ComponentPreview>
+  <NumberField.Root defaultValue={42}>
+    <NumberField.Group variant="primary">
+      <NumberField.Decrement />
+      <NumberField.Input placeholder="Enter a number..." />
+      <NumberField.Increment />
+    </NumberField.Group>
+  </NumberField.Root>
+</ComponentPreview>
+
+## Installation
+
+See the [Installation](/docs/installation) guide for setup instructions.
+
+## Usage
+
+```tsx
+import { NumberField } from '@joacod/pixel-ui'
+
+export default function Example() {
+  return (
+    <NumberField.Root
+      defaultValue={0}
+      min={0}
+      max={100}
+      step={1}
+      onValueChange={(value) => console.log(value)}
+    >
+      <NumberField.Group variant="primary">
+        <NumberField.Decrement />
+        <NumberField.Input placeholder="Enter a number..." />
+        <NumberField.Increment />
+      </NumberField.Group>
+    </NumberField.Root>
+  )
+}
+```
+
+## Variants
+
+The NumberField component supports multiple color variants for the Group wrapper:
+
+<ComponentPreview>
+  <NumberField.Root defaultValue={10}>
+    <NumberField.Group variant="primary">
+      <NumberField.Decrement />
+      <NumberField.Input />
+      <NumberField.Increment />
+    </NumberField.Group>
+  </NumberField.Root>
+
+  <NumberField.Root defaultValue={20}>
+    <NumberField.Group variant="secondary">
+      <NumberField.Decrement />
+      <NumberField.Input />
+      <NumberField.Increment />
+    </NumberField.Group>
+  </NumberField.Root>
+
+  <NumberField.Root defaultValue={30}>
+    <NumberField.Group variant="accent">
+      <NumberField.Decrement />
+      <NumberField.Input />
+      <NumberField.Increment />
+    </NumberField.Group>
+  </NumberField.Root>
+</ComponentPreview>
+
+```tsx
+<NumberField.Root defaultValue={10}>
+  <NumberField.Group variant="primary">
+    <NumberField.Decrement />
+    <NumberField.Input />
+    <NumberField.Increment />
+  </NumberField.Group>
+</NumberField.Root>
+
+<NumberField.Root defaultValue={20}>
+  <NumberField.Group variant="secondary">
+    <NumberField.Decrement />
+    <NumberField.Input />
+    <NumberField.Increment />
+  </NumberField.Group>
+</NumberField.Root>
+
+<NumberField.Root defaultValue={30}>
+  <NumberField.Group variant="accent">
+    <NumberField.Decrement />
+    <NumberField.Input />
+    <NumberField.Increment />
+  </NumberField.Group>
+</NumberField.Root>
+```
+
+## Sizes
+
+Five size options are available for the Group, Input, and buttons:
+
+<ComponentPreview>
+  <NumberField.Root defaultValue={1}>
+    <NumberField.Group size="xs">
+      <NumberField.Decrement size="xs" />
+      <NumberField.Input size="xs" />
+      <NumberField.Increment size="xs" />
+    </NumberField.Group>
+  </NumberField.Root>
+
+  <NumberField.Root defaultValue={2}>
+    <NumberField.Group size="sm">
+      <NumberField.Decrement size="sm" />
+      <NumberField.Input size="sm" />
+      <NumberField.Increment size="sm" />
+    </NumberField.Group>
+  </NumberField.Root>
+
+  <NumberField.Root defaultValue={3}>
+    <NumberField.Group size="md">
+      <NumberField.Decrement size="md" />
+      <NumberField.Input size="md" />
+      <NumberField.Increment size="md" />
+    </NumberField.Group>
+  </NumberField.Root>
+
+  <NumberField.Root defaultValue={4}>
+    <NumberField.Group size="lg">
+      <NumberField.Decrement size="lg" />
+      <NumberField.Input size="lg" />
+      <NumberField.Increment size="lg" />
+    </NumberField.Group>
+  </NumberField.Root>
+
+  <NumberField.Root defaultValue={5}>
+    <NumberField.Group size="xl">
+      <NumberField.Decrement size="xl" />
+      <NumberField.Input size="xl" />
+      <NumberField.Increment size="xl" />
+    </NumberField.Group>
+  </NumberField.Root>
+</ComponentPreview>
+
+```tsx
+<NumberField.Root defaultValue={1}>
+  <NumberField.Group size="xs">
+    <NumberField.Decrement size="xs" />
+    <NumberField.Input size="xs" />
+    <NumberField.Increment size="xs" />
+  </NumberField.Group>
+</NumberField.Root>
+
+<NumberField.Root defaultValue={2}>
+  <NumberField.Group size="sm">
+    <NumberField.Decrement size="sm" />
+    <NumberField.Input size="sm" />
+    <NumberField.Increment size="sm" />
+  </NumberField.Group>
+</NumberField.Root>
+
+<NumberField.Root defaultValue={3}>
+  <NumberField.Group size="md">
+    <NumberField.Decrement size="md" />
+    <NumberField.Input size="md" />
+    <NumberField.Increment size="md" />
+  </NumberField.Group>
+</NumberField.Root>
+
+<NumberField.Root defaultValue={4}>
+  <NumberField.Group size="lg">
+    <NumberField.Decrement size="lg" />
+    <NumberField.Input size="lg" />
+    <NumberField.Increment size="lg" />
+  </NumberField.Group>
+</NumberField.Root>
+
+<NumberField.Root defaultValue={5}>
+  <NumberField.Group size="xl">
+    <NumberField.Decrement size="xl" />
+    <NumberField.Input size="xl" />
+    <NumberField.Increment size="xl" />
+  </NumberField.Group>
+</NumberField.Root>
+```
+
+## States
+
+### With Min and Max
+
+Constrain the value to a specific range:
+
+<ComponentPreview>
+  <NumberField.Root defaultValue={50} min={0} max={100} step={10}>
+    <NumberField.Group>
+      <NumberField.Decrement />
+      <NumberField.Input />
+      <NumberField.Increment />
+    </NumberField.Group>
+  </NumberField.Root>
+</ComponentPreview>
+
+```tsx
+<NumberField.Root defaultValue={50} min={0} max={100} step={10}>
+  <NumberField.Group>
+    <NumberField.Decrement />
+    <NumberField.Input />
+    <NumberField.Increment />
+  </NumberField.Group>
+</NumberField.Root>
+```
+
+### Disabled State
+
+Disable user interaction:
+
+<ComponentPreview>
+  <NumberField.Root disabled defaultValue={42}>
+    <NumberField.Group>
+      <NumberField.Decrement />
+      <NumberField.Input />
+      <NumberField.Increment />
+    </NumberField.Group>
+  </NumberField.Root>
+</ComponentPreview>
+
+```tsx
+<NumberField.Root disabled defaultValue={42}>
+  <NumberField.Group>
+    <NumberField.Decrement />
+    <NumberField.Input />
+    <NumberField.Increment />
+  </NumberField.Group>
+</NumberField.Root>
+```
+
+### Read-only State
+
+Make the field read-only:
+
+<ComponentPreview>
+  <NumberField.Root readOnly defaultValue={42}>
+    <NumberField.Group>
+      <NumberField.Decrement />
+      <NumberField.Input />
+      <NumberField.Increment />
+    </NumberField.Group>
+  </NumberField.Root>
+</ComponentPreview>
+
+```tsx
+<NumberField.Root readOnly defaultValue={42}>
+  <NumberField.Group>
+    <NumberField.Decrement />
+    <NumberField.Input />
+    <NumberField.Increment />
+  </NumberField.Group>
+</NumberField.Root>
+```
+
+### With Custom Step
+
+Increment/decrement by custom amounts:
+
+<ComponentPreview>
+  <NumberField.Root defaultValue={0} step={5}>
+    <NumberField.Group>
+      <NumberField.Decrement />
+      <NumberField.Input />
+      <NumberField.Increment />
+    </NumberField.Group>
+  </NumberField.Root>
+</ComponentPreview>
+
+```tsx
+<NumberField.Root defaultValue={0} step={5}>
+  <NumberField.Group>
+    <NumberField.Decrement />
+    <NumberField.Input />
+    <NumberField.Increment />
+  </NumberField.Group>
+</NumberField.Root>
+```
+
+### With Scrub Area
+
+Enable dragging to change the value:
+
+<ComponentPreview>
+  <NumberField.Root defaultValue={50}>
+    <NumberField.ScrubArea direction="horizontal" pixelSensitivity={2}>
+      <NumberField.Group>
+        <NumberField.Input />
+        <NumberField.Increment />
+        <NumberField.Decrement />
+      </NumberField.Group>
+      <NumberField.ScrubAreaCursor />
+    </NumberField.ScrubArea>
+  </NumberField.Root>
+</ComponentPreview>
+
+```tsx
+<NumberField.Root defaultValue={50}>
+  <NumberField.ScrubArea direction="horizontal" pixelSensitivity={2}>
+    <NumberField.Group>
+      <NumberField.Input />
+      <NumberField.Increment />
+      <NumberField.Decrement />
+    </NumberField.Group>
+    <NumberField.ScrubAreaCursor />
+  </NumberField.ScrubArea>
+</NumberField.Root>
+```
+
+## API Reference
+
+### NumberField.Root Props
+
+| Prop               | Type                                    | Default | Description                                        |
+| ------------------ | --------------------------------------- | ------- | -------------------------------------------------- |
+| `name`             | `string`                                | -       | The name of the field (for form submission)        |
+| `defaultValue`     | `number`                                | -       | Default uncontrolled value                         |
+| `value`            | `number`                                | -       | Controlled value                                   |
+| `onValueChange`    | `(value: number, event: Event) => void` | -       | Callback fired when the value changes              |
+| `onValueCommitted` | `(value: number, event: Event) => void` | -       | Callback fired when the value is committed         |
+| `step`             | `number`                                | `1`     | The step value for incrementing/decrementing       |
+| `min`              | `number`                                | -       | The minimum allowed value                          |
+| `max`              | `number`                                | -       | The maximum allowed value                          |
+| `disabled`         | `boolean`                               | `false` | Disables user interaction                          |
+| `readOnly`         | `boolean`                               | `false` | Makes the field read-only                          |
+| `required`         | `boolean`                               | `false` | Whether the field is required                      |
+| `className`        | `string`                                | -       | Additional CSS classes                             |
+
+### NumberField.Group Props
+
+| Prop        | Type                                                                             | Default     | Description            |
+| ----------- | -------------------------------------------------------------------------------- | ----------- | ---------------------- |
+| `variant`   | `"base" \| "primary" \| "secondary" \| "accent" \| "ghost" \| "error" \| "success" \| "warning"` | `"primary"` | Visual style variant   |
+| `size`      | `"xs" \| "sm" \| "md" \| "lg" \| "xl"`                                           | `"md"`      | Field size             |
+| `className` | `string`                                                                         | -           | Additional CSS classes |
+
+### NumberField.Input Props
+
+| Prop          | Type                                   | Default | Description            |
+| ------------- | -------------------------------------- | ------- | ---------------------- |
+| `size`        | `"xs" \| "sm" \| "md" \| "lg" \| "xl"` | `"md"`  | Input size             |
+| `placeholder` | `string`                               | -       | Placeholder text       |
+| `className`   | `string`                               | -       | Additional CSS classes |
+
+### NumberField.Increment Props
+
+| Prop        | Type                                   | Default | Description                       |
+| ----------- | -------------------------------------- | ------- | --------------------------------- |
+| `size`      | `"xs" \| "sm" \| "md" \| "lg" \| "xl"` | `"md"`  | Button size                       |
+| `className` | `string`                               | -       | Additional CSS classes            |
+| `children`  | `React.ReactNode`                      | `"▲"`   | Custom icon (defaults to up arrow) |
+
+### NumberField.Decrement Props
+
+| Prop        | Type                                   | Default | Description                         |
+| ----------- | -------------------------------------- | ------- | ----------------------------------- |
+| `size`      | `"xs" \| "sm" \| "md" \| "lg" \| "xl"` | `"md"`  | Button size                         |
+| `className` | `string`                               | -       | Additional CSS classes              |
+| `children`  | `React.ReactNode`                      | `"▼"`   | Custom icon (defaults to down arrow) |
+
+### NumberField.ScrubArea Props
+
+| Prop               | Type                            | Default        | Description                          |
+| ------------------ | ------------------------------- | -------------- | ------------------------------------ |
+| `direction`        | `"horizontal" \| "vertical"`    | `"horizontal"` | Direction of scrubbing               |
+| `pixelSensitivity` | `number`                        | `2`            | Sensitivity of scrubbing (pixels per step) |
+| `className`        | `string`                        | -              | Additional CSS classes               |
+
+### NumberField.ScrubAreaCursor Props
+
+| Prop        | Type     | Default | Description            |
+| ----------- | -------- | ------- | ---------------------- |
+| `className` | `string` | -       | Additional CSS classes |
+
+## Accessibility
+
+- Built on Base UI's NumberField primitive with full accessibility support
+- Automatic keyboard navigation:
+  - **Arrow Up/Down**: Increment/decrement by step amount
+  - **Page Up/Down**: Increment/decrement by 10x step amount
+  - **Home/End**: Jump to min/max values (if set)
+  - **Enter**: Commit the current value
+- Proper ARIA attributes for numeric input and buttons
+- Screen reader friendly with semantic HTML and ARIA labels
+- Disabled and read-only states properly communicated
+- Min/max constraints enforced and announced
+
+## Examples
+
+### Basic Counter
+
+```tsx
+import { NumberField } from '@joacod/pixel-ui'
+import { useState } from 'react'
+
+export default function Counter() {
+  const [count, setCount] = useState(0)
+
+  return (
+    <NumberField.Root value={count} onValueChange={(value) => setCount(value ?? 0)}>
+      <NumberField.Group>
+        <NumberField.Decrement />
+        <NumberField.Input />
+        <NumberField.Increment />
+      </NumberField.Group>
+    </NumberField.Root>
+  )
+}
+```
+
+### Quantity Selector
+
+```tsx
+<NumberField.Root defaultValue={1} min={1} max={99} step={1}>
+  <NumberField.Group variant="primary" size="sm">
+    <NumberField.Decrement size="sm" />
+    <NumberField.Input size="sm" placeholder="Qty" />
+    <NumberField.Increment size="sm" />
+  </NumberField.Group>
+</NumberField.Root>
+```
+
+### Price Input
+
+```tsx
+<NumberField.Root defaultValue={9.99} min={0} step={0.01}>
+  <NumberField.Group variant="success">
+    <NumberField.Input placeholder="0.00" />
+    <NumberField.Increment />
+    <NumberField.Decrement />
+  </NumberField.Group>
+</NumberField.Root>
+```
+
+### With Field Component
+
+Use with the Field component for labels, validation, and error messages:
+
+```tsx
+import { NumberField, Field } from '@joacod/pixel-ui'
+
+<Field.Root>
+  <Field.Label>Quantity</Field.Label>
+  <Field.Control>
+    <NumberField.Root min={1} max={100} required>
+      <NumberField.Group>
+        <NumberField.Decrement />
+        <NumberField.Input placeholder="Enter quantity..." />
+        <NumberField.Increment />
+      </NumberField.Group>
+    </NumberField.Root>
+  </Field.Control>
+  <Field.Description>Select between 1 and 100</Field.Description>
+  <Field.Error>Quantity is required</Field.Error>
+</Field.Root>
+```
+
+### Custom Button Icons
+
+```tsx
+<NumberField.Root defaultValue={0}>
+  <NumberField.Group>
+    <NumberField.Decrement>-</NumberField.Decrement>
+    <NumberField.Input />
+    <NumberField.Increment>+</NumberField.Increment>
+  </NumberField.Group>
+</NumberField.Root>
+```
