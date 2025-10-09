@@ -115,8 +115,8 @@ These should be kept in sync. The CSS version is the source of truth for Tailwin
 The library exports four CSS files:
 
 - **theme.css**: Defines design tokens using `@theme` directive with CSS custom properties
-- **base.css**: Global pixel rendering styles and utility classes (`.pixel-border`, `.pixel-render`, etc.)
-- **preset.css**: Imports theme → Tailwind CSS → base styles in correct order, includes Press Start 2P font
+- **base.css**: Global pixel rendering styles, utility classes (`.pixel-border`, `.pixel-render`, etc.), and Fusion Pixel 12px Proportional JP font import
+- **preset.css**: Imports theme → Tailwind CSS → base styles in correct order
 - **components.css**: Pre-built component styles generated from `*.styles.ts` files
 
 The components.css file is generated at build time by:
@@ -153,7 +153,7 @@ All three run in sequence via `pnpm build:lib`
 - **Pixel borders**: Use `box-shadow` instead of traditional borders (see `.pixel-border` utility)
 - **No transitions**: `transition-none` for instant, retro feel
 - **Pixel-perfect rendering**: `image-rendering: pixelated`, no font smoothing
-- **Press Start 2P font**: Loaded from Google Fonts in preset.css
+- **Fusion Pixel 12px Proportional JP font**: Self-hosted via @fontsource package, imported in base.css
 
 ### Dark Mode Guidelines
 
@@ -167,6 +167,7 @@ When adding or modifying component styles, ensure proper dark mode support:
 - **Hover states**: Include dark mode shadows for interactive elements
 
 Default dark mode colors:
+
 - Background: `nes-gray-dark` (#585858)
 - Text/Borders: `nes-white` (#FFFFFF)
 - Primary accent colors (primary, secondary, accent, etc.) remain the same in both modes

@@ -1,5 +1,4 @@
 /*! tailwindcss v4.1.14 | MIT License | https://tailwindcss.com */
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 @layer properties;
 :root, :host {
   --color-nes-black: #000000;
@@ -15,7 +14,7 @@
   --color-nes-error: #fe7269;
   --color-nes-warning: #adb600;
   --color-nes-success: #51df21;
-  --font-family-pixel: 'Press Start 2P', monospace;
+  --font-family-pixel: 'Fusion Pixel 12px Proportional JP', monospace;
   --spacing-px: 1px;
   --spacing-0: 0;
   --spacing-1: 8px;
@@ -1199,6 +1198,13 @@
       }
     }
   }
+}
+@font-face {
+  font-family: 'Fusion Pixel 12px Proportional JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url(../../../../node_modules/.pnpm/@fontsource+fusion-pixel-12px-proportional-jp@5.2.5/node_modules/@fontsource/fusion-pixel-12px-proportional-jp/files/fusion-pixel-12px-proportional-jp-latin-400-normal.woff2) format('woff2'), url(../../../../node_modules/.pnpm/@fontsource+fusion-pixel-12px-proportional-jp@5.2.5/node_modules/@fontsource/fusion-pixel-12px-proportional-jp/files/fusion-pixel-12px-proportional-jp-latin-400-normal.woff) format('woff');
 }
 @layer base {
   img, canvas {
