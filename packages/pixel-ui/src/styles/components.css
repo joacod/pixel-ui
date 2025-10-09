@@ -346,6 +346,9 @@
   .gap-3 {
     gap: var(--spacing-3);
   }
+  .gap-4 {
+    gap: var(--spacing-4);
+  }
   .rounded-full {
     border-radius: calc(infinity * 1px);
   }
@@ -445,6 +448,9 @@
   }
   .py-1 {
     padding-block: var(--spacing-1);
+  }
+  .font-family-pixel {
+    font-family: var(--font-family-pixel);
   }
   .text-base {
     font-size: var(--text-base);

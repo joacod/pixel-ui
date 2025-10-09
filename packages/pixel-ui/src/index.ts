@@ -55,3 +55,4 @@ export {
   type FieldsetRootProps,
   type FieldsetLegendProps,
 } from './components/Fieldset'
+export { Form, type FormProps } from './components/Form'
