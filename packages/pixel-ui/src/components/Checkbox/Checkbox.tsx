@@ -5,6 +5,7 @@ import * as React from 'react'
 import { Checkbox as BaseCheckbox } from '@base-ui-components/react/checkbox'
 import { cn } from '../../utils/cn'
 import { checkboxStyles } from './Checkbox.styles'
+import type { Size } from '../../styles/tokens'
 
 export interface CheckboxRootProps {
   /**
@@ -44,6 +45,11 @@ export interface CheckboxRootProps {
    */
   value?: string
   /**
+   * Checkbox size
+   * @default 'sm'
+   */
+  size?: Size
+  /**
    * Whether the checkbox is disabled
    * @default false
    */
@@ -59,9 +65,17 @@ export interface CheckboxRootProps {
    */
   required?: boolean
   /**
+   * Input element identifier
+   */
+  id?: string
+  /**
    * Reference to the hidden input element
    */
   inputRef?: React.Ref<HTMLInputElement>
+  /**
+   * Custom rendering function
+   */
+  render?: (props: React.ComponentPropsWithRef<'button'>) => React.ReactElement
   /**
    * Additional CSS classes
    */
@@ -78,6 +92,10 @@ export interface CheckboxIndicatorProps {
    * @default false
    */
   keepMounted?: boolean
+  /**
+   * Custom rendering function
+   */
+  render?: (props: React.ComponentPropsWithRef<'span'>) => React.ReactElement
   /**
    * Additional CSS classes
    */
@@ -97,10 +115,13 @@ const CheckboxRoot = React.forwardRef<HTMLButtonElement, CheckboxRootProps>(
       onCheckedChange,
       indeterminate = false,
       value,
+      size = 'sm',
       disabled = false,
       readOnly = false,
       required = false,
+      id,
       inputRef,
+      render,
       className,
       children,
     },
@@ -118,8 +139,10 @@ const CheckboxRoot = React.forwardRef<HTMLButtonElement, CheckboxRootProps>(
         disabled={disabled}
         readOnly={readOnly}
         required={required}
+        id={id}
         inputRef={inputRef}
-        className={cn(checkboxStyles.root, className)}
+        render={render}
+        className={cn(checkboxStyles.root, checkboxStyles.sizes[size], className)}
       >
         {children}
       </BaseCheckbox.Root>
@@ -132,11 +155,12 @@ CheckboxRoot.displayName = 'Checkbox.Root'
 const CheckboxIndicator = React.forwardRef<
   HTMLSpanElement,
   CheckboxIndicatorProps
->(({ keepMounted = false, className, children }, ref) => {
+>(({ keepMounted = false, render, className, children }, ref) => {
   return (
     <BaseCheckbox.Indicator
       ref={ref}
       keepMounted={keepMounted}
+      render={render}
       className={cn(checkboxStyles.indicator, className)}
     >
       {children ?? <span className={checkboxStyles.checkmark}>✓</span>}

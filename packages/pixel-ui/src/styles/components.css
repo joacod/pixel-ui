@@ -876,6 +876,11 @@
       background-color: var(--color-white);
     }
   }
+  .dark\:border-nes-gray {
+    @media (prefers-color-scheme: dark) {
+      border-color: var(--color-nes-gray);
+    }
+  }
   .dark\:border-nes-red {
     @media (prefers-color-scheme: dark) {
       border-color: var(--color-nes-red);
@@ -899,6 +904,11 @@
       background-color: var(--color-nes-gray-dark);
     }
   }
+  .dark\:bg-nes-white {
+    @media (prefers-color-scheme: dark) {
+      background-color: var(--color-nes-white);
+    }
+  }
   .dark\:text-nes-gray {
     @media (prefers-color-scheme: dark) {
       color: var(--color-nes-gray);
@@ -912,6 +922,12 @@
   .dark\:text-nes-white {
     @media (prefers-color-scheme: dark) {
       color: var(--color-nes-white);
+    }
+  }
+  .dark\:shadow-\[2px_2px_0_0_theme\(colors\.nes\.white\)\] {
+    @media (prefers-color-scheme: dark) {
+      --tw-shadow: 2px 2px 0 0 var(--tw-shadow-color, #ffffff);
+      box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
     }
   }
   .dark\:read-only\:bg-nes-gray-dark\/50 {
@@ -928,6 +944,98 @@
     @media (prefers-color-scheme: dark) {
       &:focus {
         --tw-ring-color: var(--color-nes-secondary);
+      }
+    }
+  }
+  .dark\:focus-visible\:ring-nes-secondary {
+    @media (prefers-color-scheme: dark) {
+      &:focus-visible {
+        --tw-ring-color: var(--color-nes-secondary);
+      }
+    }
+  }
+  .dark\:data-\[checked\]\:border-nes-primary {
+    @media (prefers-color-scheme: dark) {
+      &[data-checked] {
+        border-color: var(--color-nes-primary);
+      }
+    }
+  }
+  .dark\:data-\[checked\]\:border-nes-white {
+    @media (prefers-color-scheme: dark) {
+      &[data-checked] {
+        border-color: var(--color-nes-white);
+      }
+    }
+  }
+  .dark\:data-\[checked\]\:bg-nes-gray-dark {
+    @media (prefers-color-scheme: dark) {
+      &[data-checked] {
+        background-color: var(--color-nes-gray-dark);
+      }
+    }
+  }
+  .dark\:data-\[checked\]\:bg-nes-primary {
+    @media (prefers-color-scheme: dark) {
+      &[data-checked] {
+        background-color: var(--color-nes-primary);
+      }
+    }
+  }
+  .dark\:data-\[checked\]\:shadow-\[2px_2px_0_0_theme\(colors\.nes\.primary\)\] {
+    @media (prefers-color-scheme: dark) {
+      &[data-checked] {
+        --tw-shadow: 2px 2px 0 0 var(--tw-shadow-color, #3337fe);
+        box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+      }
+    }
+  }
+  .dark\:data-\[checked\]\:shadow-\[2px_2px_0_0_theme\(colors\.nes\.white\)\] {
+    @media (prefers-color-scheme: dark) {
+      &[data-checked] {
+        --tw-shadow: 2px 2px 0 0 var(--tw-shadow-color, #ffffff);
+        box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+      }
+    }
+  }
+  .dark\:hover\:data-\[disabled\]\:shadow-\[2px_2px_0_0_theme\(colors\.nes\.white\)\] {
+    @media (prefers-color-scheme: dark) {
+      &:hover {
+        @media (hover: hover) {
+          &[data-disabled] {
+            --tw-shadow: 2px 2px 0 0 var(--tw-shadow-color, #ffffff);
+            box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+          }
+        }
+      }
+    }
+  }
+  .dark\:data-\[indeterminate\]\:border-nes-secondary {
+    @media (prefers-color-scheme: dark) {
+      &[data-indeterminate] {
+        border-color: var(--color-nes-secondary);
+      }
+    }
+  }
+  .dark\:data-\[indeterminate\]\:bg-nes-secondary {
+    @media (prefers-color-scheme: dark) {
+      &[data-indeterminate] {
+        background-color: var(--color-nes-secondary);
+      }
+    }
+  }
+  .dark\:data-\[indeterminate\]\:shadow-\[2px_2px_0_0_theme\(colors\.nes\.secondary\)\] {
+    @media (prefers-color-scheme: dark) {
+      &[data-indeterminate] {
+        --tw-shadow: 2px 2px 0 0 var(--tw-shadow-color, #f15bfe);
+        box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+      }
+    }
+  }
+  .dark\:data-\[unchecked\]\:bg-nes-gray-dark {
+    @media (prefers-color-scheme: dark) {
+      &[data-unchecked] {
+        background-color: var(--color-nes-gray-dark);
       }
     }
   }

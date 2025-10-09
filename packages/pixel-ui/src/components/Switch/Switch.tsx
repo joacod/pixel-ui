@@ -14,6 +14,7 @@ export interface SwitchRootProps {
   name?: string
   /**
    * Default switch state (uncontrolled)
+   * @default false
    */
   defaultChecked?: boolean
   /**
@@ -40,9 +41,14 @@ export interface SwitchRootProps {
   variant?: Variant
   /**
    * Switch size
-   * @default 'sm'
+   * @default 'xs'
    */
   size?: Size
+  /**
+   * Renders native button element
+   * @default true
+   */
+  nativeButton?: boolean
   /**
    * Whether the switch is disabled
    * @default false
@@ -59,9 +65,17 @@ export interface SwitchRootProps {
    */
   required?: boolean
   /**
+   * Input element identifier
+   */
+  id?: string
+  /**
    * Reference to the hidden input element
    */
   inputRef?: React.Ref<HTMLInputElement>
+  /**
+   * Custom rendering function
+   */
+  render?: (props: React.ComponentPropsWithRef<'button'>) => React.ReactElement
   /**
    * Additional CSS classes
    */
@@ -74,9 +88,17 @@ export interface SwitchRootProps {
 
 export interface SwitchThumbProps {
   /**
+   * Custom rendering function
+   */
+  render?: (props: React.ComponentPropsWithRef<'span'>) => React.ReactElement
+  /**
    * Additional CSS classes
    */
   className?: string
+  /**
+   * Thumb content (optional icon or indicator)
+   */
+  children?: React.ReactNode
 }
 
 const SwitchRoot = React.forwardRef<HTMLButtonElement, SwitchRootProps>(
@@ -87,11 +109,14 @@ const SwitchRoot = React.forwardRef<HTMLButtonElement, SwitchRootProps>(
       checked,
       onCheckedChange,
       variant = 'primary',
-      size = 'sm',
+      size = 'xs',
+      nativeButton = true,
       disabled = false,
       readOnly = false,
       required = false,
+      id,
       inputRef,
+      render,
       className,
       children,
     },
@@ -111,10 +136,13 @@ const SwitchRoot = React.forwardRef<HTMLButtonElement, SwitchRootProps>(
         defaultChecked={defaultChecked}
         checked={checked}
         onCheckedChange={handleCheckedChange}
+        nativeButton={nativeButton}
         disabled={disabled}
         readOnly={readOnly}
         required={required}
+        id={id}
         inputRef={inputRef}
+        render={render}
         className={cn(
           switchStyles.root,
           switchStyles.variants[variant],
@@ -131,12 +159,15 @@ const SwitchRoot = React.forwardRef<HTMLButtonElement, SwitchRootProps>(
 SwitchRoot.displayName = 'Switch.Root'
 
 const SwitchThumb = React.forwardRef<HTMLSpanElement, SwitchThumbProps>(
-  ({ className }, ref) => {
+  ({ render, className, children }, ref) => {
     return (
       <BaseSwitch.Thumb
         ref={ref}
+        render={render}
         className={cn(switchStyles.thumb, className)}
-      />
+      >
+        {children ?? <span className={switchStyles.indicator}>✓</span>}
+      </BaseSwitch.Thumb>
     )
   }
 )

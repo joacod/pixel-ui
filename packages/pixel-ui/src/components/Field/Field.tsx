@@ -35,6 +35,10 @@ export interface FieldRootProps extends React.ComponentPropsWithRef<'div'> {
    */
   validationMode?: 'onBlur' | 'onChange'
   /**
+   * Delay in milliseconds between validation checks
+   */
+  validationDebounceTime?: number
+  /**
    * Additional CSS classes
    */
   className?: string
@@ -140,6 +144,7 @@ const FieldRoot = React.forwardRef<HTMLDivElement, FieldRootProps>(
       invalid = false,
       validate,
       validationMode = 'onBlur',
+      validationDebounceTime,
       className,
       children,
       ...props
@@ -154,6 +159,7 @@ const FieldRoot = React.forwardRef<HTMLDivElement, FieldRootProps>(
         invalid={invalid}
         validate={validate}
         validationMode={validationMode}
+        validationDebounceTime={validationDebounceTime}
         className={cn(fieldStyles.root, className)}
         {...props}
       >
