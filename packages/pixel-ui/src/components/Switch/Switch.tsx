@@ -166,7 +166,13 @@ const SwitchThumb = React.forwardRef<HTMLSpanElement, SwitchThumbProps>(
         render={render}
         className={cn(switchStyles.thumb, className)}
       >
-        {children ?? <span className={switchStyles.indicator}>✓</span>}
+        {children ?? (
+          <>
+            <span className={cn(switchStyles.indicator, 'data-[checked]:block data-[unchecked]:hidden')}>
+              ✓
+            </span>
+          </>
+        )}
       </BaseSwitch.Thumb>
     )
   }

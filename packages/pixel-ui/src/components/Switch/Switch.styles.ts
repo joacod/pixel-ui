@@ -18,12 +18,29 @@ export const switchStyles = {
     'relative',
     // Disabled state
     'data-[disabled]:cursor-not-allowed',
-    'data-[disabled]:opacity-50',
+    'data-[disabled]:opacity-60',
+    'data-[disabled]:grayscale',
+    'dark:data-[disabled]:opacity-40',
+    'dark:data-[disabled]:brightness-75',
     // Read-only state
     'data-[readonly]:cursor-default',
   ].join(' '),
 
   variants: {
+    base: [
+      'shadow-[2px_2px_0_0_theme(colors.nes.black)]',
+      'dark:shadow-[2px_2px_0_0_theme(colors.nes.white)]',
+      'data-[checked]:bg-nes-black',
+      'dark:data-[checked]:bg-nes-white',
+      'data-[checked]:border-nes-black',
+      'dark:data-[checked]:border-nes-white',
+      'focus-visible:ring-2',
+      'focus-visible:ring-nes-black',
+      'dark:focus-visible:ring-nes-white',
+      'focus-visible:ring-offset-2',
+      'hover:not([data-disabled]):shadow-[3px_3px_0_0_theme(colors.nes.black)]',
+      'dark:hover:not([data-disabled]):shadow-[3px_3px_0_0_theme(colors.nes.white)]',
+    ].join(' '),
     primary: [
       'shadow-[2px_2px_0_0_theme(colors.nes.black)]',
       'dark:shadow-[2px_2px_0_0_theme(colors.nes.white)]',

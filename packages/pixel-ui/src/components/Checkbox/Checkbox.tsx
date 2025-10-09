@@ -5,7 +5,7 @@ import * as React from 'react'
 import { Checkbox as BaseCheckbox } from '@base-ui-components/react/checkbox'
 import { cn } from '../../utils/cn'
 import { checkboxStyles } from './Checkbox.styles'
-import type { Size } from '../../styles/tokens'
+import type { Size, Variant } from '../../styles/tokens'
 
 export interface CheckboxRootProps {
   /**
@@ -44,6 +44,11 @@ export interface CheckboxRootProps {
    * Value of the checkbox when submitted
    */
   value?: string
+  /**
+   * Visual style variant
+   * @default 'primary'
+   */
+  variant?: Variant
   /**
    * Checkbox size
    * @default 'sm'
@@ -115,6 +120,7 @@ const CheckboxRoot = React.forwardRef<HTMLButtonElement, CheckboxRootProps>(
       onCheckedChange,
       indeterminate = false,
       value,
+      variant = 'primary',
       size = 'sm',
       disabled = false,
       readOnly = false,
@@ -142,7 +148,12 @@ const CheckboxRoot = React.forwardRef<HTMLButtonElement, CheckboxRootProps>(
         id={id}
         inputRef={inputRef}
         render={render}
-        className={cn(checkboxStyles.root, checkboxStyles.sizes[size], className)}
+        className={cn(
+          checkboxStyles.root,
+          checkboxStyles.variants[variant],
+          checkboxStyles.sizes[size],
+          className
+        )}
       >
         {children}
       </BaseCheckbox.Root>

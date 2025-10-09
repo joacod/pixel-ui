@@ -14,7 +14,10 @@ export const fieldStyles = {
     'text-nes-black',
     'dark:text-nes-white',
     'select-none',
-    'data-[disabled]:opacity-50',
+    'data-[disabled]:opacity-60',
+    'data-[disabled]:grayscale',
+    'dark:data-[disabled]:opacity-40',
+    'dark:data-[disabled]:brightness-75',
     'data-[disabled]:cursor-not-allowed',
   ].join(' '),
 
@@ -48,7 +51,8 @@ export const fieldStyles = {
     'text-sm',
     'text-nes-gray-dark',
     'dark:text-nes-gray',
-    'data-[disabled]:opacity-50',
+    'data-[disabled]:opacity-60',
+    'dark:data-[disabled]:opacity-40',
   ].join(' '),
 
   error: [

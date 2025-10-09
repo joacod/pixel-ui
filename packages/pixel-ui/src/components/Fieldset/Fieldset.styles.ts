@@ -8,7 +8,10 @@ export const fieldsetStyles = {
     'dark:border-nes-white',
     'p-4', // 32px padding
     'transition-none',
-    'data-[disabled]:opacity-50',
+    'data-[disabled]:opacity-60',
+    'data-[disabled]:grayscale',
+    'dark:data-[disabled]:opacity-40',
+    'dark:data-[disabled]:brightness-75',
     'data-[disabled]:cursor-not-allowed',
   ].join(' '),
 

@@ -23,12 +23,31 @@ export const radioStyles = {
     'outline-none',
     // Disabled state
     'data-[disabled]:cursor-not-allowed',
-    'data-[disabled]:opacity-50',
+    'data-[disabled]:opacity-60',
+    'data-[disabled]:grayscale',
+    'dark:data-[disabled]:opacity-40',
+    'dark:data-[disabled]:brightness-75',
     // Read-only state
     'data-[readonly]:cursor-default',
   ].join(' '),
 
   variants: {
+    base: [
+      'border-nes-black',
+      'dark:border-nes-white',
+      'shadow-[2px_2px_0_0_theme(colors.nes.black)]',
+      'dark:shadow-[2px_2px_0_0_theme(colors.nes.white)]',
+      'data-[checked]:border-nes-black',
+      'dark:data-[checked]:border-nes-white',
+      'data-[checked]:shadow-[2px_2px_0_0_theme(colors.nes.black)]',
+      'dark:data-[checked]:shadow-[2px_2px_0_0_theme(colors.nes.white)]',
+      'focus-visible:ring-2',
+      'focus-visible:ring-nes-black',
+      'dark:focus-visible:ring-nes-white',
+      'focus-visible:ring-offset-2',
+      'hover:not([data-disabled]):shadow-[3px_3px_0_0_theme(colors.nes.black)]',
+      'dark:hover:not([data-disabled]):shadow-[3px_3px_0_0_theme(colors.nes.white)]',
+    ].join(' '),
     primary: [
       'border-nes-black',
       'dark:border-nes-white',
@@ -150,10 +169,11 @@ export const radioStyles = {
   ].join(' '),
 
   dotVariants: {
+    base: 'bg-nes-black dark:bg-nes-white',
     primary: 'bg-nes-primary',
     secondary: 'bg-nes-secondary',
     accent: 'bg-nes-accent',
-    ghost: 'bg-nes-black',
+    ghost: 'bg-nes-black dark:bg-nes-white',
     error: 'bg-nes-error',
     success: 'bg-nes-success',
     warning: 'bg-nes-warning',
