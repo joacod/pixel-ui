@@ -414,6 +414,9 @@
   .p-1 {
     padding: var(--spacing-1);
   }
+  .p-4 {
+    padding: var(--spacing-4);
+  }
   .px-2 {
     padding-inline: var(--spacing-2);
   }

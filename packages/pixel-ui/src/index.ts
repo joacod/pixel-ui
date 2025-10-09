@@ -50,3 +50,8 @@ export {
   type FieldErrorProps,
   type FieldValidityProps,
 } from './components/Field'
+export {
+  Fieldset,
+  type FieldsetRootProps,
+  type FieldsetLegendProps,
+} from './components/Fieldset'

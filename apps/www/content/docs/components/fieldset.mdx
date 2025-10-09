@@ -1,0 +1,230 @@
+---
+title: Fieldset
+description: A pixel-art styled fieldset component for grouping related form fields with accessibility features
+---
+
+import { Fieldset, Field } from '@joacod/pixel-ui'
+
+## Overview
+
+The Fieldset component provides a native fieldset element with pixel-art styling and an accessible legend. It's used to group related form fields together, especially when creating complex forms with multiple sections.
+
+## Preview
+
+<ComponentPreview>
+  <Fieldset.Root>
+    <Fieldset.Legend>Personal Information</Fieldset.Legend>
+    <div className="space-y-3">
+      <Field.Root>
+        <Field.Label>First Name</Field.Label>
+        <Field.Control placeholder="John" required />
+      </Field.Root>
+      <Field.Root>
+        <Field.Label>Last Name</Field.Label>
+        <Field.Control placeholder="Doe" required />
+      </Field.Root>
+    </div>
+  </Fieldset.Root>
+</ComponentPreview>
+
+## Installation
+
+See the [Installation](/docs/installation) guide for setup instructions.
+
+## Usage
+
+### Basic Fieldset
+
+```tsx
+import { Fieldset, Field } from '@joacod/pixel-ui'
+
+export default function Example() {
+  return (
+    <Fieldset.Root>
+      <Fieldset.Legend>Billing Address</Fieldset.Legend>
+      <Field.Root>
+        <Field.Label>Street Address</Field.Label>
+        <Field.Control placeholder="123 Main St" />
+      </Field.Root>
+      <Field.Root>
+        <Field.Label>City</Field.Label>
+        <Field.Control placeholder="New York" />
+      </Field.Root>
+    </Fieldset.Root>
+  )
+}
+```
+
+## Component Parts
+
+The Fieldset component is composed of multiple subcomponents:
+
+- **Fieldset.Root**: Container that renders a native `<fieldset>` element
+- **Fieldset.Legend**: Accessible label that renders as a styled legend
+
+## Examples
+
+### Multi-Section Form
+
+<ComponentPreview>
+  <form className="space-y-4">
+    <Fieldset.Root>
+      <Fieldset.Legend>Account Details</Fieldset.Legend>
+      <div className="space-y-3">
+        <Field.Root>
+          <Field.Label>Username</Field.Label>
+          <Field.Control placeholder="johndoe" required />
+          <Field.Error match="valueMissing">Username is required</Field.Error>
+        </Field.Root>
+        <Field.Root>
+          <Field.Label>Email</Field.Label>
+          <Field.Control type="email" placeholder="john@example.com" required />
+          <Field.Error match="valueMissing">Email is required</Field.Error>
+          <Field.Error match="typeMismatch">Invalid email format</Field.Error>
+        </Field.Root>
+      </div>
+    </Fieldset.Root>
+
+    <Fieldset.Root>
+      <Fieldset.Legend>Contact Information</Fieldset.Legend>
+      <div className="space-y-3">
+        <Field.Root>
+          <Field.Label>Phone</Field.Label>
+          <Field.Control type="tel" placeholder="(555) 123-4567" />
+        </Field.Root>
+        <Field.Root>
+          <Field.Label>Address</Field.Label>
+          <Field.Control placeholder="123 Main St" />
+        </Field.Root>
+      </div>
+    </Fieldset.Root>
+  </form>
+</ComponentPreview>
+
+```tsx
+<form>
+  <Fieldset.Root>
+    <Fieldset.Legend>Account Details</Fieldset.Legend>
+    <Field.Root>
+      <Field.Label>Username</Field.Label>
+      <Field.Control required />
+    </Field.Root>
+    <Field.Root>
+      <Field.Label>Email</Field.Label>
+      <Field.Control type="email" required />
+    </Field.Root>
+  </Fieldset.Root>
+
+  <Fieldset.Root>
+    <Fieldset.Legend>Contact Information</Fieldset.Legend>
+    <Field.Root>
+      <Field.Label>Phone</Field.Label>
+      <Field.Control type="tel" />
+    </Field.Root>
+  </Fieldset.Root>
+</form>
+```
+
+### Disabled Fieldset
+
+When a fieldset is disabled, all controls within it are disabled:
+
+<ComponentPreview>
+  <Fieldset.Root disabled>
+    <Fieldset.Legend>Disabled Section</Fieldset.Legend>
+    <div className="space-y-3">
+      <Field.Root>
+        <Field.Label>Field 1</Field.Label>
+        <Field.Control placeholder="Cannot edit" />
+      </Field.Root>
+      <Field.Root>
+        <Field.Label>Field 2</Field.Label>
+        <Field.Control placeholder="Cannot edit" />
+      </Field.Root>
+    </div>
+  </Fieldset.Root>
+</ComponentPreview>
+
+```tsx
+<Fieldset.Root disabled>
+  <Fieldset.Legend>Disabled Section</Fieldset.Legend>
+  <Field.Root>
+    <Field.Label>Field 1</Field.Label>
+    <Field.Control placeholder="Cannot edit" />
+  </Field.Root>
+</Fieldset.Root>
+```
+
+### Nested Layout with Custom Spacing
+
+```tsx
+<Fieldset.Root className="max-w-2xl">
+  <Fieldset.Legend>Shipping Information</Fieldset.Legend>
+  <div className="grid grid-cols-2 gap-4">
+    <Field.Root>
+      <Field.Label>First Name</Field.Label>
+      <Field.Control />
+    </Field.Root>
+    <Field.Root>
+      <Field.Label>Last Name</Field.Label>
+      <Field.Control />
+    </Field.Root>
+    <Field.Root className="col-span-2">
+      <Field.Label>Street Address</Field.Label>
+      <Field.Control />
+    </Field.Root>
+    <Field.Root>
+      <Field.Label>City</Field.Label>
+      <Field.Control />
+    </Field.Root>
+    <Field.Root>
+      <Field.Label>Postal Code</Field.Label>
+      <Field.Control />
+    </Field.Root>
+  </div>
+</Fieldset.Root>
+```
+
+## API Reference
+
+### Fieldset.Root
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| disabled | boolean | false | Disables all controls within the fieldset |
+| className | string | - | Additional CSS classes |
+| children | ReactNode | - | Fieldset content |
+
+All standard HTML `<fieldset>` attributes are also supported.
+
+### Fieldset.Legend
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| className | string | - | Additional CSS classes |
+| children | ReactNode | - | Legend content |
+
+All standard HTML attributes are also supported (rendered as a `<div>`).
+
+## Accessibility
+
+- **Semantic HTML**: Uses native `<fieldset>` element for proper form grouping
+- **Automatic association**: Legend is automatically associated with the fieldset
+- **Disabled propagation**: When fieldset is disabled, all controls are disabled and announced correctly
+- **Screen reader support**: Screen readers announce the legend when entering the fieldset
+- **Keyboard navigation**: Full keyboard support for all contained controls
+
+## Best Practices
+
+1. **Group related fields**: Use fieldsets to group form fields that are logically related
+2. **Descriptive legends**: Provide clear, concise legend text that describes the group
+3. **Avoid over-nesting**: Keep fieldsets at a reasonable depth (1-2 levels max)
+4. **Combine with Field**: Use Field component for individual form controls within the fieldset
+5. **Disabled state**: Use fieldset's disabled prop to disable multiple fields at once
+
+## Related Components
+
+- [Field](/docs/components/field) - Individual form field wrapper with validation
+- [Input](/docs/components/input) - Text input component
+- [Checkbox](/docs/components/checkbox) - Checkbox input component
+- [Radio](/docs/components/radio) - Radio button component
