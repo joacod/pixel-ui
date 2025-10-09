@@ -16,7 +16,8 @@
     "./components": "./dist/styles/components.css"
   },
   "files": [
-    "dist"
+    "dist",
+    "dist/assets"
   ],
   "scripts": {
     "build": "node scripts/generate-components-css.mjs && tsdown && node scripts/copy-styles.mjs",
@@ -55,8 +56,7 @@
     "react-dom": "^19.0.0"
   },
   "dependencies": {
-    "@base-ui-components/react": "1.0.0-beta.4",
-    "@fontsource/fusion-pixel-12px-proportional-jp": "5.2.5"
+    "@base-ui-components/react": "1.0.0-beta.4"
   },
   "devDependencies": {
     "@changesets/cli": "2.29.7",

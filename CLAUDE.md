@@ -115,7 +115,7 @@ These should be kept in sync. The CSS version is the source of truth for Tailwin
 The library exports four CSS files:
 
 - **theme.css**: Defines design tokens using `@theme` directive with CSS custom properties
-- **base.css**: Global pixel rendering styles, utility classes (`.pixel-border`, `.pixel-render`, etc.), and Fusion Pixel 12px Proportional JP font import
+- **base.css**: Global pixel rendering styles, utility classes (`.pixel-border`, `.pixel-render`, etc.), and Unifontex pixel font via @font-face
 - **preset.css**: Imports theme → Tailwind CSS → base styles in correct order
 - **components.css**: Pre-built component styles generated from `*.styles.ts` files
 
@@ -143,7 +143,7 @@ The library uses a three-step build process:
 
 1. **generate-components-css.mjs**: Extracts Tailwind classes from all `*.styles.ts` files and generates `src/styles/components.css` with pre-built component styles
 2. **tsdown**: Bundles TypeScript to ESM in `dist/`
-3. **copy-styles.mjs**: Copies all CSS files from `src/styles/` to `dist/styles/`
+3. **copy-styles.mjs**: Copies all CSS files from `src/styles/` to `dist/styles/` and font assets from `src/assets/` to `dist/assets/`
 
 All three run in sequence via `pnpm build:lib`
 
@@ -153,7 +153,7 @@ All three run in sequence via `pnpm build:lib`
 - **Pixel borders**: Use `box-shadow` instead of traditional borders (see `.pixel-border` utility)
 - **No transitions**: `transition-none` for instant, retro feel
 - **Pixel-perfect rendering**: `image-rendering: pixelated`, no font smoothing
-- **Fusion Pixel 12px Proportional JP font**: Self-hosted via @fontsource package, imported in base.css
+- **Unifontex pixel font**: Self-hosted in `src/assets/fonts/`, imported via @font-face in base.css
 
 ### Dark Mode Guidelines
 

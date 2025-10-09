@@ -1,7 +1,14 @@
 /* Pixel UI - Base Styles & Utilities */
 
-/* Import Fusion Pixel font */
-@import '@fontsource/fusion-pixel-12px-proportional-jp';
+/* Import Unifontex font */
+@font-face {
+  font-family: 'Unifontex';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../assets/fonts/unifontex-latin-400-normal.woff2') format('woff2'),
+       url('../assets/fonts/unifontex-latin-400-normal.woff') format('woff');
+}
 
 /* Global pixel rendering styles */
 @layer base {
