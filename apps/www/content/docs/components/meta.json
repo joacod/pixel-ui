@@ -1,9 +1,4 @@
 {
   "title": "Components",
-  "pages": [
-    "button",
-    "input",
-    "checkbox",
-    "checkbox-group"
-  ]
+  "pages": ["button", "input", "checkbox", "checkbox-group", "radio"]
 }
