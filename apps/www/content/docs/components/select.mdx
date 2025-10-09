@@ -1,0 +1,533 @@
+---
+title: Select
+description: A pixel-art styled select dropdown component with accessibility features
+---
+
+import { Select } from '@joacod/pixel-ui'
+
+## Overview
+
+The Select component provides a pixel-art styled dropdown for choosing values from a list. It's built on Base UI's Select primitive with compound components for full customization and accessibility support.
+
+## Preview
+
+<ComponentPreview>
+  <Select.Root items={[
+    { value: 'apple', label: 'Apple' },
+    { value: 'banana', label: 'Banana' },
+    { value: 'orange', label: 'Orange' },
+  ]}>
+    <Select.Trigger variant="primary">
+      <Select.Value placeholder="Select a fruit..." />
+      <Select.Icon />
+    </Select.Trigger>
+    <Select.Portal>
+      <Select.Positioner>
+        <Select.Popup>
+          <Select.List>
+            <Select.Item value="apple">
+              <Select.ItemText>Apple</Select.ItemText>
+            </Select.Item>
+            <Select.Item value="banana">
+              <Select.ItemText>Banana</Select.ItemText>
+            </Select.Item>
+            <Select.Item value="orange">
+              <Select.ItemText>Orange</Select.ItemText>
+            </Select.Item>
+          </Select.List>
+        </Select.Popup>
+      </Select.Positioner>
+    </Select.Portal>
+  </Select.Root>
+</ComponentPreview>
+
+## Installation
+
+See the [Installation](/docs/installation) guide for setup instructions.
+
+## Usage
+
+```tsx
+import { Select } from '@joacod/pixel-ui'
+
+const fruits = [
+  { value: '', label: 'Select a fruit...' }, // Placeholder item
+  { value: 'apple', label: 'Apple' },
+  { value: 'banana', label: 'Banana' },
+  { value: 'orange', label: 'Orange' },
+]
+
+export default function Example() {
+  return (
+    <Select.Root items={fruits}>
+      <Select.Trigger variant="primary">
+        <Select.Value />
+        <Select.Icon />
+      </Select.Trigger>
+      <Select.Portal>
+        <Select.Positioner>
+          <Select.Popup>
+            <Select.List>
+              {fruits.map((fruit) => (
+                <Select.Item key={fruit.value} value={fruit.value}>
+                  <Select.ItemText>{fruit.label}</Select.ItemText>
+                </Select.Item>
+              ))}
+            </Select.List>
+          </Select.Popup>
+        </Select.Positioner>
+      </Select.Portal>
+    </Select.Root>
+  )
+}
+```
+
+## Variants
+
+The Select trigger supports multiple color variants:
+
+<ComponentPreview>
+  <Select.Root items={[{ value: '1', label: 'Option 1' }]}>
+    <Select.Trigger variant="primary">
+      <Select.Value placeholder="Primary variant" />
+      <Select.Icon />
+    </Select.Trigger>
+  </Select.Root>
+  <Select.Root items={[{ value: '1', label: 'Option 1' }]}>
+    <Select.Trigger variant="secondary">
+      <Select.Value placeholder="Secondary variant" />
+      <Select.Icon />
+    </Select.Trigger>
+  </Select.Root>
+  <Select.Root items={[{ value: '1', label: 'Option 1' }]}>
+    <Select.Trigger variant="accent">
+      <Select.Value placeholder="Accent variant" />
+      <Select.Icon />
+    </Select.Trigger>
+  </Select.Root>
+  <Select.Root items={[{ value: '1', label: 'Option 1' }]}>
+    <Select.Trigger variant="error">
+      <Select.Value placeholder="Error variant" />
+      <Select.Icon />
+    </Select.Trigger>
+  </Select.Root>
+</ComponentPreview>
+
+```tsx
+<Select.Trigger variant="primary">...</Select.Trigger>
+<Select.Trigger variant="secondary">...</Select.Trigger>
+<Select.Trigger variant="accent">...</Select.Trigger>
+<Select.Trigger variant="error">...</Select.Trigger>
+```
+
+## Sizes
+
+Five size options are available:
+
+<ComponentPreview>
+  <Select.Root items={[{ value: '1', label: 'Option 1' }]}>
+    <Select.Trigger size="xs">
+      <Select.Value placeholder="Extra small" />
+      <Select.Icon />
+    </Select.Trigger>
+  </Select.Root>
+  <Select.Root items={[{ value: '1', label: 'Option 1' }]}>
+    <Select.Trigger size="sm">
+      <Select.Value placeholder="Small" />
+      <Select.Icon />
+    </Select.Trigger>
+  </Select.Root>
+  <Select.Root items={[{ value: '1', label: 'Option 1' }]}>
+    <Select.Trigger size="md">
+      <Select.Value placeholder="Medium" />
+      <Select.Icon />
+    </Select.Trigger>
+  </Select.Root>
+  <Select.Root items={[{ value: '1', label: 'Option 1' }]}>
+    <Select.Trigger size="lg">
+      <Select.Value placeholder="Large" />
+      <Select.Icon />
+    </Select.Trigger>
+  </Select.Root>
+  <Select.Root items={[{ value: '1', label: 'Option 1' }]}>
+    <Select.Trigger size="xl">
+      <Select.Value placeholder="Extra large" />
+      <Select.Icon />
+    </Select.Trigger>
+  </Select.Root>
+</ComponentPreview>
+
+```tsx
+<Select.Trigger size="xs">...</Select.Trigger>
+<Select.Trigger size="sm">...</Select.Trigger>
+<Select.Trigger size="md">...</Select.Trigger>
+<Select.Trigger size="lg">...</Select.Trigger>
+<Select.Trigger size="xl">...</Select.Trigger>
+```
+
+## States
+
+### Disabled State
+
+Disable user interaction:
+
+```tsx
+<Select.Root items={fruits} disabled>
+  <Select.Trigger>
+    <Select.Value placeholder="Disabled select" />
+    <Select.Icon />
+  </Select.Trigger>
+  <Select.Portal>
+    <Select.Positioner>
+      <Select.Popup>
+        <Select.List>
+          {fruits.map((fruit) => (
+            <Select.Item key={fruit.value} value={fruit.value}>
+              <Select.ItemText>{fruit.label}</Select.ItemText>
+            </Select.Item>
+          ))}
+        </Select.List>
+      </Select.Popup>
+    </Select.Positioner>
+  </Select.Portal>
+</Select.Root>
+```
+
+### Disabled Items
+
+Disable specific items in the dropdown:
+
+```tsx
+<Select.Root items={[
+  { value: 'apple', label: 'Apple' },
+  { value: 'banana', label: 'Banana', disabled: true },
+  { value: 'orange', label: 'Orange' },
+]}>
+  <Select.Trigger>
+    <Select.Value placeholder="Select a fruit..." />
+    <Select.Icon />
+  </Select.Trigger>
+  <Select.Portal>
+    <Select.Positioner>
+      <Select.Popup>
+        <Select.List>
+          <Select.Item value="apple">
+            <Select.ItemText>Apple</Select.ItemText>
+          </Select.Item>
+          <Select.Item value="banana" disabled>
+            <Select.ItemText>Banana (Out of stock)</Select.ItemText>
+          </Select.Item>
+          <Select.Item value="orange">
+            <Select.ItemText>Orange</Select.ItemText>
+          </Select.Item>
+        </Select.List>
+      </Select.Popup>
+    </Select.Positioner>
+  </Select.Portal>
+</Select.Root>
+```
+
+### Controlled Select
+
+Use controlled state for full control over the selected value:
+
+```tsx
+import { Select } from '@joacod/pixel-ui'
+import { useState } from 'react'
+
+export default function Example() {
+  const [value, setValue] = useState('')
+
+  return (
+    <div>
+      <Select.Root
+        items={fruits}
+        value={value}
+        onValueChange={(newValue) => setValue(newValue as string)}
+      >
+        <Select.Trigger>
+          <Select.Value placeholder="Select a fruit..." />
+          <Select.Icon />
+        </Select.Trigger>
+        <Select.Portal>
+          <Select.Positioner>
+            <Select.Popup>
+              <Select.List>
+                {fruits.map((fruit) => (
+                  <Select.Item key={fruit.value} value={fruit.value}>
+                    <Select.ItemText>{fruit.label}</Select.ItemText>
+                  </Select.Item>
+                ))}
+              </Select.List>
+            </Select.Popup>
+          </Select.Positioner>
+        </Select.Portal>
+      </Select.Root>
+      <p>Selected: {value || 'None'}</p>
+    </div>
+  )
+}
+```
+
+### Multiple Selection
+
+Enable multi-select mode:
+
+```tsx
+import { Select } from '@joacod/pixel-ui'
+import { useState } from 'react'
+
+export default function Example() {
+  const [values, setValues] = useState<string[]>([])
+
+  return (
+    <Select.Root
+      items={fruits}
+      multiple
+      value={values}
+      onValueChange={(newValues) => setValues(newValues as string[])}
+    >
+      <Select.Trigger>
+        <Select.Value placeholder="Select fruits..." />
+        <Select.Icon />
+      </Select.Trigger>
+      <Select.Portal>
+        <Select.Positioner>
+          <Select.Popup>
+            <Select.List>
+              {fruits.map((fruit) => (
+                <Select.Item key={fruit.value} value={fruit.value}>
+                  <Select.ItemText>{fruit.label}</Select.ItemText>
+                </Select.Item>
+              ))}
+            </Select.List>
+          </Select.Popup>
+        </Select.Positioner>
+      </Select.Portal>
+    </Select.Root>
+  )
+}
+```
+
+## Custom Icon
+
+Replace the default dropdown arrow with a custom icon:
+
+```tsx
+<Select.Root items={fruits}>
+  <Select.Trigger>
+    <Select.Value placeholder="Custom icon..." />
+    <Select.Icon>🔽</Select.Icon>
+  </Select.Trigger>
+  {/* ... rest of the component */}
+</Select.Root>
+```
+
+## Positioning
+
+Control the dropdown position:
+
+```tsx
+<Select.Root items={fruits}>
+  <Select.Trigger>
+    <Select.Value placeholder="Select..." />
+    <Select.Icon />
+  </Select.Trigger>
+  <Select.Portal>
+    <Select.Positioner
+      side="top"
+      alignment="center"
+      sideOffset={10}
+    >
+      <Select.Popup>
+        <Select.List>
+          {fruits.map((fruit) => (
+            <Select.Item key={fruit.value} value={fruit.value}>
+              <Select.ItemText>{fruit.label}</Select.ItemText>
+            </Select.Item>
+          ))}
+        </Select.List>
+      </Select.Popup>
+    </Select.Positioner>
+  </Select.Portal>
+</Select.Root>
+```
+
+## API Reference
+
+### Select.Root
+
+Container component that manages the select state.
+
+| Prop            | Type                                   | Default | Description                              |
+| --------------- | -------------------------------------- | ------- | ---------------------------------------- |
+| `items`         | `SelectItem[]`                         | -       | Array of items to display                |
+| `multiple`      | `boolean`                              | `false` | Allow multiple selections                |
+| `value`         | `string \| string[]`                   | -       | Controlled value                         |
+| `defaultValue`  | `string \| string[]`                   | -       | Default uncontrolled value               |
+| `onValueChange` | `(value: string \| string[], event) => void` | -       | Callback when value changes              |
+| `disabled`      | `boolean`                              | `false` | Disable the entire select                |
+| `name`          | `string`                               | -       | Name for form submission                 |
+| `required`      | `boolean`                              | `false` | Mark as required for form validation     |
+| `className`     | `string`                               | -       | Additional CSS classes                   |
+
+### Select.Trigger
+
+The clickable trigger button.
+
+| Prop        | Type                                           | Default     | Description                  |
+| ----------- | ---------------------------------------------- | ----------- | ---------------------------- |
+| `variant`   | `"primary" \| "secondary" \| "accent" \| ...`  | `"primary"` | Visual style variant         |
+| `size`      | `"xs" \| "sm" \| "md" \| "lg" \| "xl"`         | `"md"`      | Trigger size                 |
+| `className` | `string`                                       | -           | Additional CSS classes       |
+
+### Select.Value
+
+Displays the selected value.
+
+| Prop        | Type     | Default | Description            |
+| ----------- | -------- | ------- | ---------------------- |
+| `className` | `string` | -       | Additional CSS classes |
+
+### Select.Icon
+
+The dropdown indicator icon.
+
+| Prop        | Type              | Default | Description                            |
+| ----------- | ----------------- | ------- | -------------------------------------- |
+| `className` | `string`          | -       | Additional CSS classes                 |
+| `children`  | `React.ReactNode` | `"▼"`   | Custom icon (defaults to down arrow)   |
+
+### Select.Portal
+
+Portals the dropdown to a different part of the DOM.
+
+| Prop          | Type              | Default | Description                              |
+| ------------- | ----------------- | ------- | ---------------------------------------- |
+| `container`   | `HTMLElement`     | -       | Container element to portal into         |
+| `keepMounted` | `boolean`         | `false` | Keep popup mounted when closed           |
+
+### Select.Positioner
+
+Manages dropdown positioning relative to the trigger.
+
+| Prop                   | Type                                     | Default    | Description                                |
+| ---------------------- | ---------------------------------------- | ---------- | ------------------------------------------ |
+| `side`                 | `"top" \| "bottom" \| "left" \| "right"` | `"bottom"` | Side of trigger to place popup             |
+| `alignment`            | `"start" \| "center" \| "end"`           | `"start"`  | Alignment relative to trigger              |
+| `sideOffset`           | `number`                                 | `5`        | Distance from trigger                      |
+| `alignItemWithTrigger` | `boolean`                                | `true`     | Align selected item with trigger           |
+| `className`            | `string`                                 | -          | Additional CSS classes                     |
+
+### Select.Popup
+
+The dropdown container.
+
+| Prop        | Type     | Default | Description            |
+| ----------- | -------- | ------- | ---------------------- |
+| `className` | `string` | -       | Additional CSS classes |
+
+### Select.List
+
+Container for the list of items.
+
+| Prop        | Type     | Default | Description            |
+| ----------- | -------- | ------- | ---------------------- |
+| `className` | `string` | -       | Additional CSS classes |
+
+### Select.Item
+
+Individual selectable item.
+
+| Prop        | Type      | Default | Description                    |
+| ----------- | --------- | ------- | ------------------------------ |
+| `value`     | `string`  | -       | Unique value for the item      |
+| `disabled`  | `boolean` | `false` | Disable this item              |
+| `className` | `string`  | -       | Additional CSS classes         |
+
+### Select.ItemText
+
+Text content of an item (supports keyboard navigation).
+
+| Prop        | Type              | Default | Description            |
+| ----------- | ----------------- | ------- | ---------------------- |
+| `className` | `string`          | -       | Additional CSS classes |
+| `children`  | `React.ReactNode` | -       | The text content       |
+
+## Accessibility
+
+- Built on Base UI's Select primitive with full accessibility support
+- Full keyboard navigation:
+  - **Space/Enter**: Open/close dropdown
+  - **Arrow Up/Down**: Navigate items
+  - **Home/End**: Jump to first/last item
+  - **Escape**: Close dropdown
+  - **Type to search**: Jump to items by typing
+- Proper ARIA attributes for screen readers
+- Automatic focus management
+- Supports disabled state for entire select or individual items
+- Works seamlessly with the Field component for form validation
+
+## Examples
+
+### With Field Component
+
+Combine with Field for labels and validation:
+
+```tsx
+import { Select, Field } from '@joacod/pixel-ui'
+
+<Field.Root>
+  <Field.Label>Favorite Fruit</Field.Label>
+  <Field.Control>
+    <Select.Root items={fruits} required>
+      <Select.Trigger>
+        <Select.Value placeholder="Select a fruit..." />
+        <Select.Icon />
+      </Select.Trigger>
+      <Select.Portal>
+        <Select.Positioner>
+          <Select.Popup>
+            <Select.List>
+              {fruits.map((fruit) => (
+                <Select.Item key={fruit.value} value={fruit.value}>
+                  <Select.ItemText>{fruit.label}</Select.ItemText>
+                </Select.Item>
+              ))}
+            </Select.List>
+          </Select.Popup>
+        </Select.Positioner>
+      </Select.Portal>
+    </Select.Root>
+  </Field.Control>
+  <Field.Description>Choose your favorite fruit</Field.Description>
+  <Field.Error>Please select a fruit</Field.Error>
+</Field.Root>
+```
+
+### Form Integration
+
+```tsx
+<form>
+  <Select.Root items={countries} name="country" required>
+    <Select.Trigger>
+      <Select.Value placeholder="Select your country..." />
+      <Select.Icon />
+    </Select.Trigger>
+    <Select.Portal>
+      <Select.Positioner>
+        <Select.Popup>
+          <Select.List>
+            {countries.map((country) => (
+              <Select.Item key={country.value} value={country.value}>
+                <Select.ItemText>{country.label}</Select.ItemText>
+              </Select.Item>
+            ))}
+          </Select.List>
+        </Select.Popup>
+      </Select.Positioner>
+    </Select.Portal>
+  </Select.Root>
+  <button type="submit">Submit</button>
+</form>
+```

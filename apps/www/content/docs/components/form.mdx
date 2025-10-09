@@ -1,0 +1,346 @@
+---
+title: Form
+description: A pixel-art styled form component with consolidated error handling and accessibility features
+---
+
+import { Form, Field, Button } from '@joacod/pixel-ui'
+
+## Overview
+
+The Form component provides a native form element with pixel-art styling and consolidated error handling. It works seamlessly with Field components and validation libraries like Zod to create robust, accessible forms.
+
+## Preview
+
+<ComponentPreview>
+  <Form>
+    <Field.Root name="email">
+      <Field.Label>Email</Field.Label>
+      <Field.Control type="email" placeholder="you@example.com" required />
+      <Field.Error match="valueMissing">Email is required</Field.Error>
+      <Field.Error match="typeMismatch">Invalid email format</Field.Error>
+    </Field.Root>
+    <Field.Root name="password">
+      <Field.Label>Password</Field.Label>
+      <Field.Control type="password" placeholder="••••••••" required />
+      <Field.Error match="valueMissing">Password is required</Field.Error>
+    </Field.Root>
+    <Button type="submit">Sign In</Button>
+  </Form>
+</ComponentPreview>
+
+## Installation
+
+See the [Installation](/docs/installation) guide for setup instructions.
+
+## Usage
+
+### Basic Form
+
+```tsx
+import { Form, Field, Button } from '@joacod/pixel-ui'
+
+export default function Example() {
+  return (
+    <Form>
+      <Field.Root name="username">
+        <Field.Label>Username</Field.Label>
+        <Field.Control placeholder="johndoe" required />
+        <Field.Error match="valueMissing">Username is required</Field.Error>
+      </Field.Root>
+
+      <Field.Root name="email">
+        <Field.Label>Email</Field.Label>
+        <Field.Control type="email" placeholder="john@example.com" required />
+        <Field.Error match="valueMissing">Email is required</Field.Error>
+        <Field.Error match="typeMismatch">Invalid email format</Field.Error>
+      </Field.Root>
+
+      <Button type="submit">Submit</Button>
+    </Form>
+  )
+}
+```
+
+### Form with Validation
+
+Control form submission and validation using the `onSubmit` handler:
+
+```tsx
+'use client'
+
+import { Form, Field, Button } from '@joacod/pixel-ui'
+import { useState } from 'react'
+
+export default function LoginForm() {
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    setIsSubmitting(true)
+
+    const formData = new FormData(event.currentTarget)
+    const email = formData.get('email') as string
+    const password = formData.get('password') as string
+
+    try {
+      // Your submission logic here
+      await loginUser(email, password)
+    } catch (error) {
+      console.error('Login failed:', error)
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
+  return (
+    <Form onSubmit={handleSubmit}>
+      <Field.Root name="email">
+        <Field.Label>Email</Field.Label>
+        <Field.Control type="email" required autoComplete="email" />
+        <Field.Error match="valueMissing">Email is required</Field.Error>
+      </Field.Root>
+
+      <Field.Root name="password">
+        <Field.Label>Password</Field.Label>
+        <Field.Control type="password" required autoComplete="current-password" />
+        <Field.Error match="valueMissing">Password is required</Field.Error>
+      </Field.Root>
+
+      <Button type="submit" loading={isSubmitting}>
+        {isSubmitting ? 'Signing in...' : 'Sign In'}
+      </Button>
+    </Form>
+  )
+}
+```
+
+### Consolidated Error Handling
+
+The Form component supports consolidated error handling, where errors from validation libraries can be passed to the form and automatically distributed to the appropriate fields:
+
+```tsx
+'use client'
+
+import { Form, Field, Button } from '@joacod/pixel-ui'
+import { useState } from 'react'
+import { z } from 'zod'
+
+const schema = z.object({
+  email: z.string().email('Invalid email address'),
+  password: z.string().min(8, 'Password must be at least 8 characters'),
+  confirmPassword: z.string(),
+}).refine((data) => data.password === data.confirmPassword, {
+  message: "Passwords don't match",
+  path: ['confirmPassword'],
+})
+
+export default function RegisterForm() {
+  const [errors, setErrors] = useState<Record<string, string[]>>({})
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+
+    const formData = new FormData(event.currentTarget)
+    const data = Object.fromEntries(formData)
+
+    const result = schema.safeParse(data)
+
+    if (!result.success) {
+      // Convert Zod errors to Form error format
+      const fieldErrors = result.error.flatten().fieldErrors
+      setErrors(fieldErrors as Record<string, string[]>)
+      return
+    }
+
+    // Clear errors and submit
+    setErrors({})
+    // Your submission logic here
+  }
+
+  return (
+    <Form
+      errors={errors}
+      onClearErrors={setErrors}
+      onSubmit={handleSubmit}
+    >
+      <Field.Root name="email">
+        <Field.Label>Email</Field.Label>
+        <Field.Control type="email" />
+        <Field.Error match="customError">
+          Please enter a valid email address
+        </Field.Error>
+      </Field.Root>
+
+      <Field.Root name="password">
+        <Field.Label>Password</Field.Label>
+        <Field.Control type="password" />
+        <Field.Error match="customError">
+          Password must be at least 8 characters
+        </Field.Error>
+      </Field.Root>
+
+      <Field.Root name="confirmPassword">
+        <Field.Label>Confirm Password</Field.Label>
+        <Field.Control type="password" />
+        <Field.Error match="customError">
+          Passwords must match
+        </Field.Error>
+      </Field.Root>
+
+      <Button type="submit">Create Account</Button>
+    </Form>
+  )
+}
+```
+
+## Integration with Fieldset
+
+Combine Form with Fieldset to create organized multi-section forms:
+
+```tsx
+import { Form, Fieldset, Field, Button } from '@joacod/pixel-ui'
+
+export default function ProfileForm() {
+  return (
+    <Form>
+      <Fieldset.Root>
+        <Fieldset.Legend>Personal Information</Fieldset.Legend>
+        <Field.Root name="firstName">
+          <Field.Label>First Name</Field.Label>
+          <Field.Control placeholder="John" required />
+        </Field.Root>
+        <Field.Root name="lastName">
+          <Field.Label>Last Name</Field.Label>
+          <Field.Control placeholder="Doe" required />
+        </Field.Root>
+      </Fieldset.Root>
+
+      <Fieldset.Root>
+        <Fieldset.Legend>Contact Details</Fieldset.Legend>
+        <Field.Root name="email">
+          <Field.Label>Email</Field.Label>
+          <Field.Control type="email" placeholder="john@example.com" required />
+        </Field.Root>
+        <Field.Root name="phone">
+          <Field.Label>Phone</Field.Label>
+          <Field.Control type="tel" placeholder="(555) 123-4567" />
+        </Field.Root>
+      </Fieldset.Root>
+
+      <Button type="submit">Save Profile</Button>
+    </Form>
+  )
+}
+```
+
+## Examples
+
+### Login Form
+
+<ComponentPreview>
+  <Form className="max-w-sm">
+    <Field.Root name="email">
+      <Field.Label>Email</Field.Label>
+      <Field.Control
+        type="email"
+        placeholder="you@example.com"
+        required
+        autoComplete="email"
+      />
+      <Field.Error match="valueMissing">Email is required</Field.Error>
+      <Field.Error match="typeMismatch">Invalid email format</Field.Error>
+    </Field.Root>
+
+    <Field.Root name="password">
+      <Field.Label>Password</Field.Label>
+      <Field.Control
+        type="password"
+        placeholder="••••••••"
+        required
+        minLength={8}
+        autoComplete="current-password"
+      />
+      <Field.Error match="valueMissing">Password is required</Field.Error>
+      <Field.Error match="tooShort">Password must be at least 8 characters</Field.Error>
+    </Field.Root>
+
+    <Button type="submit" className="w-full">Sign In</Button>
+  </Form>
+</ComponentPreview>
+
+### Contact Form
+
+<ComponentPreview>
+  <Form className="max-w-md">
+    <Field.Root name="name">
+      <Field.Label>Name</Field.Label>
+      <Field.Control placeholder="Your name" required />
+      <Field.Error match="valueMissing">Name is required</Field.Error>
+    </Field.Root>
+
+    <Field.Root name="email">
+      <Field.Label>Email</Field.Label>
+      <Field.Control type="email" placeholder="you@example.com" required />
+      <Field.Description>We'll never share your email</Field.Description>
+      <Field.Error match="valueMissing">Email is required</Field.Error>
+      <Field.Error match="typeMismatch">Invalid email format</Field.Error>
+    </Field.Root>
+
+    <Field.Root name="message">
+      <Field.Label>Message</Field.Label>
+      <Field.Control
+        as="textarea"
+        placeholder="Your message..."
+        required
+        rows={4}
+      />
+      <Field.Error match="valueMissing">Message is required</Field.Error>
+    </Field.Root>
+
+    <Button type="submit" className="w-full">Send Message</Button>
+  </Form>
+</ComponentPreview>
+
+## API Reference
+
+### Form
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| errors | `Record<string, string \| string[]>` | - | An object where keys correspond to form field names and values represent related errors |
+| onClearErrors | `(errors: Record<string, string \| string[]>) => void` | - | Event handler called when errors are cleared |
+| onSubmit | `FormEventHandler` | - | Event handler for form submission |
+| className | `string` | - | Additional CSS classes |
+| children | `ReactNode` | - | Form content |
+
+All standard HTML `<form>` attributes are also supported.
+
+## Accessibility
+
+- **Semantic HTML**: Uses native `<form>` element for proper form semantics
+- **Error announcements**: Consolidated errors are announced to screen readers
+- **ARIA attributes**: Proper `aria-invalid` and `aria-describedby` on fields with errors
+- **Keyboard navigation**: Full keyboard support for all form controls
+- **Focus management**: Proper focus handling during validation and submission
+- **Required fields**: Automatic `aria-required` attributes for required fields
+
+## Best Practices
+
+1. **Always use name attributes**: Ensure all Field.Root components have a `name` prop for proper form data collection
+2. **Handle submission**: Always provide an `onSubmit` handler to control form submission
+3. **Validate on submit**: Use HTML5 validation or libraries like Zod for robust validation
+4. **Show loading states**: Use Button's `loading` prop during async submissions
+5. **Clear errors appropriately**: Use `onClearErrors` to manage error state lifecycle
+6. **Group related fields**: Use Fieldset to organize complex forms
+7. **Provide feedback**: Show success messages or redirect after successful submission
+8. **Accessible labels**: Always pair Field.Control with Field.Label for accessibility
+
+## Related Components
+
+- [Field](/docs/components/field) - Individual form field wrapper with validation
+- [Fieldset](/docs/components/fieldset) - Group related form fields
+- [Input](/docs/components/input) - Text input component
+- [Button](/docs/components/button) - Form submission buttons
+- [Checkbox](/docs/components/checkbox) - Checkbox input component
+- [Radio](/docs/components/radio) - Radio button component
+- [Switch](/docs/components/switch) - Toggle switch component
