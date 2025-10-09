@@ -1481,11 +1481,11 @@
   }
 }
 @font-face {
-  font-family: 'Unifontex';
+  font-family: 'UnifontEX';
   font-style: normal;
-  font-weight: 400;
   font-display: swap;
-  src: url('../assets/fonts/unifontex-latin-400-normal.woff2') format('woff2'), url('../assets/fonts/unifontex-latin-400-normal.woff') format('woff');
+  font-weight: 400;
+  src: url(../../../../node_modules/.pnpm/@fontsource+unifontex@5.2.5/node_modules/@fontsource/unifontex/files/unifontex-latin-400-normal.woff2) format('woff2'), url(../../../../node_modules/.pnpm/@fontsource+unifontex@5.2.5/node_modules/@fontsource/unifontex/files/unifontex-latin-400-normal.woff) format('woff');
 }
 @layer base {
   img, canvas {
@@ -1517,10 +1517,10 @@
     transition: none !important;
   }
   .pixel-border {
-    box-shadow: 2px 0 0 0 currentColor, 0 2px 0 0 currentColor, -2px 0 0 0 currentColor, 0 -2px 0 0 currentColor;
+    box-shadow: 2px 0 0 0 currentColor,  0 2px 0 0 currentColor,  -2px 0 0 0 currentColor,  0 -2px 0 0 currentColor;
   }
   .pixel-border-3d {
-    box-shadow: -4px -4px 0 0 rgb(255 255 255 / 0.3), 4px 4px 0 0 rgb(0 0 0 / 0.3), -4px 0 0 0 rgb(255 255 255 / 0.3), 0 -4px 0 0 rgb(255 255 255 / 0.3), 4px 0 0 0 rgb(0 0 0 / 0.3), 0 4px 0 0 rgb(0 0 0 / 0.3);
+    box-shadow: -4px -4px 0 0 rgb(255 255 255 / 0.3),  4px 4px 0 0 rgb(0 0 0 / 0.3),  -4px 0 0 0 rgb(255 255 255 / 0.3),  0 -4px 0 0 rgb(255 255 255 / 0.3),  4px 0 0 0 rgb(0 0 0 / 0.3),  0 4px 0 0 rgb(0 0 0 / 0.3);
   }
 }
 @property --tw-border-style {
