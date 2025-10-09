@@ -70,3 +70,14 @@ export {
   type SelectItemProps,
   type SelectItemTextProps,
 } from './components/Select'
+export {
+  NumberField,
+  type NumberFieldRootProps,
+  type NumberFieldGroupProps,
+  type NumberFieldInputProps,
+  type NumberFieldIncrementProps,
+  type NumberFieldDecrementProps,
+  type NumberFieldScrubAreaProps,
+  type NumberFieldScrubAreaCursorProps,
+} from './components/NumberField'
+export { Textarea, type TextareaProps } from './components/Textarea'

@@ -1,0 +1,340 @@
+---
+title: Textarea
+description: A pixel-art styled multi-line text input component with accessibility features
+---
+
+import { Textarea } from '@joacod/pixel-ui'
+
+## Overview
+
+The Textarea component provides a pixel-art styled multi-line text input with full accessibility support. It's built as a wrapper around the native `<textarea>` element with pixel-perfect styling and consistent design tokens.
+
+## Preview
+
+<ComponentPreview>
+  <Textarea
+    variant="primary"
+    placeholder="Enter your message here..."
+    rows={4}
+  />
+</ComponentPreview>
+
+## Installation
+
+See the [Installation](/docs/installation) guide for setup instructions.
+
+## Usage
+
+```tsx
+import { Textarea } from '@joacod/pixel-ui'
+
+export default function Example() {
+  return (
+    <Textarea
+      variant="primary"
+      size="md"
+      placeholder="Enter your message..."
+      rows={4}
+    />
+  )
+}
+```
+
+## Variants
+
+The Textarea component supports multiple color variants:
+
+<ComponentPreview>
+  <Textarea variant="base" placeholder="Base variant..." rows={3} />
+  <Textarea variant="primary" placeholder="Primary variant..." rows={3} />
+  <Textarea variant="secondary" placeholder="Secondary variant..." rows={3} />
+  <Textarea variant="accent" placeholder="Accent variant..." rows={3} />
+</ComponentPreview>
+
+```tsx
+<Textarea variant="base" placeholder="Base variant..." rows={3} />
+<Textarea variant="primary" placeholder="Primary variant..." rows={3} />
+<Textarea variant="secondary" placeholder="Secondary variant..." rows={3} />
+<Textarea variant="accent" placeholder="Accent variant..." rows={3} />
+```
+
+## Sizes
+
+Five size options are available for different use cases:
+
+<ComponentPreview>
+  <Textarea size="xs" placeholder="Extra small..." rows={2} />
+  <Textarea size="sm" placeholder="Small..." rows={2} />
+  <Textarea size="md" placeholder="Medium (default)..." rows={3} />
+  <Textarea size="lg" placeholder="Large..." rows={3} />
+  <Textarea size="xl" placeholder="Extra large..." rows={4} />
+</ComponentPreview>
+
+```tsx
+<Textarea size="xs" placeholder="Extra small..." rows={2} />
+<Textarea size="sm" placeholder="Small..." rows={2} />
+<Textarea size="md" placeholder="Medium (default)..." rows={3} />
+<Textarea size="lg" placeholder="Large..." rows={3} />
+<Textarea size="xl" placeholder="Extra large..." rows={4} />
+```
+
+## States
+
+### Disabled State
+
+Prevent user interaction:
+
+<ComponentPreview>
+  <Textarea
+    disabled
+    defaultValue="This textarea is disabled and cannot be edited."
+    rows={3}
+  />
+</ComponentPreview>
+
+```tsx
+<Textarea
+  disabled
+  defaultValue="This textarea is disabled and cannot be edited."
+  rows={3}
+/>
+```
+
+### Read-only State
+
+Display content without allowing edits:
+
+<ComponentPreview>
+  <Textarea
+    readOnly
+    defaultValue="This textarea is read-only. You can select and copy this text, but you cannot edit it."
+    rows={3}
+  />
+</ComponentPreview>
+
+```tsx
+<Textarea
+  readOnly
+  defaultValue="This textarea is read-only. You can select and copy this text, but you cannot edit it."
+  rows={3}
+/>
+```
+
+### Error State
+
+Show validation errors:
+
+<ComponentPreview>
+  <Textarea
+    variant="error"
+    defaultValue="This message contains an error."
+    rows={3}
+  />
+</ComponentPreview>
+
+```tsx
+<Textarea
+  variant="error"
+  defaultValue="This message contains an error."
+  rows={3}
+/>
+```
+
+### Success State
+
+Indicate successful validation:
+
+<ComponentPreview>
+  <Textarea
+    variant="success"
+    defaultValue="Your message has been validated successfully!"
+    rows={3}
+  />
+</ComponentPreview>
+
+```tsx
+<Textarea
+  variant="success"
+  defaultValue="Your message has been validated successfully!"
+  rows={3}
+/>
+```
+
+## API Reference
+
+### Props
+
+| Prop            | Type                                                                                                                | Default     | Description                           |
+| --------------- | ------------------------------------------------------------------------------------------------------------------- | ----------- | ------------------------------------- |
+| `variant`       | `"base" \| "primary" \| "secondary" \| "accent" \| "ghost" \| "error" \| "success" \| "warning"`                    | `"primary"` | Visual style variant                  |
+| `size`          | `"xs" \| "sm" \| "md" \| "lg" \| "xl"`                                                                              | `"md"`      | Textarea size                         |
+| `disabled`      | `boolean`                                                                                                           | `false`     | Disables user interaction             |
+| `readOnly`      | `boolean`                                                                                                           | `false`     | Makes the textarea read-only          |
+| `placeholder`   | `string`                                                                                                            | -           | Placeholder text                      |
+| `rows`          | `number`                                                                                                            | -           | Number of visible text rows           |
+| `cols`          | `number`                                                                                                            | -           | Number of visible text columns        |
+| `maxLength`     | `number`                                                                                                            | -           | Maximum character length              |
+| `onValueChange` | `(value: string, event: ChangeEvent) => void`                                                                       | -           | Callback fired when the value changes |
+| `className`     | `string`                                                                                                            | -           | Additional CSS classes                |
+
+All standard HTML `<textarea>` attributes are also supported (e.g., `name`, `required`, `autoFocus`, `spellCheck`, etc.).
+
+## Accessibility
+
+- Built on native `<textarea>` element for full accessibility support
+- Proper semantic HTML ensures screen reader compatibility
+- Keyboard navigation works out of the box:
+  - **Tab**: Navigate to/from the textarea
+  - **Shift + Tab**: Navigate backwards
+  - **Enter**: Insert a new line
+  - **Escape**: Can be used to trigger blur events in forms
+- Disabled and read-only states properly communicated to assistive technologies
+- Supports ARIA attributes for enhanced accessibility
+- Placeholder text provides helpful context for screen readers
+
+## Examples
+
+### Basic Feedback Form
+
+```tsx
+'use client'
+
+import { Textarea } from '@joacod/pixel-ui'
+import { useState } from 'react'
+
+export default function FeedbackForm() {
+  const [feedback, setFeedback] = useState('')
+
+  return (
+    <Textarea
+      value={feedback}
+      onValueChange={setFeedback}
+      placeholder="Tell us what you think..."
+      rows={5}
+      maxLength={500}
+    />
+  )
+}
+```
+
+### With Character Counter
+
+```tsx
+'use client'
+
+import { Textarea } from '@joacod/pixel-ui'
+import { useState } from 'react'
+
+export default function MessageInput() {
+  const [message, setMessage] = useState('')
+  const maxLength = 280
+
+  return (
+    <div className="space-y-2">
+      <Textarea
+        value={message}
+        onValueChange={setMessage}
+        placeholder="What's on your mind?"
+        rows={4}
+        maxLength={maxLength}
+        variant={message.length >= maxLength ? 'error' : 'primary'}
+      />
+      <div className="text-sm text-nes-gray">
+        {message.length} / {maxLength} characters
+      </div>
+    </div>
+  )
+}
+```
+
+### With Field Component
+
+Use with the Field component for labels, validation, and error messages:
+
+```tsx
+import { Textarea, Field } from '@joacod/pixel-ui'
+
+export default function ContactForm() {
+  return (
+    <Field.Root name="message">
+      <Field.Label>Your Message</Field.Label>
+      <Field.Control>
+        <Textarea
+          placeholder="Enter your message..."
+          rows={6}
+          required
+        />
+      </Field.Control>
+      <Field.Description>
+        Please provide as much detail as possible (maximum 1000 characters)
+      </Field.Description>
+      <Field.Error>Message is required</Field.Error>
+    </Field.Root>
+  )
+}
+```
+
+### Controlled Component
+
+```tsx
+'use client'
+
+import { Textarea } from '@joacod/pixel-ui'
+import { useState } from 'react'
+
+export default function ControlledTextarea() {
+  const [value, setValue] = useState('Initial content')
+
+  return (
+    <div>
+      <Textarea
+        value={value}
+        onValueChange={setValue}
+        rows={4}
+      />
+      <button onClick={() => setValue('')}>Clear</button>
+    </div>
+  )
+}
+```
+
+### Comment Box with Auto-resize
+
+```tsx
+'use client'
+
+import { Textarea } from '@joacod/pixel-ui'
+import { useRef } from 'react'
+
+export default function CommentBox() {
+  const textareaRef = useRef<HTMLTextAreaElement>(null)
+
+  const handleChange = (value: string) => {
+    // Auto-resize logic
+    if (textareaRef.current) {
+      textareaRef.current.style.height = 'auto'
+      textareaRef.current.style.height = textareaRef.current.scrollHeight + 'px'
+    }
+  }
+
+  return (
+    <Textarea
+      ref={textareaRef}
+      onValueChange={handleChange}
+      placeholder="Write a comment..."
+      rows={2}
+      variant="secondary"
+    />
+  )
+}
+```
+
+## Design Notes
+
+The Textarea component follows the pixel-art aesthetic of Pixel UI:
+
+- **No browser resize**: The native textarea resize handle is disabled (`resize-none`) to maintain the pixel-perfect appearance
+- **Instant transitions**: No smooth animations for a retro feel (`transition-none`)
+- **Pixel borders**: Uses `box-shadow` for crisp, pixel-art styled borders
+- **8px grid alignment**: Padding and spacing follow the 8px grid system
+- **Dark mode support**: All variants have proper dark mode colors with appropriate contrast

@@ -292,6 +292,21 @@
   .max-h-\[300px\] {
     max-height: 300px;
   }
+  .min-h-lg {
+    min-height: var(--height-lg);
+  }
+  .min-h-md {
+    min-height: var(--height-md);
+  }
+  .min-h-sm {
+    min-height: var(--height-sm);
+  }
+  .min-h-xl {
+    min-height: var(--height-xl);
+  }
+  .min-h-xs {
+    min-height: var(--height-xs);
+  }
   .w-3 {
     width: var(--spacing-3);
   }
@@ -325,17 +340,35 @@
   .w-full {
     width: 100%;
   }
+  .min-w-0 {
+    min-width: var(--spacing-0);
+  }
   .flex-1 {
     flex: 1;
   }
   .shrink-0 {
     flex-shrink: 0;
   }
+  .cursor-ew-resize {
+    cursor: ew-resize;
+  }
   .cursor-pointer {
     cursor: pointer;
   }
   .cursor-wait {
     cursor: wait;
+  }
+  .touch-none {
+    touch-action: none;
+  }
+  .resize {
+    resize: both;
+  }
+  .resize-none {
+    resize: none;
+  }
+  .\[appearance\:textfield\] {
+    appearance: textfield;
   }
   .flex-col {
     flex-direction: column;
@@ -375,6 +408,10 @@
   .border-2 {
     border-style: var(--tw-border-style);
     border-width: var(--border-width-2);
+  }
+  .border-none {
+    --tw-border-style: none;
+    border-style: none;
   }
   .border-current {
     border-color: currentcolor;
@@ -472,6 +509,15 @@
   .py-2 {
     padding-block: var(--spacing-2);
   }
+  .py-3 {
+    padding-block: var(--spacing-3);
+  }
+  .py-4 {
+    padding-block: var(--spacing-4);
+  }
+  .py-5 {
+    padding-block: var(--spacing-5);
+  }
   .text-left {
     text-align: left;
   }
@@ -556,6 +602,10 @@
     --tw-shadow: 4px 4px 0 0 var(--tw-shadow-color, #000000);
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
+  .blur {
+    --tw-blur: blur(8px);
+    filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
+  }
   .transition-none {
     transition-property: none;
   }
@@ -583,6 +633,48 @@
       @supports (color: color-mix(in lab, red, red)) {
         background-color: color-mix(in oklab, var(--color-nes-gray) 10%, transparent);
       }
+    }
+  }
+  .focus-within\:shadow-\[3px_3px_0_0_theme\(colors\.nes\.accent\)\] {
+    &:focus-within {
+      --tw-shadow: 3px 3px 0 0 var(--tw-shadow-color, #51df21);
+      box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    }
+  }
+  .focus-within\:shadow-\[3px_3px_0_0_theme\(colors\.nes\.black\)\] {
+    &:focus-within {
+      --tw-shadow: 3px 3px 0 0 var(--tw-shadow-color, #000000);
+      box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    }
+  }
+  .focus-within\:shadow-\[3px_3px_0_0_theme\(colors\.nes\.error\)\] {
+    &:focus-within {
+      --tw-shadow: 3px 3px 0 0 var(--tw-shadow-color, #fe7269);
+      box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    }
+  }
+  .focus-within\:shadow-\[3px_3px_0_0_theme\(colors\.nes\.primary\)\] {
+    &:focus-within {
+      --tw-shadow: 3px 3px 0 0 var(--tw-shadow-color, #3337fe);
+      box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    }
+  }
+  .focus-within\:shadow-\[3px_3px_0_0_theme\(colors\.nes\.secondary\)\] {
+    &:focus-within {
+      --tw-shadow: 3px 3px 0 0 var(--tw-shadow-color, #f15bfe);
+      box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    }
+  }
+  .focus-within\:shadow-\[3px_3px_0_0_theme\(colors\.nes\.success\)\] {
+    &:focus-within {
+      --tw-shadow: 3px 3px 0 0 var(--tw-shadow-color, #51df21);
+      box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    }
+  }
+  .focus-within\:shadow-\[3px_3px_0_0_theme\(colors\.nes\.warning\)\] {
+    &:focus-within {
+      --tw-shadow: 3px 3px 0 0 var(--tw-shadow-color, #adb600);
+      box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
     }
   }
   .hover\:bg-nes-blue-dark {
@@ -689,6 +781,14 @@
       outline-style: none;
     }
   }
+  .focus-visible\:bg-nes-gray\/20 {
+    &:focus-visible {
+      background-color: color-mix(in srgb, #a1a1a1 20%, transparent);
+      @supports (color: color-mix(in lab, red, red)) {
+        background-color: color-mix(in oklab, var(--color-nes-gray) 20%, transparent);
+      }
+    }
+  }
   .focus-visible\:ring-2 {
     &:focus-visible {
       --tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color, currentcolor);
@@ -753,9 +853,22 @@
       translate: var(--tw-translate-x) var(--tw-translate-y);
     }
   }
+  .active\:bg-nes-gray\/20 {
+    &:active {
+      background-color: color-mix(in srgb, #a1a1a1 20%, transparent);
+      @supports (color: color-mix(in lab, red, red)) {
+        background-color: color-mix(in oklab, var(--color-nes-gray) 20%, transparent);
+      }
+    }
+  }
   .disabled\:cursor-not-allowed {
     &:disabled {
       cursor: not-allowed;
+    }
+  }
+  .disabled\:opacity-40 {
+    &:disabled {
+      opacity: 40%;
     }
   }
   .disabled\:opacity-50 {
@@ -772,6 +885,15 @@
     &:disabled {
       --tw-grayscale: grayscale(100%);
       filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
+    }
+  }
+  .disabled\:hover\:bg-transparent {
+    &:disabled {
+      &:hover {
+        @media (hover: hover) {
+          background-color: transparent;
+        }
+      }
     }
   }
   .data-\[checked\]\:block {
@@ -1198,6 +1320,26 @@
       }
     }
   }
+  .dark\:focus-within\:shadow-\[3px_3px_0_0_theme\(colors\.nes\.white\)\] {
+    @media (prefers-color-scheme: dark) {
+      &:focus-within {
+        --tw-shadow: 3px 3px 0 0 var(--tw-shadow-color, #ffffff);
+        box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+      }
+    }
+  }
+  .dark\:hover\:bg-nes-white\/10 {
+    @media (prefers-color-scheme: dark) {
+      &:hover {
+        @media (hover: hover) {
+          background-color: color-mix(in srgb, #ffffff 10%, transparent);
+          @supports (color: color-mix(in lab, red, red)) {
+            background-color: color-mix(in oklab, var(--color-nes-white) 10%, transparent);
+          }
+        }
+      }
+    }
+  }
   .dark\:focus\:shadow-\[3px_3px_0_0_theme\(colors\.nes\.white\)\] {
     @media (prefers-color-scheme: dark) {
       &:focus {
@@ -1213,6 +1355,16 @@
       }
     }
   }
+  .dark\:focus-visible\:bg-nes-white\/20 {
+    @media (prefers-color-scheme: dark) {
+      &:focus-visible {
+        background-color: color-mix(in srgb, #ffffff 20%, transparent);
+        @supports (color: color-mix(in lab, red, red)) {
+          background-color: color-mix(in oklab, var(--color-nes-white) 20%, transparent);
+        }
+      }
+    }
+  }
   .dark\:focus-visible\:ring-nes-secondary {
     @media (prefers-color-scheme: dark) {
       &:focus-visible {
@@ -1224,6 +1376,23 @@
     @media (prefers-color-scheme: dark) {
       &:focus-visible {
         --tw-ring-color: var(--color-nes-white);
+      }
+    }
+  }
+  .dark\:active\:bg-nes-white\/20 {
+    @media (prefers-color-scheme: dark) {
+      &:active {
+        background-color: color-mix(in srgb, #ffffff 20%, transparent);
+        @supports (color: color-mix(in lab, red, red)) {
+          background-color: color-mix(in oklab, var(--color-nes-white) 20%, transparent);
+        }
+      }
+    }
+  }
+  .dark\:disabled\:opacity-30 {
+    @media (prefers-color-scheme: dark) {
+      &:disabled {
+        opacity: 30%;
       }
     }
   }
@@ -1298,6 +1467,16 @@
       &[data-unchecked] {
         background-color: var(--color-nes-gray-dark);
       }
+    }
+  }
+  .\[\&\:\:-webkit-inner-spin-button\]\:appearance-none {
+    &::-webkit-inner-spin-button {
+      appearance: none;
+    }
+  }
+  .\[\&\:\:-webkit-outer-spin-button\]\:appearance-none {
+    &::-webkit-outer-spin-button {
+      appearance: none;
     }
   }
 }
