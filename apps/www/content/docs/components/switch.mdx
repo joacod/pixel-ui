@@ -1,0 +1,488 @@
+---
+title: Switch
+description: A pixel-art styled toggle switch component with accessibility features
+---
+
+import { Switch } from '@joacod/pixel-ui'
+
+## Overview
+
+The Switch component provides a pixel-art styled toggle switch for boolean on/off states. It's built on Base UI's Switch primitive for full accessibility support and follows a compound component pattern with Switch.Root and Switch.Thumb.
+
+## Preview
+
+<ComponentPreview>
+  <div className="flex items-center gap-2">
+    <Switch.Root>
+      <Switch.Thumb />
+    </Switch.Root>
+    <span>Notifications</span>
+  </div>
+</ComponentPreview>
+
+## Installation
+
+See the [Installation](/docs/installation) guide for setup instructions.
+
+## Usage
+
+The Switch component uses a compound component pattern with `Switch.Root` and `Switch.Thumb`:
+
+```tsx
+import { Switch } from '@joacod/pixel-ui'
+
+export default function Example() {
+  return (
+    <div className="flex items-center gap-2">
+      <Switch.Root>
+        <Switch.Thumb />
+      </Switch.Root>
+      <span>Enable notifications</span>
+    </div>
+  )
+}
+```
+
+## Basic Examples
+
+### Uncontrolled Switch
+
+Use `defaultChecked` for uncontrolled switches:
+
+<ComponentPreview>
+  <div className="flex items-center gap-2">
+    <Switch.Root defaultChecked>
+      <Switch.Thumb />
+    </Switch.Root>
+    <span>Enabled by default</span>
+  </div>
+</ComponentPreview>
+
+```tsx
+<Switch.Root defaultChecked>
+  <Switch.Thumb />
+</Switch.Root>
+```
+
+### Controlled Switch
+
+Use `checked` and `onCheckedChange` for controlled switches:
+
+```tsx
+import { Switch } from '@joacod/pixel-ui'
+import { useState } from 'react'
+
+export default function Example() {
+  const [enabled, setEnabled] = useState(false)
+
+  return (
+    <div className="flex flex-col gap-2">
+      <div className="flex items-center gap-2">
+        <Switch.Root checked={enabled} onCheckedChange={(checked) => setEnabled(checked)}>
+          <Switch.Thumb />
+        </Switch.Root>
+        <span>Notifications</span>
+      </div>
+      <p className="text-sm">Notifications are {enabled ? 'enabled' : 'disabled'}</p>
+    </div>
+  )
+}
+```
+
+### With Label
+
+Create accessible switch with label using a `<label>` element:
+
+<ComponentPreview>
+  <label className="flex items-center gap-2 cursor-pointer">
+    <Switch.Root>
+      <Switch.Thumb />
+    </Switch.Root>
+    <span>Click anywhere to toggle</span>
+  </label>
+</ComponentPreview>
+
+```tsx
+<label className="flex items-center gap-2 cursor-pointer">
+  <Switch.Root>
+    <Switch.Thumb />
+  </Switch.Root>
+  <span>Click anywhere to toggle</span>
+</label>
+```
+
+## Variants
+
+Seven color variants are available to match your design system:
+
+<ComponentPreview>
+  <div className="flex flex-col gap-3">
+    <label className="flex items-center gap-2 cursor-pointer">
+      <Switch.Root variant="primary" defaultChecked>
+        <Switch.Thumb />
+      </Switch.Root>
+      <span>Primary</span>
+    </label>
+    <label className="flex items-center gap-2 cursor-pointer">
+      <Switch.Root variant="secondary" defaultChecked>
+        <Switch.Thumb />
+      </Switch.Root>
+      <span>Secondary</span>
+    </label>
+    <label className="flex items-center gap-2 cursor-pointer">
+      <Switch.Root variant="accent" defaultChecked>
+        <Switch.Thumb />
+      </Switch.Root>
+      <span>Accent</span>
+    </label>
+    <label className="flex items-center gap-2 cursor-pointer">
+      <Switch.Root variant="ghost" defaultChecked>
+        <Switch.Thumb />
+      </Switch.Root>
+      <span>Ghost</span>
+    </label>
+    <label className="flex items-center gap-2 cursor-pointer">
+      <Switch.Root variant="error" defaultChecked>
+        <Switch.Thumb />
+      </Switch.Root>
+      <span>Error</span>
+    </label>
+    <label className="flex items-center gap-2 cursor-pointer">
+      <Switch.Root variant="success" defaultChecked>
+        <Switch.Thumb />
+      </Switch.Root>
+      <span>Success</span>
+    </label>
+    <label className="flex items-center gap-2 cursor-pointer">
+      <Switch.Root variant="warning" defaultChecked>
+        <Switch.Thumb />
+      </Switch.Root>
+      <span>Warning</span>
+    </label>
+  </div>
+</ComponentPreview>
+
+```tsx
+<Switch.Root variant="primary">
+  <Switch.Thumb />
+</Switch.Root>
+<Switch.Root variant="secondary">
+  <Switch.Thumb />
+</Switch.Root>
+<Switch.Root variant="accent">
+  <Switch.Thumb />
+</Switch.Root>
+<Switch.Root variant="error">
+  <Switch.Thumb />
+</Switch.Root>
+```
+
+## Sizes
+
+Five size options are available:
+
+<ComponentPreview>
+  <div className="flex items-center gap-4 flex-wrap">
+    <label className="flex items-center gap-2 cursor-pointer">
+      <Switch.Root size="xs" defaultChecked>
+        <Switch.Thumb />
+      </Switch.Root>
+      <span>XS</span>
+    </label>
+    <label className="flex items-center gap-2 cursor-pointer">
+      <Switch.Root size="sm" defaultChecked>
+        <Switch.Thumb />
+      </Switch.Root>
+      <span>Small</span>
+    </label>
+    <label className="flex items-center gap-2 cursor-pointer">
+      <Switch.Root size="md" defaultChecked>
+        <Switch.Thumb />
+      </Switch.Root>
+      <span>Medium</span>
+    </label>
+    <label className="flex items-center gap-2 cursor-pointer">
+      <Switch.Root size="lg" defaultChecked>
+        <Switch.Thumb />
+      </Switch.Root>
+      <span>Large</span>
+    </label>
+    <label className="flex items-center gap-2 cursor-pointer">
+      <Switch.Root size="xl" defaultChecked>
+        <Switch.Thumb />
+      </Switch.Root>
+      <span>XL</span>
+    </label>
+  </div>
+</ComponentPreview>
+
+```tsx
+<Switch.Root size="xs">
+  <Switch.Thumb />
+</Switch.Root>
+<Switch.Root size="sm">
+  <Switch.Thumb />
+</Switch.Root>
+<Switch.Root size="md">
+  <Switch.Thumb />
+</Switch.Root>
+<Switch.Root size="lg">
+  <Switch.Thumb />
+</Switch.Root>
+<Switch.Root size="xl">
+  <Switch.Thumb />
+</Switch.Root>
+```
+
+## States
+
+### Disabled State
+
+Prevent user interaction with the `disabled` prop:
+
+<ComponentPreview>
+  <div className="flex flex-col gap-3">
+    <label className="flex items-center gap-2 cursor-not-allowed">
+      <Switch.Root disabled>
+        <Switch.Thumb />
+      </Switch.Root>
+      <span>Disabled (off)</span>
+    </label>
+    <label className="flex items-center gap-2 cursor-not-allowed">
+      <Switch.Root disabled defaultChecked>
+        <Switch.Thumb />
+      </Switch.Root>
+      <span>Disabled (on)</span>
+    </label>
+  </div>
+</ComponentPreview>
+
+```tsx
+<Switch.Root disabled>
+  <Switch.Thumb />
+</Switch.Root>
+<Switch.Root disabled defaultChecked>
+  <Switch.Thumb />
+</Switch.Root>
+```
+
+### Read-only State
+
+Make the switch read-only while still displaying its state:
+
+<ComponentPreview>
+  <div className="flex flex-col gap-3">
+    <label className="flex items-center gap-2 cursor-default">
+      <Switch.Root readOnly>
+        <Switch.Thumb />
+      </Switch.Root>
+      <span>Read-only (off)</span>
+    </label>
+    <label className="flex items-center gap-2 cursor-default">
+      <Switch.Root readOnly defaultChecked>
+        <Switch.Thumb />
+      </Switch.Root>
+      <span>Read-only (on)</span>
+    </label>
+  </div>
+</ComponentPreview>
+
+```tsx
+<Switch.Root readOnly>
+  <Switch.Thumb />
+</Switch.Root>
+<Switch.Root readOnly defaultChecked>
+  <Switch.Thumb />
+</Switch.Root>
+```
+
+## API Reference
+
+### Switch.Root
+
+The root container for the switch.
+
+| Prop              | Type                                                                                   | Default     | Description                                  |
+| ----------------- | -------------------------------------------------------------------------------------- | ----------- | -------------------------------------------- |
+| `name`            | `string`                                                                               | -           | Name of the field when form is submitted     |
+| `defaultChecked`  | `boolean`                                                                              | `false`     | Default switch state (uncontrolled)          |
+| `checked`         | `boolean`                                                                              | -           | Controlled switch state                      |
+| `onCheckedChange` | `(checked: boolean, event: Event) => void`                                             | -           | Callback when switch is toggled              |
+| `variant`         | `"primary" \| "secondary" \| "accent" \| "ghost" \| "error" \| "success" \| "warning"` | `"primary"` | Visual style variant                         |
+| `size`            | `"xs" \| "sm" \| "md" \| "lg" \| "xl"`                                                 | `"sm"`      | Switch size                                  |
+| `disabled`        | `boolean`                                                                              | `false`     | Disables the switch                          |
+| `readOnly`        | `boolean`                                                                              | `false`     | Makes the switch read-only                   |
+| `required`        | `boolean`                                                                              | `false`     | Whether the switch is required               |
+| `inputRef`        | `React.Ref<HTMLInputElement>`                                                          | -           | Ref to the hidden input element              |
+| `className`       | `string`                                                                               | -           | Additional CSS classes                       |
+| `children`        | `React.ReactNode`                                                                      | -           | Switch content (typically Switch.Thumb)      |
+
+### Switch.Thumb
+
+The movable thumb element that slides when the switch is toggled.
+
+| Prop        | Type              | Default | Description            |
+| ----------- | ----------------- | ------- | ---------------------- |
+| `className` | `string`          | -       | Additional CSS classes |
+
+## Accessibility
+
+- Built on Base UI's Switch primitive with full accessibility support
+- Proper ARIA attributes for all states (checked, unchecked, disabled, read-only)
+- Full keyboard navigation support:
+  - `Tab` - Move focus to/from switch
+  - `Space` or `Enter` - Toggle switch state
+- Screen reader friendly with semantic HTML and proper roles
+- Includes hidden input for form submission
+- Works seamlessly with the Field component for form validation
+
+## State Attributes
+
+The Switch component automatically applies data attributes reflecting its state:
+
+- `data-checked`: When switch is on
+- `data-unchecked`: When switch is off
+- `data-disabled`: When switch is disabled
+- `data-readonly`: When switch is read-only
+- `data-required`: When switch is required
+- `data-valid`: When switch is in valid state
+- `data-invalid`: When switch is in invalid state
+- `data-touched`: When switch has been interacted with
+- `data-focused`: When switch is focused
+
+These attributes can be used for custom styling via CSS or Tailwind.
+
+## Examples
+
+### Form Integration
+
+```tsx
+<form>
+  <div className="flex flex-col gap-3">
+    <label className="flex items-center gap-2 cursor-pointer">
+      <Switch.Root name="notifications" defaultChecked>
+        <Switch.Thumb />
+      </Switch.Root>
+      <span>Email notifications</span>
+    </label>
+    <label className="flex items-center gap-2 cursor-pointer">
+      <Switch.Root name="marketing">
+        <Switch.Thumb />
+      </Switch.Root>
+      <span>Marketing emails</span>
+    </label>
+    <label className="flex items-center gap-2 cursor-pointer">
+      <Switch.Root name="updates" defaultChecked>
+        <Switch.Thumb />
+      </Switch.Root>
+      <span>Product updates</span>
+    </label>
+  </div>
+
+  <button type="submit" className="mt-4">
+    Save preferences
+  </button>
+</form>
+```
+
+### Settings Panel
+
+```tsx
+import { Switch } from '@joacod/pixel-ui'
+import { useState } from 'react'
+
+export default function SettingsPanel() {
+  const [darkMode, setDarkMode] = useState(false)
+  const [soundEffects, setSoundEffects] = useState(true)
+  const [autoSave, setAutoSave] = useState(true)
+
+  return (
+    <div className="flex flex-col gap-4">
+      <h2 className="font-bold text-lg">Settings</h2>
+
+      <div className="flex flex-col gap-3">
+        <label className="flex items-center justify-between cursor-pointer">
+          <span>Dark mode</span>
+          <Switch.Root
+            checked={darkMode}
+            onCheckedChange={setDarkMode}
+            variant="primary"
+          >
+            <Switch.Thumb />
+          </Switch.Root>
+        </label>
+
+        <label className="flex items-center justify-between cursor-pointer">
+          <span>Sound effects</span>
+          <Switch.Root
+            checked={soundEffects}
+            onCheckedChange={setSoundEffects}
+            variant="accent"
+          >
+            <Switch.Thumb />
+          </Switch.Root>
+        </label>
+
+        <label className="flex items-center justify-between cursor-pointer">
+          <span>Auto-save</span>
+          <Switch.Root
+            checked={autoSave}
+            onCheckedChange={setAutoSave}
+            variant="success"
+          >
+            <Switch.Thumb />
+          </Switch.Root>
+        </label>
+      </div>
+    </div>
+  )
+}
+```
+
+### With Field Component
+
+Use with the Field component (when available) for labels, validation, and error messages:
+
+```tsx
+import { Switch, Field } from '@joacod/pixel-ui'
+;<Field.Root name="terms" required>
+  <div className="flex items-center gap-2">
+    <Field.Control>
+      <Switch.Root name="terms" required>
+        <Switch.Thumb />
+      </Switch.Root>
+    </Field.Control>
+    <Field.Label>I agree to the terms and conditions</Field.Label>
+  </div>
+  <Field.Error>You must agree to the terms and conditions</Field.Error>
+</Field.Root>
+```
+
+### Conditional Content
+
+```tsx
+import { Switch } from '@joacod/pixel-ui'
+import { useState } from 'react'
+
+export default function ConditionalExample() {
+  const [showAdvanced, setShowAdvanced] = useState(false)
+
+  return (
+    <div className="flex flex-col gap-4">
+      <label className="flex items-center gap-2 cursor-pointer">
+        <Switch.Root checked={showAdvanced} onCheckedChange={setShowAdvanced}>
+          <Switch.Thumb />
+        </Switch.Root>
+        <span>Show advanced options</span>
+      </label>
+
+      {showAdvanced && (
+        <div className="pl-8 flex flex-col gap-2">
+          <h3 className="font-bold">Advanced Settings</h3>
+          <p>Additional configuration options appear here</p>
+        </div>
+      )}
+    </div>
+  )
+}
+```

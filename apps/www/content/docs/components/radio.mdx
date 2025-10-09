@@ -1,0 +1,661 @@
+---
+title: Radio
+description: A pixel-art styled radio button component with accessibility features
+---
+
+import { Radio, RadioGroup } from '@joacod/pixel-ui'
+
+## Overview
+
+The Radio component provides a pixel-art styled radio button for selecting a single option from a set of choices. It's built on Base UI's Radio primitive for full accessibility support and follows a compound component pattern with RadioGroup for managing multiple radio buttons together.
+
+## Preview
+
+<ComponentPreview>
+  <RadioGroup defaultValue="option1">
+    <label className="flex items-center gap-2 cursor-pointer">
+      <Radio.Root value="option1">
+        <Radio.Indicator />
+      </Radio.Root>
+      <span>Option 1</span>
+    </label>
+    <label className="flex items-center gap-2 cursor-pointer">
+      <Radio.Root value="option2">
+        <Radio.Indicator />
+      </Radio.Root>
+      <span>Option 2</span>
+    </label>
+    <label className="flex items-center gap-2 cursor-pointer">
+      <Radio.Root value="option3">
+        <Radio.Indicator />
+      </Radio.Root>
+      <span>Option 3</span>
+    </label>
+  </RadioGroup>
+</ComponentPreview>
+
+## Installation
+
+See the [Installation](/docs/installation) guide for setup instructions.
+
+## Usage
+
+The Radio component uses a compound component pattern with `RadioGroup`, `Radio.Root`, and `Radio.Indicator`:
+
+```tsx
+import { Radio, RadioGroup } from '@joacod/pixel-ui'
+
+export default function Example() {
+  return (
+    <RadioGroup defaultValue="option1">
+      <label className="flex items-center gap-2 cursor-pointer">
+        <Radio.Root value="option1">
+          <Radio.Indicator />
+        </Radio.Root>
+        <span>Option 1</span>
+      </label>
+      <label className="flex items-center gap-2 cursor-pointer">
+        <Radio.Root value="option2">
+          <Radio.Indicator />
+        </Radio.Root>
+        <span>Option 2</span>
+      </label>
+    </RadioGroup>
+  )
+}
+```
+
+## Basic Examples
+
+### Uncontrolled Radio Group
+
+Use `defaultValue` for uncontrolled radio groups:
+
+<ComponentPreview>
+  <RadioGroup defaultValue="option2">
+    <label className="flex items-center gap-2 cursor-pointer">
+      <Radio.Root value="option1">
+        <Radio.Indicator />
+      </Radio.Root>
+      <span>Option 1</span>
+    </label>
+    <label className="flex items-center gap-2 cursor-pointer">
+      <Radio.Root value="option2">
+        <Radio.Indicator />
+      </Radio.Root>
+      <span>Option 2</span>
+    </label>
+    <label className="flex items-center gap-2 cursor-pointer">
+      <Radio.Root value="option3">
+        <Radio.Indicator />
+      </Radio.Root>
+      <span>Option 3</span>
+    </label>
+  </RadioGroup>
+</ComponentPreview>
+
+```tsx
+<RadioGroup defaultValue="option2">
+  <label className="flex items-center gap-2 cursor-pointer">
+    <Radio.Root value="option1">
+      <Radio.Indicator />
+    </Radio.Root>
+    <span>Option 1</span>
+  </label>
+  <label className="flex items-center gap-2 cursor-pointer">
+    <Radio.Root value="option2">
+      <Radio.Indicator />
+    </Radio.Root>
+    <span>Option 2</span>
+  </label>
+  <label className="flex items-center gap-2 cursor-pointer">
+    <Radio.Root value="option3">
+      <Radio.Indicator />
+    </Radio.Root>
+    <span>Option 3</span>
+  </label>
+</RadioGroup>
+```
+
+### Controlled Radio Group
+
+Use `value` and `onValueChange` for controlled radio groups:
+
+```tsx
+import { Radio, RadioGroup } from '@joacod/pixel-ui'
+import { useState } from 'react'
+
+export default function Example() {
+  const [size, setSize] = useState('medium')
+
+  return (
+    <div>
+      <RadioGroup value={size} onValueChange={(value) => setSize(value)}>
+        <label className="flex items-center gap-2 cursor-pointer">
+          <Radio.Root value="small">
+            <Radio.Indicator />
+          </Radio.Root>
+          <span>Small</span>
+        </label>
+        <label className="flex items-center gap-2 cursor-pointer">
+          <Radio.Root value="medium">
+            <Radio.Indicator />
+          </Radio.Root>
+          <span>Medium</span>
+        </label>
+        <label className="flex items-center gap-2 cursor-pointer">
+          <Radio.Root value="large">
+            <Radio.Indicator />
+          </Radio.Root>
+          <span>Large</span>
+        </label>
+      </RadioGroup>
+      <p className="mt-4">Selected size: {size}</p>
+    </div>
+  )
+}
+```
+
+### Horizontal Layout
+
+Override the default vertical layout with custom classes:
+
+<ComponentPreview>
+  <RadioGroup defaultValue="yes" className="flex flex-row gap-4">
+    <label className="flex items-center gap-2 cursor-pointer">
+      <Radio.Root value="yes">
+        <Radio.Indicator />
+      </Radio.Root>
+      <span>Yes</span>
+    </label>
+    <label className="flex items-center gap-2 cursor-pointer">
+      <Radio.Root value="no">
+        <Radio.Indicator />
+      </Radio.Root>
+      <span>No</span>
+    </label>
+  </RadioGroup>
+</ComponentPreview>
+
+```tsx
+<RadioGroup defaultValue="yes" className="flex flex-row gap-4">
+  <label className="flex items-center gap-2 cursor-pointer">
+    <Radio.Root value="yes">
+      <Radio.Indicator />
+    </Radio.Root>
+    <span>Yes</span>
+  </label>
+  <label className="flex items-center gap-2 cursor-pointer">
+    <Radio.Root value="no">
+      <Radio.Indicator />
+    </Radio.Root>
+    <span>No</span>
+  </label>
+</RadioGroup>
+```
+
+## Variants
+
+Seven color variants are available to match your design system:
+
+<ComponentPreview>
+  <div className="flex flex-col gap-3">
+    <RadioGroup defaultValue="primary" className="flex flex-row gap-4 items-center flex-wrap">
+      <label className="flex items-center gap-2 cursor-pointer">
+        <Radio.Root value="primary" variant="primary">
+          <Radio.Indicator variant="primary" />
+        </Radio.Root>
+        <span>Primary</span>
+      </label>
+      <label className="flex items-center gap-2 cursor-pointer">
+        <Radio.Root value="secondary" variant="secondary">
+          <Radio.Indicator variant="secondary" />
+        </Radio.Root>
+        <span>Secondary</span>
+      </label>
+      <label className="flex items-center gap-2 cursor-pointer">
+        <Radio.Root value="accent" variant="accent">
+          <Radio.Indicator variant="accent" />
+        </Radio.Root>
+        <span>Accent</span>
+      </label>
+      <label className="flex items-center gap-2 cursor-pointer">
+        <Radio.Root value="ghost" variant="ghost">
+          <Radio.Indicator variant="ghost" />
+        </Radio.Root>
+        <span>Ghost</span>
+      </label>
+      <label className="flex items-center gap-2 cursor-pointer">
+        <Radio.Root value="error" variant="error">
+          <Radio.Indicator variant="error" />
+        </Radio.Root>
+        <span>Error</span>
+      </label>
+      <label className="flex items-center gap-2 cursor-pointer">
+        <Radio.Root value="success" variant="success">
+          <Radio.Indicator variant="success" />
+        </Radio.Root>
+        <span>Success</span>
+      </label>
+      <label className="flex items-center gap-2 cursor-pointer">
+        <Radio.Root value="warning" variant="warning">
+          <Radio.Indicator variant="warning" />
+        </Radio.Root>
+        <span>Warning</span>
+      </label>
+    </RadioGroup>
+  </div>
+</ComponentPreview>
+
+```tsx
+<Radio.Root value="option1" variant="primary">
+  <Radio.Indicator variant="primary" />
+</Radio.Root>
+<Radio.Root value="option2" variant="secondary">
+  <Radio.Indicator variant="secondary" />
+</Radio.Root>
+<Radio.Root value="option3" variant="accent">
+  <Radio.Indicator variant="accent" />
+</Radio.Root>
+<Radio.Root value="option4" variant="error">
+  <Radio.Indicator variant="error" />
+</Radio.Root>
+```
+
+## Sizes
+
+Five size options are available:
+
+<ComponentPreview>
+  <RadioGroup defaultValue="small" className="flex flex-row gap-4 items-center">
+    <label className="flex items-center gap-2 cursor-pointer">
+      <Radio.Root value="xs" size="xs">
+        <Radio.Indicator />
+      </Radio.Root>
+      <span>XS</span>
+    </label>
+    <label className="flex items-center gap-2 cursor-pointer">
+      <Radio.Root value="small" size="sm">
+        <Radio.Indicator />
+      </Radio.Root>
+      <span>Small</span>
+    </label>
+    <label className="flex items-center gap-2 cursor-pointer">
+      <Radio.Root value="medium" size="md">
+        <Radio.Indicator />
+      </Radio.Root>
+      <span>Medium</span>
+    </label>
+    <label className="flex items-center gap-2 cursor-pointer">
+      <Radio.Root value="large" size="lg">
+        <Radio.Indicator />
+      </Radio.Root>
+      <span>Large</span>
+    </label>
+    <label className="flex items-center gap-2 cursor-pointer">
+      <Radio.Root value="xl" size="xl">
+        <Radio.Indicator />
+      </Radio.Root>
+      <span>XL</span>
+    </label>
+  </RadioGroup>
+</ComponentPreview>
+
+```tsx
+<Radio.Root value="option1" size="xs">
+  <Radio.Indicator />
+</Radio.Root>
+<Radio.Root value="option2" size="sm">
+  <Radio.Indicator />
+</Radio.Root>
+<Radio.Root value="option3" size="md">
+  <Radio.Indicator />
+</Radio.Root>
+<Radio.Root value="option4" size="lg">
+  <Radio.Indicator />
+</Radio.Root>
+<Radio.Root value="option5" size="xl">
+  <Radio.Indicator />
+</Radio.Root>
+```
+
+## States
+
+### Disabled State
+
+Disable the entire group or individual radio buttons:
+
+<ComponentPreview>
+  <div className="flex flex-col gap-4">
+    <div>
+      <p className="mb-2 font-bold">Disabled Group:</p>
+      <RadioGroup defaultValue="option1" disabled>
+        <label className="flex items-center gap-2 cursor-pointer">
+          <Radio.Root value="option1">
+            <Radio.Indicator />
+          </Radio.Root>
+          <span>Option 1</span>
+        </label>
+        <label className="flex items-center gap-2 cursor-pointer">
+          <Radio.Root value="option2">
+            <Radio.Indicator />
+          </Radio.Root>
+          <span>Option 2</span>
+        </label>
+      </RadioGroup>
+    </div>
+    <div>
+      <p className="mb-2 font-bold">Individual Disabled:</p>
+      <RadioGroup defaultValue="option1">
+        <label className="flex items-center gap-2 cursor-pointer">
+          <Radio.Root value="option1">
+            <Radio.Indicator />
+          </Radio.Root>
+          <span>Option 1</span>
+        </label>
+        <label className="flex items-center gap-2 cursor-not-allowed">
+          <Radio.Root value="option2" disabled>
+            <Radio.Indicator />
+          </Radio.Root>
+          <span>Option 2 (disabled)</span>
+        </label>
+      </RadioGroup>
+    </div>
+  </div>
+</ComponentPreview>
+
+```tsx
+// Disabled group
+<RadioGroup defaultValue="option1" disabled>
+  <label className="flex items-center gap-2 cursor-pointer">
+    <Radio.Root value="option1">
+      <Radio.Indicator />
+    </Radio.Root>
+    <span>Option 1</span>
+  </label>
+  <label className="flex items-center gap-2 cursor-pointer">
+    <Radio.Root value="option2">
+      <Radio.Indicator />
+    </Radio.Root>
+    <span>Option 2</span>
+  </label>
+</RadioGroup>
+
+// Individual disabled
+<RadioGroup defaultValue="option1">
+  <label className="flex items-center gap-2 cursor-pointer">
+    <Radio.Root value="option1">
+      <Radio.Indicator />
+    </Radio.Root>
+    <span>Option 1</span>
+  </label>
+  <label className="flex items-center gap-2 cursor-not-allowed">
+    <Radio.Root value="option2" disabled>
+      <Radio.Indicator />
+    </Radio.Root>
+    <span>Option 2 (disabled)</span>
+  </label>
+</RadioGroup>
+```
+
+### Read-only State
+
+Make the radio group read-only:
+
+<ComponentPreview>
+  <RadioGroup defaultValue="option2" readOnly>
+    <label className="flex items-center gap-2 cursor-default">
+      <Radio.Root value="option1">
+        <Radio.Indicator />
+      </Radio.Root>
+      <span>Option 1</span>
+    </label>
+    <label className="flex items-center gap-2 cursor-default">
+      <Radio.Root value="option2">
+        <Radio.Indicator />
+      </Radio.Root>
+      <span>Option 2 (selected)</span>
+    </label>
+  </RadioGroup>
+</ComponentPreview>
+
+```tsx
+<RadioGroup defaultValue="option2" readOnly>
+  <label className="flex items-center gap-2 cursor-default">
+    <Radio.Root value="option1">
+      <Radio.Indicator />
+    </Radio.Root>
+    <span>Option 1</span>
+  </label>
+  <label className="flex items-center gap-2 cursor-default">
+    <Radio.Root value="option2">
+      <Radio.Indicator />
+    </Radio.Root>
+    <span>Option 2 (selected)</span>
+  </label>
+</RadioGroup>
+```
+
+## Custom Indicator
+
+You can provide custom content for the indicator:
+
+```tsx
+import { Radio, RadioGroup } from '@joacod/pixel-ui'
+
+// Custom dot
+<RadioGroup defaultValue="option1">
+  <label className="flex items-center gap-2 cursor-pointer">
+    <Radio.Root value="option1">
+      <Radio.Indicator>
+        <span className="block w-2 h-2 bg-nes-accent rounded-full" />
+      </Radio.Indicator>
+    </Radio.Root>
+    <span>Option 1</span>
+  </label>
+</RadioGroup>
+
+// Icon indicator
+<RadioGroup defaultValue="option1">
+  <label className="flex items-center gap-2 cursor-pointer">
+    <Radio.Root value="option1">
+      <Radio.Indicator>
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+          <circle cx="6" cy="6" r="6" />
+        </svg>
+      </Radio.Indicator>
+    </Radio.Root>
+    <span>Option 1</span>
+  </label>
+</RadioGroup>
+```
+
+## API Reference
+
+### RadioGroup
+
+The container that manages a group of radio buttons.
+
+| Prop            | Type                                    | Default | Description                              |
+| --------------- | --------------------------------------- | ------- | ---------------------------------------- |
+| `name`          | `string`                                | -       | Name of the field when form is submitted |
+| `defaultValue`  | `string`                                | -       | Default selected value (uncontrolled)    |
+| `value`         | `string`                                | -       | Controlled selected value                |
+| `onValueChange` | `(value: string, event: Event) => void` | -       | Callback when selected value changes     |
+| `disabled`      | `boolean`                               | `false` | Disables all radio buttons in the group  |
+| `readOnly`      | `boolean`                               | `false` | Makes all radio buttons read-only        |
+| `required`      | `boolean`                               | `false` | Whether a selection is required          |
+| `className`     | `string`                                | -       | Additional CSS classes                   |
+| `children`      | `React.ReactNode`                       | -       | Radio buttons (Radio.Root components)    |
+
+### Radio.Root
+
+The root container for a single radio button.
+
+| Prop        | Type                                                                                   | Default     | Description                           |
+| ----------- | -------------------------------------------------------------------------------------- | ----------- | ------------------------------------- |
+| `value`     | `string`                                                                               | -           | Unique identifying value              |
+| `variant`   | `"primary" \| "secondary" \| "accent" \| "ghost" \| "error" \| "success" \| "warning"` | `"primary"` | Visual style variant                  |
+| `size`      | `"xs" \| "sm" \| "md" \| "lg" \| "xl"`                                                 | `"sm"`      | Radio button size                     |
+| `disabled`  | `boolean`                                                                              | `false`     | Disables this radio button            |
+| `readOnly`  | `boolean`                                                                              | `false`     | Makes this radio button read-only     |
+| `required`  | `boolean`                                                                              | `false`     | Whether this radio button is required |
+| `inputRef`  | `React.Ref<HTMLInputElement>`                                                          | -           | Ref to the hidden input element       |
+| `className` | `string`                                                                               | -           | Additional CSS classes                |
+| `children`  | `React.ReactNode`                                                                      | -           | Radio content (typically Indicator)   |
+
+### Radio.Indicator
+
+The visual indicator that appears when the radio button is selected.
+
+| Prop          | Type                                                                                   | Default     | Description                          |
+| ------------- | -------------------------------------------------------------------------------------- | ----------- | ------------------------------------ |
+| `variant`     | `"primary" \| "secondary" \| "accent" \| "ghost" \| "error" \| "success" \| "warning"` | `"primary"` | Visual style variant for the dot     |
+| `keepMounted` | `boolean`                                                                              | `false`     | Keep indicator in DOM when unchecked |
+| `className`   | `string`                                                                               | -           | Additional CSS classes               |
+| `children`    | `React.ReactNode`                                                                      | filled dot  | Custom indicator content             |
+
+## Accessibility
+
+- Built on Base UI's Radio primitive with full accessibility support
+- Proper ARIA attributes for all states (checked, unchecked, disabled, read-only)
+- Full keyboard navigation support:
+  - `Tab` - Move focus to/from radio group
+  - `Arrow keys` - Navigate between radio buttons in a group
+  - `Space` - Select the focused radio button
+- Screen reader friendly with semantic HTML
+- Includes hidden input for form submission
+- Works seamlessly with the Field component for form validation
+
+## State Attributes
+
+The Radio component automatically applies data attributes reflecting its state:
+
+- `data-checked`: When radio button is selected
+- `data-unchecked`: When radio button is not selected
+- `data-disabled`: When radio button is disabled
+- `data-readonly`: When radio button is read-only
+- `data-required`: When radio button is required
+
+These attributes can be used for custom styling via CSS or Tailwind.
+
+## Examples
+
+### Form Integration
+
+```tsx
+<form>
+  <RadioGroup name="shipping" defaultValue="standard" required>
+    <label className="flex items-center gap-2 cursor-pointer">
+      <Radio.Root value="standard">
+        <Radio.Indicator />
+      </Radio.Root>
+      <span>Standard Shipping (5-7 days) - Free</span>
+    </label>
+    <label className="flex items-center gap-2 cursor-pointer">
+      <Radio.Root value="express">
+        <Radio.Indicator />
+      </Radio.Root>
+      <span>Express Shipping (2-3 days) - $10</span>
+    </label>
+    <label className="flex items-center gap-2 cursor-pointer">
+      <Radio.Root value="overnight">
+        <Radio.Indicator />
+      </Radio.Root>
+      <span>Overnight Shipping (1 day) - $25</span>
+    </label>
+  </RadioGroup>
+
+  <button type="submit">Continue</button>
+</form>
+```
+
+### Conditional Content
+
+```tsx
+import { Radio, RadioGroup } from '@joacod/pixel-ui'
+import { useState } from 'react'
+
+export default function ConditionalContentExample() {
+  const [paymentMethod, setPaymentMethod] = useState('card')
+
+  return (
+    <div className="flex flex-col gap-4">
+      <RadioGroup value={paymentMethod} onValueChange={setPaymentMethod}>
+        <label className="flex items-center gap-2 cursor-pointer">
+          <Radio.Root value="card">
+            <Radio.Indicator />
+          </Radio.Root>
+          <span>Credit Card</span>
+        </label>
+        <label className="flex items-center gap-2 cursor-pointer">
+          <Radio.Root value="paypal">
+            <Radio.Indicator />
+          </Radio.Root>
+          <span>PayPal</span>
+        </label>
+        <label className="flex items-center gap-2 cursor-pointer">
+          <Radio.Root value="bank">
+            <Radio.Indicator />
+          </Radio.Root>
+          <span>Bank Transfer</span>
+        </label>
+      </RadioGroup>
+
+      {paymentMethod === 'card' && (
+        <div className="pl-8">
+          <p>Enter your card details below</p>
+          {/* Card form fields */}
+        </div>
+      )}
+
+      {paymentMethod === 'paypal' && (
+        <div className="pl-8">
+          <p>You will be redirected to PayPal</p>
+        </div>
+      )}
+
+      {paymentMethod === 'bank' && (
+        <div className="pl-8">
+          <p>Bank transfer instructions will be sent to your email</p>
+        </div>
+      )}
+    </div>
+  )
+}
+```
+
+### With Field Component
+
+Use with the Field component (when available) for labels, validation, and error messages:
+
+```tsx
+import { Radio, RadioGroup, Field } from '@joacod/pixel-ui'
+;<Field.Root name="plan" required>
+  <Field.Label>Select a plan</Field.Label>
+  <Field.Description>Choose the plan that works best for you</Field.Description>
+  <Field.Control>
+    <RadioGroup name="plan" required>
+      <label className="flex items-center gap-2 cursor-pointer">
+        <Radio.Root value="free">
+          <Radio.Indicator />
+        </Radio.Root>
+        <span>Free - $0/month</span>
+      </label>
+      <label className="flex items-center gap-2 cursor-pointer">
+        <Radio.Root value="pro">
+          <Radio.Indicator />
+        </Radio.Root>
+        <span>Pro - $19/month</span>
+      </label>
+      <label className="flex items-center gap-2 cursor-pointer">
+        <Radio.Root value="enterprise">
+          <Radio.Indicator />
+        </Radio.Root>
+        <span>Enterprise - Contact us</span>
+      </label>
+    </RadioGroup>
+  </Field.Control>
+  <Field.Error>Please select a plan</Field.Error>
+</Field.Root>
+```
