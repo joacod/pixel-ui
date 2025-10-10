@@ -1,41 +1,6 @@
 /*
- * Monorepo Dev Setup - Import from source files
- * External consumers use: @import '@joacod/pixel-ui/components';
+ * Global Styles
  */
-@import '../../../packages/pixel-ui/src/styles/theme.css';
 @import 'tailwindcss';
-@import '../../../packages/pixel-ui/src/styles/base.css';
-
-/* Import Fumadocs styles */
 @import 'fumadocs-ui/css/neutral.css';
 @import 'fumadocs-ui/css/preset.css';
-
-/* Scan Pixel UI component source for Tailwind class generation */
-@source '../../../packages/pixel-ui/src/**/*.{ts,tsx}';
-
-/* Documentation-specific Tailwind theme extensions */
-@theme {
-  /* Font families for documentation */
-  --font-family-sans: var(--font-sans), system-ui, -apple-system, sans-serif;
-  --font-family-mono: var(--font-mono), ui-monospace, 'Courier New', monospace;
-}
-
-/* Documentation-specific overrides */
-@layer base {
-  /* Override pixel rendering for documentation readability */
-  /* The pixel-ui base.css disables font smoothing globally, but we want it for docs */
-  body,
-  html {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
-  }
-
-  /* Code blocks should use monospace font */
-  code,
-  pre,
-  kbd,
-  samp {
-    font-family: var(--font-family-mono);
-  }
-}

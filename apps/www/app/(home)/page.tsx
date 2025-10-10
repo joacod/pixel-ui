@@ -13,7 +13,7 @@ export default function HomePage() {
           </p>
           <Link
             href="/docs"
-            className="inline-flex items-center  text-fd-foreground font-semibold  transition-all duration-200 group underline"
+            className="inline-flex items-center  text-fd-foreground font-semibold  transition-all duration-200 group underline mt-2"
           >
             Documentation
             <ArrowRightIcon className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
