@@ -11,9 +11,15 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'pixel-ui - Retro pixel-art React components',
+  title: {
+    default: 'Pixel UI - Retro pixel-art React components',
+    template: '%s - Pixel UI',
+  },
   description:
     'Opinionated pixel-art styled React component library built on Base UI with modern accessibility standards',
+  icons: {
+    icon: '/favicon.png',
+  },
 }
 
 export default function Layout({ children }: LayoutProps<'/'>) {
