@@ -1,6 +1,13 @@
 import '@/app/global.css'
 import { RootProvider } from 'fumadocs-ui/provider/next'
 import type { Metadata } from 'next'
+import { Inter } from 'next/font/google'
+import { GeistMono } from 'geist/font/mono'
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-sans',
+})
 
 export const metadata: Metadata = {
   title: 'pixel-ui - Retro pixel-art React components',
@@ -10,8 +17,12 @@ export const metadata: Metadata = {
 
 export default function Layout({ children }: LayoutProps<'/'>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className="flex flex-col min-h-screen font-pixel">
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${inter.variable} ${GeistMono.variable}`}
+    >
+      <body className="flex flex-col min-h-screen font-sans">
         <RootProvider>{children}</RootProvider>
       </body>
     </html>

@@ -26,6 +26,9 @@ importers:
       fumadocs-ui:
         specifier: 15.8.4
         version: 15.8.4(@types/react-dom@19.2.1(@types/react@19.2.2))(@types/react@19.2.2)(lucide-react@0.545.0(react@19.2.0))(next@15.5.4(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(tailwindcss@4.1.14)
+      geist:
+        specifier: 1.5.1
+        version: 1.5.1(next@15.5.4(react-dom@19.2.0(react@19.2.0))(react@19.2.0))
       lucide-react:
         specifier: 0.545.0
         version: 0.545.0(react@19.2.0)
@@ -1650,6 +1653,11 @@ packages:
         optional: true
       tailwindcss:
         optional: true
+
+  geist@1.5.1:
+    resolution: {integrity: sha512-mAHZxIsL2o3ZITFaBVFBnwyDOw+zNLYum6A6nIjpzCGIO8QtC3V76XF2RnZTyLx1wlDTmMDy8jg3Ib52MIjGvQ==}
+    peerDependencies:
+      next: '>=13.2.0'
 
   get-caller-file@2.0.5:
     resolution: {integrity: sha512-DyFP3BM/3YHTQOCUL/w0OZHR0lpKeGrxotcHWcqNEdnltqFwXVfhEBQ94eIo34AfQpo0rGki4cyIiftY06h2Fg==}
@@ -4209,6 +4217,10 @@ snapshots:
       - react-router
       - supports-color
       - waku
+
+  geist@1.5.1(next@15.5.4(react-dom@19.2.0(react@19.2.0))(react@19.2.0)):
+    dependencies:
+      next: 15.5.4(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
 
   get-caller-file@2.0.5: {}
 
