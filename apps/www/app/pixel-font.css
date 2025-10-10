@@ -1,0 +1,13 @@
+/**
+ * Pixel UI Font - Global Import
+ *
+ * This file imports the Unifontex pixel font globally so it's available
+ * inside Shadow DOM components. The font is needed for pixel-ui components
+ * but is loaded globally since @font-face rules with relative URLs don't
+ * work correctly inside shadow roots.
+ *
+ * This is the ONLY pixel-ui style imported globally - all other styles
+ * are scoped within Shadow DOM boundaries.
+ */
+
+@import '@joacod/pixel-ui/font';

@@ -1,0 +1,12 @@
+/**
+ * Pixel UI Font
+ *
+ * Import this file to load the Unifontex pixel font.
+ * This is separate from components.css to keep the bundle small.
+ *
+ * Usage:
+ * @import '@joacod/pixel-ui/font';
+ * @import '@joacod/pixel-ui/components';
+ */
+
+@import '@fontsource/unifontex/latin-400.css';

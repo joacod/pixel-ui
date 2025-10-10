@@ -1480,13 +1480,6 @@
     }
   }
 }
-@font-face {
-  font-family: 'UnifontEX';
-  font-style: normal;
-  font-display: swap;
-  font-weight: 400;
-  src: url(../../../../node_modules/.pnpm/@fontsource+unifontex@5.2.5/node_modules/@fontsource/unifontex/files/unifontex-latin-400-normal.woff2) format('woff2'), url(../../../../node_modules/.pnpm/@fontsource+unifontex@5.2.5/node_modules/@fontsource/unifontex/files/unifontex-latin-400-normal.woff) format('woff');
-}
 @layer base {
   img, canvas {
     image-rendering: pixelated;

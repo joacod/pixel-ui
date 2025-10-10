@@ -10,10 +10,8 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
     },
-    "./styles": "./dist/styles/base.css",
-    "./preset": "./dist/styles/preset.css",
-    "./theme": "./dist/styles/theme.css",
-    "./components": "./dist/styles/components.css"
+    "./components": "./dist/styles/components.css",
+    "./font": "./dist/styles/font.css"
   },
   "files": [
     "dist"

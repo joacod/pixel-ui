@@ -1,8 +1,5 @@
 /* Pixel UI - Base Styles & Utilities */
 
-/* Import Unifontex font from @fontsource */
-@import '@fontsource/unifontex/latin-400.css';
-
 /* Global pixel rendering styles */
 @layer base {
   /* Pixel-perfect rendering for images and canvases */

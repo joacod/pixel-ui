@@ -112,29 +112,27 @@ These should be kept in sync. The CSS version is the source of truth for Tailwin
 
 ### Styling Architecture (Tailwind v4)
 
-The library exports four CSS files:
+The library exports a single all-in-one CSS file: **components.css**
 
-- **theme.css**: Defines design tokens using `@theme` directive with CSS custom properties
-- **base.css**: Global pixel rendering styles, utility classes (`.pixel-border`, `.pixel-render`, etc.), and pixel font imported from @fontsource
-- **preset.css**: Imports theme → Tailwind CSS → base styles in correct order
-- **components.css**: Pre-built component styles generated from `*.styles.ts` files
+This file includes everything consumers need:
+
+- Design tokens from `theme.css` (CSS custom properties via `@theme` directive)
+- Tailwind CSS utilities
+- Base pixel rendering styles and utilities from `base.css` (`.pixel-border`, `.pixel-render`, etc.)
+- Pixel font
+- Pre-built component styles extracted from all `*.styles.ts` files
 
 The components.css file is generated at build time by:
 
 1. Scanning all `*.styles.ts` files for Tailwind class strings
-2. Creating a temporary CSS file with all extracted classes
-3. Processing with Tailwind CLI to generate the final CSS
+2. Creating a temporary CSS file that imports theme → tailwind → base → component classes
+3. Processing with Tailwind CLI to generate the final all-in-one CSS
 4. This eliminates the need for consumers to scan `node_modules` or use `@source` directives
-
-All CSS files are:
-
-1. Generated/copied to `dist/styles/` during build
-2. Exported in package.json under `./styles`, `./preset`, `./theme`, `./components` paths
 
 **Consumer setup (single import):**
 
 ```css
-@import '@joacod/pixel-ui/components'; /* Everything: theme + base + components */
+@import '@joacod/pixel-ui/components'; /* Everything you need */
 ```
 
 ### Build System
