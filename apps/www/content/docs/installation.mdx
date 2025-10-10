@@ -29,14 +29,35 @@ In your app's main CSS file (e.g., `app/globals.css` or `src/index.css`):
 
 ```css
 @import '@joacod/pixel-ui/components';
+
+/* Pixel UI Font (optional, but recommended for the full retro experience) */
+@import '@joacod/pixel-ui/font';
 ```
 
-This single import includes everything you need:
+#### What's Included
+
+**Components Import**:
 
 - ✅ **Design tokens** - NES-inspired 8-bit color palette, 8px grid spacing, pixel font configuration
 - ✅ **Tailwind utilities** - Pre-built utility classes for layout and styling
 - ✅ **Base utilities** - Pixel-art helpers like `.pixel-border`, `.pixel-render`, `.pixel-text`
 - ✅ **Component styles** - Ready-to-use styles for Button, Input, Checkbox, and all other components
+
+**Font Import** (optional):
+
+- 🎨 Authentic pixel-art font that gives your UI the classic 8-bit look
+- If you skip this, components will use your system's default font
+
+<Callout type="info">
+  **Using a different font?** You can skip the font import and use your own:
+
+```css
+:root {
+  --font-family-pixel: 'Your Font', monospace;
+}
+```
+
+</Callout>
 
 ## Usage
 

@@ -26,20 +26,26 @@ npm install react react-dom
 
 ## Quick Start
 
-### 1. Import Pixel UI
+### 1. Import Pixel UI Styles
 
 In your app's CSS file (e.g., `app/globals.css` or `src/index.css`):
 
 ```css
 @import '@joacod/pixel-ui/components';
+
+/* Optional: Pixel font for the full retro experience */
+@import '@joacod/pixel-ui/font';
 ```
 
-That's it! This single import includes:
+**What's included:**
 
-- ✅ Design tokens (colors, spacing, fonts)
-- ✅ Tailwind CSS utilities
-- ✅ Base styles (pixel borders, pixel rendering, etc.)
-- ✅ Pre-built component styles (Button, Input, Checkbox, etc.)
+- ✅ **Design tokens** - Colors, spacing, font configuration
+- ✅ **Tailwind utilities** - Pre-built utility classes
+- ✅ **Base styles** - Pixel borders, rendering helpers
+- ✅ **Components** - All component styles
+- 🎨 **Font** (optional) - Pixel art font
+
+> **Note:** The font import is optional but recommended for an authentic pixel-art look. If you skip it, components will use your system's default font.
 
 ### 2. Use Components
 
