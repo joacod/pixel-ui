@@ -7,7 +7,9 @@ import { ColorSwatch, ColorGrid } from '@/components/color-swatch'
 
 ## Overview
 
-Pixel UI uses a carefully curated NES 8-bit inspired color palette that provides excellent contrast and maintains the retro aesthetic. All colors automatically adapt for dark mode where appropriate.
+Pixel UI uses a carefully curated NES 8-bit inspired color palette that provides excellent contrast and maintains the retro aesthetic.
+
+**Just pick a variant and go** - all colors automatically adapt for dark mode with no configuration needed.
 
 ## Color Palette
 
@@ -24,9 +26,9 @@ These foundational colors adapt between light and dark modes:
   </ColorGrid>
 </ComponentPreview>
 
-### UI Semantic Colors
+### Semantic Colors
 
-Main colors used for component variants:
+Use these colors through the `variant` prop on components:
 
 <ComponentPreview>
   <ColorGrid columns={3}>
@@ -59,35 +61,14 @@ Main colors used for component variants:
   </ColorGrid>
 </ComponentPreview>
 
-### Additional Palette Colors
+## Using Colors
 
-Extended color options for custom styling:
-
-<ComponentPreview>
-  <ColorGrid columns={3}>
-    <ColorSwatch name="Red" colorKey="nesRed" />
-    <ColorSwatch name="Red Dark" colorKey="nesRedDark" />
-    <ColorSwatch name="Blue" colorKey="nesBlue" />
-    <ColorSwatch name="Blue Dark" colorKey="nesBlueDark" />
-    <ColorSwatch name="Green" colorKey="nesGreen" />
-    <ColorSwatch name="Green Dark" colorKey="nesGreenDark" />
-    <ColorSwatch name="Yellow" colorKey="nesYellow" />
-    <ColorSwatch name="Yellow Dark" colorKey="nesYellowDark" />
-    <ColorSwatch name="Purple" colorKey="nesPurple" />
-    <ColorSwatch name="Purple Dark" colorKey="nesPurpleDark" />
-  </ColorGrid>
-</ComponentPreview>
-
-## Usage in Components
-
-### Component Variants
-
-All interactive components support these variant colors through the `variant` prop:
+Colors in Pixel UI are applied through the `variant` prop on components. No need to think about CSS classes or color values.
 
 ```tsx
 import { Button } from '@joacod/pixel-ui'
 
-// Available variants
+// Just set the variant - colors work automatically in light and dark mode
 <Button variant="base">Base</Button>
 <Button variant="primary">Primary</Button>
 <Button variant="secondary">Secondary</Button>
@@ -98,23 +79,27 @@ import { Button } from '@joacod/pixel-ui'
 <Button variant="warning">Warning</Button>
 ```
 
-**Variant descriptions:**
+### Available Variants
 
-- **base**: Adapts between black (light mode) and white (dark mode)
-- **primary**: Main brand color
-- **secondary**: Alternative accent
-- **accent**: Highlight color
-- **ghost**: Subtle gray variant
-- **error**: Error states
-- **success**: Success states
-- **warning**: Warning states
+- **base** - Adapts between black (light mode) and white (dark mode)
+- **primary** - Main brand color (blue)
+- **secondary** - Alternative accent (pink)
+- **accent** - Highlight color (green)
+- **ghost** - Subtle transparent variant
+- **error** - For error states (red)
+- **success** - For success states (green)
+- **warning** - For warning states (yellow)
 
 ## Dark Mode
 
-Pixel UI components automatically adapt to dark mode with no configuration needed. When your app switches to dark mode:
+All colors automatically adapt to dark mode based on your system's `prefers-color-scheme` setting.
 
-- **Base colors adapt**: Black backgrounds become gray-dark, borders become white
-- **Semantic colors stay consistent**: Primary, secondary, accent, etc. remain the same for brand recognition
-- **Components handle everything**: All dark mode styling is built into the components
+**What changes:**
 
-You don't need to apply any dark mode classes - the components respond to your system's `prefers-color-scheme` automatically.
+- Base colors adapt (black ↔ white, backgrounds darken)
+- Semantic colors stay consistent for brand recognition
+- Border and shadow colors invert for visibility
+
+**What you do:**
+
+- Nothing! Just use the `variant` prop and components handle light/dark mode automatically.

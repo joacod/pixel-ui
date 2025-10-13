@@ -4,6 +4,7 @@
 export { cn } from './utils/cn'
 
 // Export design tokens and types
+// Note: Most users won't need these - use the `variant` and `size` props instead
 export {
   colors,
   sizes,

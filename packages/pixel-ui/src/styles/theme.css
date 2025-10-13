@@ -12,17 +12,10 @@
   --color-nes-gray: #a1a1a1;
   --color-nes-white: #ffffff;
 
-  /* Primary colors */
+  /* Internal colors (used for hover states and dark mode) */
   --color-nes-red: #fe5ec4;
-  --color-nes-red-dark: #a62721;
-  --color-nes-blue: #0b53d7;
   --color-nes-blue-dark: #00237c;
-  --color-nes-green: #79d300;
   --color-nes-green-dark: #093e00;
-  --color-nes-yellow: #f4d199;
-  --color-nes-yellow-dark: #864300;
-  --color-nes-purple: #bc6afe;
-  --color-nes-purple-dark: #6621f7;
 
   /* UI semantic colors */
   --color-nes-primary: #3337fe;

@@ -3,6 +3,7 @@
 
 /**
  * NES 8-bit Color Palette
+ * Internal colors used by components - users should use the `variant` prop instead
  */
 export const colors = {
   // Dark shades
@@ -11,17 +12,10 @@ export const colors = {
   nesGray: '#A1A1A1',
   nesWhite: '#FFFFFF',
 
-  // Primary colors
+  // Internal colors (used for hover states and dark mode)
   nesRed: '#FE5EC4',
-  nesRedDark: '#A62721',
-  nesBlue: '#0B53D7',
   nesBlueDark: '#00237C',
-  nesGreen: '#79D300',
   nesGreenDark: '#093E00',
-  nesYellow: '#F4D199',
-  nesYellowDark: '#864300',
-  nesPurple: '#BC6AFE',
-  nesPurpleDark: '#6621F7',
 
   // UI semantic colors
   nesPrimary: '#3337FE',
