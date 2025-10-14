@@ -60,6 +60,8 @@ export function ShadowPreview({
       container.style.gap = '1rem'
       container.style.minHeight = '100px'
       container.style.padding = '1rem'
+      // Apply pixel font for labels and text
+      container.style.fontFamily = "'Unifontex', monospace"
 
       shadow.appendChild(container)
     }

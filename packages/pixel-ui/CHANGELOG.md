@@ -4,9 +4,9 @@
 
 ### Minor Changes
 
-- d274db1: Refactor font export and improve documentation component previews
+- d274db1: Refactor font export and simplify package exports
 
-  This release introduces a new optional font import and improves the documentation site's component preview isolation.
+  This release introduces a new optional font import and simplifies the package export structure.
 
   **Library Changes:**
 
@@ -14,14 +14,6 @@
   - Simplified package exports: Removed `./styles`, `./preset`, and `./theme` exports in favor of `./components` and `./font`
   - Optimized bundle: Font is now optional, reducing bundle size for consumers who use custom fonts
   - Updated README and installation docs to reflect new optional font import pattern
-
-  **Documentation Site Improvements:**
-
-  - Shadow DOM component previews: All component previews now render inside Shadow DOM for complete style isolation
-  - New `ShadowPreview` component: Prevents doc styles from leaking into component demos and vice versa
-  - Font loading improvements: Pixel font loaded globally once for Shadow DOM components
-  - Better font handling: Docs site uses Inter and Geist Mono for documentation, pixel font only for components
-  - New utility: `getPixelUIStyles()` helper for server-side style injection into Shadow DOM
 
   **Breaking Changes:**
 
@@ -77,7 +69,6 @@
   - Pixel-art styling with box-shadow borders and instant transitions
   - Comprehensive keyboard navigation (Arrow keys, Page Up/Down, Home/End, Enter)
   - Full accessibility support with ARIA attributes
-  - Comprehensive MDX documentation with interactive examples
 
   **Textarea Component:**
 
@@ -91,7 +82,6 @@
   - Dark mode support for all variants with proper contrast
   - Full accessibility with native textarea semantics
   - Supports all standard HTML textarea attributes (rows, cols, maxLength, etc.)
-  - Comprehensive MDX documentation with interactive examples including character counter and auto-resize patterns
 
 ## 0.9.0
 
@@ -112,7 +102,6 @@
   - Full accessibility with keyboard navigation (arrows, space, enter, escape, type-to-search)
   - Custom positioning options (side, alignment, offset)
   - Dark mode support with proper contrast and visibility
-  - Comprehensive MDX documentation with interactive examples for both components
 
 ## 0.8.0
 
@@ -126,9 +115,6 @@
   - Remove all Google Fonts CDN imports from theme.css, preset.css, and build scripts
   - Add @fontsource/fusion-pixel-12px-proportional-jp dependency for self-hosted font files
   - Update font-family-pixel design token to reference new font
-  - Improve landing page UI with larger heading, better spacing, and emoji logo
-  - Add pixel emoji (👾) to navigation and landing page branding
-  - Update documentation to reference new font in installation guide and CLAUDE.md
 
 ## 0.7.0
 
@@ -152,11 +138,6 @@
   - Enhanced Input component with focus states and improved styling
   - Improved Button component styling consistency
 
-  - Added Field component documentation with interactive examples
-  - Added Fieldset component documentation with interactive examples
-  - Added Colors documentation page showing all color variants
-  - Updated component metadata for navigation
-
 ## 0.6.0
 
 ### Minor Changes
@@ -177,7 +158,6 @@
   - Custom indicator support with default filled dot
   - Full accessibility support with keyboard navigation and ARIA attributes
   - Form integration with hidden input for submission
-  - Comprehensive MDX documentation with interactive examples
 
   ## Switch Component
 
@@ -190,17 +170,15 @@
   - Supports both controlled and uncontrolled modes
   - Full accessibility support with keyboard navigation and ARIA attributes
   - Form integration with hidden input for submission
-  - Comprehensive MDX documentation with interactive examples
 
 ## 0.5.1
 
 ### Patch Changes
 
-- d316b84: Update installation documentation and peer dependencies
+- d316b84: Update peer dependencies
 
-  - Improve installation instructions for better clarity
-  - Update peer dependency documentation
-  - Enhance setup guidance for consumers
+  - Update peer dependency configuration
+  - Enhance package metadata for better compatibility
 
 ## 0.5.0
 
@@ -212,7 +190,6 @@
   - Automated build step via `generate-components-css.mjs` that scans component styles and generates CSS at build time
   - Consumers no longer need to scan `node_modules` or use Tailwind `@source` directives
   - Single import workflow: `@import '@joacod/pixel-ui/components'` includes everything (theme + base + components)
-  - Updated installation documentation with simplified setup instructions
   - New PostCSS configuration for CSS generation pipeline
   - Added `.pixel-render` utility class to base.css for consistent pixel-art rendering
 
@@ -220,32 +197,33 @@
 
 ### Minor Changes
 
-- 6c8c1cd: Add Checkbox and CheckboxGroup components - Pixel-art styled form controls with accessibility features
+- 6c8c1cd: Add Checkbox and CheckboxGroup components
+
+  Pixel-art styled form controls with accessibility features.
 
   - New Checkbox component built on Base UI Checkbox primitive
   - Compound component pattern with `Checkbox.Root` and `Checkbox.Indicator`
   - States: checked, unchecked, indeterminate, disabled, readonly, required
   - Pixel-art styling with box-shadow borders and instant transitions
   - Full accessibility support with keyboard navigation and ARIA attributes
-
   - New CheckboxGroup component for managing multiple checkbox state
   - Supports controlled and uncontrolled modes
   - Parent checkbox functionality for "select all" behavior via `allValues` prop
   - Group-wide disabled state with proper propagation
-  - Comprehensive MDX documentation with interactive examples
 
 ## 0.3.0
 
 ### Minor Changes
 
-- 3002563: Add Input component - Pixel-art styled text input with accessibility features
+- 3002563: Add Input component
+
+  Pixel-art styled text input with accessibility features.
 
   - New Input component built on Base UI Input primitive
   - Supports variants: primary, secondary, error
   - Supports sizes: xs, sm, md, lg, xl
   - States: disabled, readOnly with proper styling
   - Full accessibility support with state data attributes
-  - Comprehensive MDX documentation
 
 ## 0.2.0
 
@@ -255,8 +233,6 @@
 
   - Restructured project as monorepo with separate packages and documentation site
   - Added Tailwind 4 CSS preset export for easier theme integration
-  - Improved Button component documentation with live examples
-  - Enhanced installation guide with clearer setup instructions
   - Added dedicated preset.css and theme.css files for better modularity
 
 ## 0.1.0

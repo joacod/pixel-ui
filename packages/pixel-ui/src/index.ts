@@ -1,12 +1,10 @@
 // Pixel UI - Main entry point
-// Components will be exported here as they are developed
-
-export const version = '0.0.1'
 
 // Export utilities
 export { cn } from './utils/cn'
 
 // Export design tokens and types
+// Note: Most users won't need these - use the `variant` and `size` props instead
 export {
   colors,
   sizes,

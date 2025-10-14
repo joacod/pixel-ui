@@ -3,9 +3,13 @@ title: Colors
 description: NES 8-bit color palette used throughout Pixel UI
 ---
 
+import { ColorSwatch, ColorGrid } from '@/components/color-swatch'
+
 ## Overview
 
-Pixel UI uses a carefully curated NES 8-bit inspired color palette that provides excellent contrast and maintains the retro aesthetic. All colors automatically adapt for dark mode where appropriate.
+Pixel UI uses a carefully curated NES 8-bit inspired color palette that provides excellent contrast and maintains the retro aesthetic.
+
+**Just pick a variant and go** - all colors automatically adapt for dark mode with no configuration needed.
 
 ## Color Palette
 
@@ -13,212 +17,89 @@ Pixel UI uses a carefully curated NES 8-bit inspired color palette that provides
 
 These foundational colors adapt between light and dark modes:
 
-<div className="grid grid-cols-2 md:grid-cols-4 gap-4 my-8">
-  <div className="space-y-2">
-    <div className="h-24 w-full bg-nes-black border-2 border-nes-black"></div>
-    <div className="text-sm">
-      <div className="font-bold">Black</div>
-      <div className="text-nes-gray-dark">#000000</div>
-    </div>
-  </div>
-  <div className="space-y-2">
-    <div className="h-24 w-full bg-nes-gray-dark border-2 border-nes-black"></div>
-    <div className="text-sm">
-      <div className="font-bold">Gray Dark</div>
-      <div className="text-nes-gray-dark">#585858</div>
-    </div>
-  </div>
-  <div className="space-y-2">
-    <div className="h-24 w-full bg-nes-gray border-2 border-nes-black"></div>
-    <div className="text-sm">
-      <div className="font-bold">Gray</div>
-      <div className="text-nes-gray-dark">#A1A1A1</div>
-    </div>
-  </div>
-  <div className="space-y-2">
-    <div className="h-24 w-full bg-nes-white border-2 border-nes-black"></div>
-    <div className="text-sm">
-      <div className="font-bold">White</div>
-      <div className="text-nes-gray-dark">#FFFFFF</div>
-    </div>
-  </div>
-</div>
+<ComponentPreview>
+  <ColorGrid columns={4}>
+    <ColorSwatch name="Black" colorKey="nesBlack" />
+    <ColorSwatch name="Gray Dark" colorKey="nesGrayDark" />
+    <ColorSwatch name="Gray" colorKey="nesGray" />
+    <ColorSwatch name="White" colorKey="nesWhite" />
+  </ColorGrid>
+</ComponentPreview>
 
-### UI Semantic Colors
+### Semantic Colors
 
-Main colors used for component variants:
+Use these colors through the `variant` prop on components:
 
-<div className="grid grid-cols-2 md:grid-cols-3 gap-4 my-8">
-  <div className="space-y-2">
-    <div className="h-24 w-full bg-nes-primary border-2 border-nes-black"></div>
-    <div className="text-sm">
-      <div className="font-bold">Primary</div>
-      <div className="text-nes-gray-dark">#3337FE</div>
-      <div className="text-xs text-nes-gray">Main brand color</div>
-    </div>
-  </div>
-  <div className="space-y-2">
-    <div className="h-24 w-full bg-nes-secondary border-2 border-nes-black"></div>
-    <div className="text-sm">
-      <div className="font-bold">Secondary</div>
-      <div className="text-nes-gray-dark">#F15BFE</div>
-      <div className="text-xs text-nes-gray">Alternative accent</div>
-    </div>
-  </div>
-  <div className="space-y-2">
-    <div className="h-24 w-full bg-nes-accent border-2 border-nes-black"></div>
-    <div className="text-sm">
-      <div className="font-bold">Accent</div>
-      <div className="text-nes-gray-dark">#51DF21</div>
-      <div className="text-xs text-nes-gray">Highlight color</div>
-    </div>
-  </div>
-  <div className="space-y-2">
-    <div className="h-24 w-full bg-nes-error border-2 border-nes-black"></div>
-    <div className="text-sm">
-      <div className="font-bold">Error</div>
-      <div className="text-nes-gray-dark">#FE7269</div>
-      <div className="text-xs text-nes-gray">Error states</div>
-    </div>
-  </div>
-  <div className="space-y-2">
-    <div className="h-24 w-full bg-nes-success border-2 border-nes-black"></div>
-    <div className="text-sm">
-      <div className="font-bold">Success</div>
-      <div className="text-nes-gray-dark">#51DF21</div>
-      <div className="text-xs text-nes-gray">Success states</div>
-    </div>
-  </div>
-  <div className="space-y-2">
-    <div className="h-24 w-full bg-nes-warning border-2 border-nes-black"></div>
-    <div className="text-sm">
-      <div className="font-bold">Warning</div>
-      <div className="text-nes-gray-dark">#ADB600</div>
-      <div className="text-xs text-nes-gray">Warning states</div>
-    </div>
-  </div>
-</div>
+<ComponentPreview>
+  <ColorGrid columns={3}>
+    <ColorSwatch
+      name="Primary"
+      colorKey="nesPrimary"
+      description="Main brand color"
+    />
+    <ColorSwatch
+      name="Secondary"
+      colorKey="nesSecondary"
+      description="Alternative accent"
+    />
+    <ColorSwatch
+      name="Accent"
+      colorKey="nesAccent"
+      description="Highlight color"
+    />
+    <ColorSwatch name="Error" colorKey="nesError" description="Error states" />
+    <ColorSwatch
+      name="Success"
+      colorKey="nesSuccess"
+      description="Success states"
+    />
+    <ColorSwatch
+      name="Warning"
+      colorKey="nesWarning"
+      description="Warning states"
+    />
+  </ColorGrid>
+</ComponentPreview>
 
-### Additional Palette Colors
+## Using Colors
 
-Extended color options for custom styling:
-
-<div className="grid grid-cols-2 md:grid-cols-3 gap-4 my-8">
-  <div className="space-y-2">
-    <div className="h-24 w-full bg-nes-red border-2 border-nes-black"></div>
-    <div className="text-sm">
-      <div className="font-bold">Red</div>
-      <div className="text-nes-gray-dark">#FE5EC4</div>
-    </div>
-  </div>
-  <div className="space-y-2">
-    <div className="h-24 w-full bg-nes-red-dark border-2 border-nes-black"></div>
-    <div className="text-sm">
-      <div className="font-bold">Red Dark</div>
-      <div className="text-nes-gray-dark">#A62721</div>
-    </div>
-  </div>
-  <div className="space-y-2">
-    <div className="h-24 w-full bg-nes-blue border-2 border-nes-black"></div>
-    <div className="text-sm">
-      <div className="font-bold">Blue</div>
-      <div className="text-nes-gray-dark">#0B53D7</div>
-    </div>
-  </div>
-  <div className="space-y-2">
-    <div className="h-24 w-full bg-nes-blue-dark border-2 border-nes-black"></div>
-    <div className="text-sm">
-      <div className="font-bold">Blue Dark</div>
-      <div className="text-nes-gray-dark">#00237C</div>
-    </div>
-  </div>
-  <div className="space-y-2">
-    <div className="h-24 w-full bg-nes-green border-2 border-nes-black"></div>
-    <div className="text-sm">
-      <div className="font-bold">Green</div>
-      <div className="text-nes-gray-dark">#79D300</div>
-    </div>
-  </div>
-  <div className="space-y-2">
-    <div className="h-24 w-full bg-nes-green-dark border-2 border-nes-black"></div>
-    <div className="text-sm">
-      <div className="font-bold">Green Dark</div>
-      <div className="text-nes-gray-dark">#093E00</div>
-    </div>
-  </div>
-  <div className="space-y-2">
-    <div className="h-24 w-full bg-nes-yellow border-2 border-nes-black"></div>
-    <div className="text-sm">
-      <div className="font-bold">Yellow</div>
-      <div className="text-nes-gray-dark">#F4D199</div>
-    </div>
-  </div>
-  <div className="space-y-2">
-    <div className="h-24 w-full bg-nes-yellow-dark border-2 border-nes-black"></div>
-    <div className="text-sm">
-      <div className="font-bold">Yellow Dark</div>
-      <div className="text-nes-gray-dark">#864300</div>
-    </div>
-  </div>
-  <div className="space-y-2">
-    <div className="h-24 w-full bg-nes-purple border-2 border-nes-black"></div>
-    <div className="text-sm">
-      <div className="font-bold">Purple</div>
-      <div className="text-nes-gray-dark">#BC6AFE</div>
-    </div>
-  </div>
-  <div className="space-y-2">
-    <div className="h-24 w-full bg-nes-purple-dark border-2 border-nes-black"></div>
-    <div className="text-sm">
-      <div className="font-bold">Purple Dark</div>
-      <div className="text-nes-gray-dark">#6621F7</div>
-    </div>
-  </div>
-</div>
-
-## Usage in Components
-
-### Component Variants
-
-All interactive components support these variant colors:
-
-- **base**: Adapts between black (light mode) and white (dark mode)
-- **primary**: Main brand color (#3337FE)
-- **secondary**: Alternative accent (#F15BFE)
-- **accent**: Highlight color (#51DF21)
-- **ghost**: Subtle gray variant
-- **error**: Error states (#FE7269)
-- **success**: Success states (#51DF21)
-- **warning**: Warning states (#ADB600)
-
-### Tailwind CSS Classes
-
-All colors are available as Tailwind utilities:
+Colors in Pixel UI are applied through the `variant` prop on components. No need to think about CSS classes or color values.
 
 ```tsx
-// Background colors
-<div className="bg-nes-primary" />
-<div className="bg-nes-secondary" />
+import { Button } from '@joacod/pixel-ui'
 
-// Text colors
-<p className="text-nes-error" />
-<p className="text-nes-success" />
-
-// Border colors
-<div className="border-nes-accent" />
-
-// Dark mode variants
-<div className="bg-nes-black dark:bg-nes-white" />
-<p className="text-nes-black dark:text-nes-white" />
+// Just set the variant - colors work automatically in light and dark mode
+<Button variant="base">Base</Button>
+<Button variant="primary">Primary</Button>
+<Button variant="secondary">Secondary</Button>
+<Button variant="accent">Accent</Button>
+<Button variant="ghost">Ghost</Button>
+<Button variant="error">Error</Button>
+<Button variant="success">Success</Button>
+<Button variant="warning">Warning</Button>
 ```
+
+### Available Variants
+
+- **base** - Adapts between black (light mode) and white (dark mode)
+- **primary** - Main brand color (blue)
+- **secondary** - Alternative accent (pink)
+- **accent** - Highlight color (green)
+- **ghost** - Subtle transparent variant
+- **error** - For error states (red)
+- **success** - For success states (green)
+- **warning** - For warning states (yellow)
 
 ## Dark Mode
 
-Pixel UI components automatically adapt to dark mode. The base colors (black/white) swap, while semantic colors (primary, secondary, etc.) remain consistent for brand recognition.
+All colors automatically adapt to dark mode based on your system's `prefers-color-scheme` setting.
 
-### Dark Mode Color Mapping
+**What changes:**
 
-- `nes-black` → Backgrounds in dark mode use `nes-gray-dark`
-- `nes-white` → Text/borders in dark mode
-- Semantic colors (primary, secondary, etc.) stay the same
-- Borders and shadows automatically adapt for visibility
+- Base colors adapt (black ↔ white, backgrounds darken)
+- Semantic colors stay consistent for brand recognition
+- Border and shadow colors invert for visibility
+
+**What you do:**
+
+- Nothing! Just use the `variant` prop and components handle light/dark mode automatically.

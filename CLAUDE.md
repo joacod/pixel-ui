@@ -24,14 +24,34 @@ pnpm changeset          # Create a changeset for version management
 pnpm release            # Build library and publish to npm (CI handles this)
 ```
 
+### Changeset Best Practices
+
+**IMPORTANT:** To keep changelogs clean and separated by package, follow these rules:
+
+1. **One package affected** → Create one changeset file with only that package
+2. **Multiple packages affected** → Create separate changeset files for each package
+
+This ensures each package's CHANGELOG only contains changes relevant to that specific package.
+
+**When to create separate changesets:**
+
+- ✅ Library changes (code, types, exports) → Separate changeset for `@joacod/pixel-ui`
+- ✅ Documentation changes (MDX, examples, guides) → Separate changeset for `www`
+- ✅ Both changed in one PR → Create TWO separate changeset files
+
+**Version bump guidelines:**
+
+- `major` - Breaking changes to the public API
+- `minor` - New features, new components, significant enhancements
+- `patch` - Bug fixes, documentation updates, minor tweaks
+
 ### Changeset Format
 
-When completing a changeset, use this format:
+**Single package changeset:**
 
 ```markdown
 ---
 '@joacod/pixel-ui': <major|minor|patch>
-'www': <major|minor|patch>
 ---
 
 <Title of the change - imperative mood, capitalized>
@@ -45,33 +65,53 @@ When completing a changeset, use this format:
 <Optional: Additional sections for features, fixes, breaking changes, etc.>
 ```
 
-**Version bump guidelines:**
-
-- `major` - Breaking changes to the public API
-- `minor` - New features, new components, significant enhancements
-- `patch` - Bug fixes, documentation updates, minor tweaks
-
-**Example:**
+**Example - Library change only:**
 
 ```markdown
 ---
 '@joacod/pixel-ui': minor
-'www': patch
 ---
 
-Add Checkbox and CheckboxGroup components - Pixel-art styled form controls with accessibility features
+Add Checkbox and CheckboxGroup components
+
+Pixel-art styled form controls with accessibility features.
 
 - New Checkbox component built on Base UI Checkbox primitive
 - Compound component pattern with `Checkbox.Root` and `Checkbox.Indicator`
 - States: checked, unchecked, indeterminate, disabled, readonly, required
 - Pixel-art styling with box-shadow borders and instant transitions
 - Full accessibility support with keyboard navigation and ARIA attributes
-
 - New CheckboxGroup component for managing multiple checkbox state
 - Supports controlled and uncontrolled modes
 - Parent checkbox functionality for "select all" behavior via `allValues` prop
-- Group-wide disabled state with proper propagation
+```
+
+**Example - Documentation change only:**
+
+```markdown
+---
+'www': patch
+---
+
+Add Checkbox component documentation
+
 - Comprehensive MDX documentation with interactive examples
+- Usage examples for controlled and uncontrolled modes
+- Accessibility guidelines and keyboard navigation examples
+```
+
+**Multiple changesets in one PR:**
+
+When a PR includes both library and documentation changes, run `pnpm changeset` twice to create two separate files:
+
+```bash
+# First changeset for library changes
+pnpm changeset
+# Select @joacod/pixel-ui, describe library changes
+
+# Second changeset for documentation changes
+pnpm changeset
+# Select www, describe documentation changes
 ```
 
 ## Architecture
@@ -109,6 +149,8 @@ Design tokens exist in **two places**:
 2. **CSS** (`src/styles/theme.css`) - Tailwind v4 @theme directive with CSS custom properties
 
 These should be kept in sync. The CSS version is the source of truth for Tailwind utilities.
+
+**Note:** Design tokens are primarily for **internal use** by the library. The colors/sizes/spacing exports exist mainly for the documentation site and edge cases. Users should rely on the `variant` and `size` props rather than importing tokens directly.
 
 ### Styling Architecture (Tailwind v4)
 
@@ -153,6 +195,48 @@ All three run in sequence via `pnpm build:lib`
 - **Pixel-perfect rendering**: `image-rendering: pixelated`, no font smoothing
 - **Pixel font**: Provided by @fontsource npm package, imported in base.css
 
+### Color Management
+
+**Philosophy:** Pixel UI is a "plug and play" library. Users apply colors through the `variant` prop, NOT by using color utility classes or customization.
+
+**Color Categories:**
+
+1. **Semantic Colors** (User-facing via `variant` prop):
+
+   - `base` - Adapts between black/white for light/dark mode
+   - `primary` - Main brand color (#3337FE blue)
+   - `secondary` - Alternative accent (#F15BFE pink)
+   - `accent` - Highlight color (#51DF21 green)
+   - `ghost` - Transparent variant
+   - `error` - Error states (#FE7269 red)
+   - `success` - Success states (#51DF21 green)
+   - `warning` - Warning states (#ADB600 yellow)
+
+2. **Internal Colors** (Used only in component styles):
+   - `nesRed` (#FE5EC4) - Dark mode error text/borders
+   - `nesBlueDark` (#00237C) - Primary button hover state
+   - `nesGreenDark` (#093E00) - Accent/success button hover states
+   - Plus base colors: `nesBlack`, `nesGrayDark`, `nesGray`, `nesWhite`
+
+**Rules:**
+
+- ❌ **Don't add colors** unless they serve a specific variant or internal styling purpose
+- ❌ **Don't export unused colors** - if it's not used in components, remove it
+- ✅ **Keep tokens.ts and theme.css in sync** - both define the same colors
+- ✅ **Run `pnpm build:lib`** after any color changes to regenerate `components.css`
+- ✅ **Use variant prop in docs** - show users how to use variants, not custom colors
+
+**Example - Adding a new variant color:**
+
+If you need to add a new variant (e.g., "info"), you must:
+
+1. Add color to `tokens.ts`: `nesInfo: '#...'`
+2. Add to `theme.css`: `--color-nes-info: #...`
+3. Add to `Variant` type in `tokens.ts`: `'info'`
+4. Add to component styles (e.g., `Button.styles.ts`): `info: 'bg-nes-info ...'`
+5. Rebuild library: `pnpm build:lib`
+6. Document in colors.mdx and component docs
+
 ### Dark Mode Guidelines
 
 When adding or modifying component styles, ensure proper dark mode support:
@@ -185,6 +269,14 @@ When adding new components:
 9. Add component to `apps/www/content/docs/components/meta.json` to make it visible in the documentation sidebar
 
 **Important:** Component styles in `.styles.ts` files are extracted at build time and included in `components.css`. After adding or modifying component styles, always rebuild the library to regenerate this file.
+
+**Styling Philosophy:**
+
+- ✅ **Use `variant` prop** for color variations (primary, secondary, error, etc.)
+- ✅ **Use `size` prop** for size variations (xs, sm, md, lg, xl)
+- ✅ **Support `className` prop** for layout/spacing overrides only (margin, width, etc.)
+- ❌ **Don't encourage color customization via className** - users should use variants
+- 📝 **In documentation**: Show variant/size examples
 
 ### Type Safety
 
