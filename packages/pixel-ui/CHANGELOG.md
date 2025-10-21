@@ -1,5 +1,14 @@
 # pixel-ui
 
+## 0.12.2
+
+### Patch Changes
+
+- 724ed2c: Update package homepage URL
+
+  - Changed homepage URL from GitHub README to custom documentation site (https://pixel-ui.joacod.com/)
+  - Improves discoverability by directing users to comprehensive documentation instead of repository
+
 ## 0.12.1
 
 ### Patch Changes
