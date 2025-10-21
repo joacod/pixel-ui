@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@joacod/pixel-ui": "workspace:*",
+    "@vercel/analytics": "^1.5.0",
     "fumadocs-core": "15.8.4",
     "fumadocs-mdx": "12.0.3",
     "fumadocs-ui": "15.8.4",
