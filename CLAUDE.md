@@ -114,6 +114,20 @@ pnpm changeset
 # Select www, describe documentation changes
 ```
 
+### Version Synchronization
+
+**IMPORTANT:** When asked about complete or improve current changesets that bump the `@joacod/pixel-ui` version, you MUST update the documentation site version reference:
+
+1. **After creating a library changeset** that changes the version (major/minor/patch)
+2. **Update** `apps/www/lib/config.ts` → Change `LIBRARY_VERSION` to match the new version
+3. This ensures the version badge in the docs navigation stays synchronized with the published package
+
+**Location:** The version is displayed in the docs navigation header as a badge linking to npm. It's sourced from `apps/www/lib/config.ts` which exports:
+
+- `LIBRARY_VERSION` - The version string (e.g., '0.12.1')
+- `NPM_PACKAGE_URL` - npm package link
+- `GITHUB_REPO_URL` - GitHub repository link
+
 ## Architecture
 
 ### Monorepo Structure
