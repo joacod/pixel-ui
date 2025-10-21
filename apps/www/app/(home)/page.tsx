@@ -1,4 +1,4 @@
-import { ArrowRightIcon } from 'lucide-react'
+import { ArrowRightIcon, PackageIcon, Github } from 'lucide-react'
 import Link from 'next/link'
 
 export default function HomePage() {
@@ -9,11 +9,40 @@ export default function HomePage() {
 
         <div>
           <p className="text-lg text-fd-muted-foreground mx-auto">
-            Retro pixel-art styled React component library built on Base UI.
+            Retro pixel-art styled React component library built on{' '}
+            <a
+              href="https://base-ui.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-fd-foreground font-semibold hover:underline"
+            >
+              Base UI
+            </a>
+            .
           </p>
+          <div className="flex items-center justify-center gap-4 mt-4">
+            <a
+              href="https://www.npmjs.com/package/@joacod/pixel-ui"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-fd-secondary text-fd-secondary-foreground hover:bg-fd-secondary/80 transition-colors"
+            >
+              <PackageIcon className="w-5 h-5" />
+              <span className="font-semibold">npm</span>
+            </a>
+            <a
+              href="https://github.com/joacod/pixel-ui"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-fd-secondary text-fd-secondary-foreground hover:bg-fd-secondary/80 transition-colors"
+            >
+              <Github className="w-5 h-5" />
+              <span className="font-semibold">GitHub</span>
+            </a>
+          </div>
           <Link
             href="/docs"
-            className="inline-flex items-center  text-fd-foreground font-semibold  transition-all duration-200 group underline mt-2"
+            className="inline-flex items-center  text-fd-foreground font-semibold  transition-all duration-200 group underline mt-4"
           >
             Documentation
             <ArrowRightIcon className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />

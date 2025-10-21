@@ -1,4 +1,5 @@
 import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared'
+import { Github, Package } from 'lucide-react'
 
 /**
  * Shared layout configurations
@@ -17,6 +18,19 @@ export function baseOptions(): BaseLayoutProps {
       ),
     },
     // see https://fumadocs.dev/docs/ui/navigation/links
-    links: [],
+    links: [
+      {
+        icon: <Package />,
+        text: 'v0.12.1',
+        url: 'https://www.npmjs.com/package/@joacod/pixel-ui',
+        external: true,
+      },
+      {
+        icon: <Github />,
+        text: 'GitHub',
+        url: 'https://github.com/joacod/pixel-ui',
+        external: true,
+      },
+    ],
   }
 }
