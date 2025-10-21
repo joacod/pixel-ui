@@ -718,58 +718,10 @@
       }
     }
   }
-  .hover\:shadow-\[3px_3px_0_0_theme\(colors\.nes\.accent-hover\)\] {
-    &:hover {
-      @media (hover: hover) {
-        --tw-shadow: 3px 3px 0 0 var(--tw-shadow-color, #093e00);
-        box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
-      }
-    }
-  }
   .hover\:shadow-\[3px_3px_0_0_theme\(colors\.nes\.black\)\] {
     &:hover {
       @media (hover: hover) {
         --tw-shadow: 3px 3px 0 0 var(--tw-shadow-color, #000000);
-        box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
-      }
-    }
-  }
-  .hover\:shadow-\[3px_3px_0_0_theme\(colors\.nes\.error-hover\)\] {
-    &:hover {
-      @media (hover: hover) {
-        --tw-shadow: 3px 3px 0 0 var(--tw-shadow-color, #d64339);
-        box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
-      }
-    }
-  }
-  .hover\:shadow-\[3px_3px_0_0_theme\(colors\.nes\.primary-hover\)\] {
-    &:hover {
-      @media (hover: hover) {
-        --tw-shadow: 3px 3px 0 0 var(--tw-shadow-color, #00237c);
-        box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
-      }
-    }
-  }
-  .hover\:shadow-\[3px_3px_0_0_theme\(colors\.nes\.secondary-hover\)\] {
-    &:hover {
-      @media (hover: hover) {
-        --tw-shadow: 3px 3px 0 0 var(--tw-shadow-color, #c92ed9);
-        box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
-      }
-    }
-  }
-  .hover\:shadow-\[3px_3px_0_0_theme\(colors\.nes\.success-hover\)\] {
-    &:hover {
-      @media (hover: hover) {
-        --tw-shadow: 3px 3px 0 0 var(--tw-shadow-color, #51df21);
-        box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
-      }
-    }
-  }
-  .hover\:shadow-\[3px_3px_0_0_theme\(colors\.nes\.warning-hover\)\] {
-    &:hover {
-      @media (hover: hover) {
-        --tw-shadow: 3px 3px 0 0 var(--tw-shadow-color, #7d8400);
         box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
       }
     }
