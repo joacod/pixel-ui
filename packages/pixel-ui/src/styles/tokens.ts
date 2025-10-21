@@ -6,24 +6,35 @@
  * Internal colors used by components - users should use the `variant` prop instead
  */
 export const colors = {
-  // Dark shades
+  // Neutral shades
   nesBlack: '#000000',
   nesGrayDark: '#585858',
   nesGray: '#A1A1A1',
   nesWhite: '#FFFFFF',
 
-  // Internal colors (used for hover states and dark mode)
-  nesRed: '#FE5EC4',
-  nesBlueDark: '#00237C',
-  nesGreenDark: '#093E00',
-
-  // UI semantic colors
+  // Primary variant colors
   nesPrimary: '#3337FE',
+  nesPrimaryHover: '#00237C',
+
+  // Secondary variant colors
   nesSecondary: '#F15BFE',
+  nesSecondaryHover: '#C92ED9',
+
+  // Accent variant colors
   nesAccent: '#51DF21',
+  nesAccentHover: '#093E00',
+
+  // Error variant colors
   nesError: '#FE7269',
+  nesErrorHover: '#D64339',
+
+  // Warning variant colors
   nesWarning: '#ADB600',
+  nesWarningHover: '#7D8400',
+
+  // Success variant colors
   nesSuccess: '#7FFF7F',
+  nesSuccessHover: '#51DF21',
 } as const
 
 /**

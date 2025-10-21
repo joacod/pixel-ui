@@ -6,24 +6,35 @@
      NES 8-bit Color Palette
      ============================================ */
 
-  /* Dark shades */
+  /* Neutral shades */
   --color-nes-black: #000000;
   --color-nes-gray-dark: #585858;
   --color-nes-gray: #a1a1a1;
   --color-nes-white: #ffffff;
 
-  /* Internal colors (used for hover states and dark mode) */
-  --color-nes-red: #fe5ec4;
-  --color-nes-blue-dark: #00237c;
-  --color-nes-green-dark: #093e00;
-
-  /* UI semantic colors */
+  /* Primary variant colors */
   --color-nes-primary: #3337fe;
+  --color-nes-primary-hover: #00237c;
+
+  /* Secondary variant colors */
   --color-nes-secondary: #f15bfe;
+  --color-nes-secondary-hover: #c92ed9;
+
+  /* Accent variant colors */
   --color-nes-accent: #51df21;
+  --color-nes-accent-hover: #093e00;
+
+  /* Error variant colors */
   --color-nes-error: #fe7269;
+  --color-nes-error-hover: #d64339;
+
+  /* Warning variant colors */
   --color-nes-warning: #adb600;
+  --color-nes-warning-hover: #7d8400;
+
+  /* Success variant colors */
   --color-nes-success: #7fff7f;
+  --color-nes-success-hover: #51df21;
 
   /* ============================================
      Typography - Unifontex pixel font
