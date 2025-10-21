@@ -226,11 +226,15 @@ All three run in sequence via `pnpm build:lib`
    - `success` - Success states (#51DF21 green)
    - `warning` - Warning states (#ADB600 yellow)
 
-2. **Internal Colors** (Used only in component styles):
-   - `nesRed` (#FE5EC4) - Dark mode error text/borders
-   - `nesBlueDark` (#00237C) - Primary button hover state
-   - `nesGreenDark` (#093E00) - Accent/success button hover states
-   - Plus base colors: `nesBlack`, `nesGrayDark`, `nesGray`, `nesWhite`
+2. **Systematic Hover Colors** (Used internally for interactive states):
+   - Each variant has a corresponding hover color following the pattern `nes[Variant]Hover`
+   - `nesPrimaryHover` (#00237C) - Darker blue for primary hover states
+   - `nesSecondaryHover` (#C92ED9) - Darker pink for secondary hover states
+   - `nesAccentHover` (#093E00) - Darker green for accent hover states
+   - `nesErrorHover` (#D64339) - Darker red for error hover states
+   - `nesWarningHover` (#7D8400) - Darker yellow for warning hover states
+   - `nesSuccessHover` (#51DF21) - Darker green for success hover states
+   - Plus neutral colors: `nesBlack`, `nesGrayDark`, `nesGray`, `nesWhite`
 
 **Rules:**
 
@@ -244,10 +248,10 @@ All three run in sequence via `pnpm build:lib`
 
 If you need to add a new variant (e.g., "info"), you must:
 
-1. Add color to `tokens.ts`: `nesInfo: '#...'`
-2. Add to `theme.css`: `--color-nes-info: #...`
+1. Add base and hover colors to `tokens.ts`: `nesInfo: '#...'` and `nesInfoHover: '#...'`
+2. Add both to `theme.css`: `--color-nes-info: #...` and `--color-nes-info-hover: #...`
 3. Add to `Variant` type in `tokens.ts`: `'info'`
-4. Add to component styles (e.g., `Button.styles.ts`): `info: 'bg-nes-info ...'`
+4. Add to component styles (e.g., `Button.styles.ts`): `info: 'bg-nes-info hover:bg-nes-info-hover ...'`
 5. Rebuild library: `pnpm build:lib`
 6. Document in colors.mdx and component docs
 
@@ -261,6 +265,21 @@ When adding or modifying component styles, ensure proper dark mode support:
 - **Text colors**: Pair `text-nes-black` with `dark:text-nes-white`
 - **Focus rings**: Use `dark:focus-visible:ring-nes-secondary` for better contrast
 - **Hover states**: Include dark mode shadows for interactive elements
+
+**Component-specific shadow guidelines:**
+
+- **Buttons** (filled style): Use black shadows in light mode, white shadows in dark mode for maximum contrast
+
+  - Light mode: `shadow-[2px_2px_0_0_theme(colors.nes.black)]`
+  - Dark mode: `dark:shadow-[2px_2px_0_0_theme(colors.nes.white)]`
+  - This ensures colored buttons always have visible shadows regardless of theme
+
+- **Form controls** (outline style): Use variant-colored shadows that match borders
+
+  - Example: `shadow-[2px_2px_0_0_theme(colors.nes.primary)]`
+  - Both border and shadow use the variant color for cohesive outline effect
+
+- **Toggles** (checkbox, radio, switch): Use black/white shadows in unchecked state, variant-colored shadows when checked
 
 Default dark mode colors:
 

@@ -32,6 +32,8 @@ export const textareaStyles = {
       'dark:border-nes-white',
       'shadow-[2px_2px_0_0_theme(colors.nes.black)]',
       'dark:shadow-[2px_2px_0_0_theme(colors.nes.white)]',
+      'hover:shadow-[3px_3px_0_0_theme(colors.nes.black)]',
+      'dark:hover:shadow-[3px_3px_0_0_theme(colors.nes.white)]',
       'focus:shadow-[3px_3px_0_0_theme(colors.nes.black)]',
       'dark:focus:shadow-[3px_3px_0_0_theme(colors.nes.white)]',
     ].join(' '),
@@ -43,6 +45,7 @@ export const textareaStyles = {
       'border-2',
       'border-nes-primary',
       'shadow-[2px_2px_0_0_theme(colors.nes.primary)]',
+      'hover:shadow-[3px_3px_0_0_theme(colors.nes.primary)]',
       'focus:shadow-[3px_3px_0_0_theme(colors.nes.primary)]',
     ].join(' '),
     secondary: [
@@ -53,6 +56,7 @@ export const textareaStyles = {
       'border-2',
       'border-nes-secondary',
       'shadow-[2px_2px_0_0_theme(colors.nes.secondary)]',
+      'hover:shadow-[3px_3px_0_0_theme(colors.nes.secondary)]',
       'focus:shadow-[3px_3px_0_0_theme(colors.nes.secondary)]',
     ].join(' '),
     accent: [
@@ -63,6 +67,7 @@ export const textareaStyles = {
       'border-2',
       'border-nes-accent',
       'shadow-[2px_2px_0_0_theme(colors.nes.accent)]',
+      'hover:shadow-[3px_3px_0_0_theme(colors.nes.accent)]',
       'focus:shadow-[3px_3px_0_0_theme(colors.nes.accent)]',
     ].join(' '),
     ghost: [
@@ -73,6 +78,7 @@ export const textareaStyles = {
       'border-2',
       'border-nes-gray',
       'shadow-[2px_2px_0_0_theme(colors.nes.gray)]',
+      'hover:shadow-[3px_3px_0_0_theme(colors.nes.gray)]',
       'focus:shadow-[3px_3px_0_0_theme(colors.nes.gray)]',
     ].join(' '),
     error: [
@@ -83,6 +89,7 @@ export const textareaStyles = {
       'border-2',
       'border-nes-error',
       'shadow-[2px_2px_0_0_theme(colors.nes.error)]',
+      'hover:shadow-[3px_3px_0_0_theme(colors.nes.error)]',
       'focus:shadow-[3px_3px_0_0_theme(colors.nes.error)]',
     ].join(' '),
     success: [
@@ -93,6 +100,7 @@ export const textareaStyles = {
       'border-2',
       'border-nes-success',
       'shadow-[2px_2px_0_0_theme(colors.nes.success)]',
+      'hover:shadow-[3px_3px_0_0_theme(colors.nes.success)]',
       'focus:shadow-[3px_3px_0_0_theme(colors.nes.success)]',
     ].join(' '),
     warning: [
@@ -103,6 +111,7 @@ export const textareaStyles = {
       'border-2',
       'border-nes-warning',
       'shadow-[2px_2px_0_0_theme(colors.nes.warning)]',
+      'hover:shadow-[3px_3px_0_0_theme(colors.nes.warning)]',
       'focus:shadow-[3px_3px_0_0_theme(colors.nes.warning)]',
     ].join(' '),
   },
