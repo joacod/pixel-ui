@@ -1,6 +1,6 @@
 {
   "name": "pixel-ui-monorepo",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "private": true,
   "description": "Monorepo for pixel-ui component library and documentation",
   "scripts": {
