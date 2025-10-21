@@ -174,6 +174,7 @@ export const selectItemStyles = {
     'data-[highlighted]:text-white',
     'data-[selected]:bg-nes-accent',
     'data-[selected]:text-black',
+    'dark:data-[selected]:text-black',
     'data-[disabled]:opacity-60',
     'data-[disabled]:cursor-not-allowed',
     'data-[disabled]:grayscale',

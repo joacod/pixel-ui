@@ -23,7 +23,7 @@ export const colors = {
   nesAccent: '#51DF21',
   nesError: '#FE7269',
   nesWarning: '#ADB600',
-  nesSuccess: '#51DF21',
+  nesSuccess: '#7FFF7F',
 } as const
 
 /**

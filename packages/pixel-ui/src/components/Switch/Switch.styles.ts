@@ -77,12 +77,16 @@ export const switchStyles = {
     ].join(' '),
     ghost: [
       'shadow-[2px_2px_0_0_theme(colors.nes.gray)]',
+      'dark:shadow-[2px_2px_0_0_theme(colors.nes.white)]',
       'data-[checked]:bg-nes-gray',
       'data-[checked]:border-nes-gray',
+      'dark:data-[checked]:border-nes-white',
       'focus-visible:ring-2',
       'focus-visible:ring-nes-gray',
+      'dark:focus-visible:ring-nes-white',
       'focus-visible:ring-offset-2',
       'hover:not([data-disabled]):shadow-[3px_3px_0_0_theme(colors.nes.gray)]',
+      'dark:hover:not([data-disabled]):shadow-[3px_3px_0_0_theme(colors.nes.white)]',
     ].join(' '),
     error: [
       'shadow-[2px_2px_0_0_theme(colors.nes.black)]',

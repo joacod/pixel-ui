@@ -13,7 +13,7 @@
   --color-nes-accent: #51df21;
   --color-nes-error: #fe7269;
   --color-nes-warning: #adb600;
-  --color-nes-success: #51df21;
+  --color-nes-success: #7fff7f;
   --font-family-pixel: 'Unifontex', monospace;
   --spacing-px: 1px;
   --spacing-0: 0;
@@ -591,7 +591,7 @@
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
   .shadow-\[2px_2px_0_0_theme\(colors\.nes\.success\)\] {
-    --tw-shadow: 2px 2px 0 0 var(--tw-shadow-color, #51df21);
+    --tw-shadow: 2px 2px 0 0 var(--tw-shadow-color, #7fff7f);
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
   .shadow-\[2px_2px_0_0_theme\(colors\.nes\.warning\)\] {
@@ -667,7 +667,7 @@
   }
   .focus-within\:shadow-\[3px_3px_0_0_theme\(colors\.nes\.success\)\] {
     &:focus-within {
-      --tw-shadow: 3px 3px 0 0 var(--tw-shadow-color, #51df21);
+      --tw-shadow: 3px 3px 0 0 var(--tw-shadow-color, #7fff7f);
       box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
     }
   }
@@ -748,7 +748,7 @@
   }
   .focus\:shadow-\[3px_3px_0_0_theme\(colors\.nes\.success\)\] {
     &:focus {
-      --tw-shadow: 3px 3px 0 0 var(--tw-shadow-color, #51df21);
+      --tw-shadow: 3px 3px 0 0 var(--tw-shadow-color, #7fff7f);
       box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
     }
   }
@@ -1024,7 +1024,7 @@
   }
   .data-\[checked\]\:shadow-\[2px_2px_0_0_theme\(colors\.nes\.success\)\] {
     &[data-checked] {
-      --tw-shadow: 2px 2px 0 0 var(--tw-shadow-color, #51df21);
+      --tw-shadow: 2px 2px 0 0 var(--tw-shadow-color, #7fff7f);
       box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
     }
   }
@@ -1166,7 +1166,7 @@
   }
   .data-\[indeterminate\]\:shadow-\[2px_2px_0_0_theme\(colors\.nes\.success\)\] {
     &[data-indeterminate] {
-      --tw-shadow: 2px 2px 0 0 var(--tw-shadow-color, #51df21);
+      --tw-shadow: 2px 2px 0 0 var(--tw-shadow-color, #7fff7f);
       box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
     }
   }
@@ -1243,11 +1243,6 @@
   .data-\[unchecked\]\:bg-white {
     &[data-unchecked] {
       background-color: var(--color-white);
-    }
-  }
-  .dark\:border-nes-gray {
-    @media (prefers-color-scheme: dark) {
-      border-color: var(--color-nes-gray);
     }
   }
   .dark\:border-nes-red {
@@ -1455,10 +1450,32 @@
       }
     }
   }
+  .dark\:data-\[indeterminate\]\:border-nes-white {
+    @media (prefers-color-scheme: dark) {
+      &[data-indeterminate] {
+        border-color: var(--color-nes-white);
+      }
+    }
+  }
+  .dark\:data-\[indeterminate\]\:shadow-\[2px_2px_0_0_theme\(colors\.nes\.white\)\] {
+    @media (prefers-color-scheme: dark) {
+      &[data-indeterminate] {
+        --tw-shadow: 2px 2px 0 0 var(--tw-shadow-color, #ffffff);
+        box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+      }
+    }
+  }
   .dark\:data-\[placeholder\]\:text-nes-gray {
     @media (prefers-color-scheme: dark) {
       &[data-placeholder] {
         color: var(--color-nes-gray);
+      }
+    }
+  }
+  .dark\:data-\[selected\]\:text-black {
+    @media (prefers-color-scheme: dark) {
+      &[data-selected] {
+        color: var(--color-black);
       }
     }
   }
