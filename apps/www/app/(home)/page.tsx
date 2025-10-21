@@ -1,4 +1,6 @@
-import { ArrowRightIcon, PackageIcon, Github } from 'lucide-react'
+import { SiNpm } from 'react-icons/si'
+import { FaGithub } from 'react-icons/fa'
+import { FaArrowRight } from 'react-icons/fa'
 import Link from 'next/link'
 
 export default function HomePage() {
@@ -27,7 +29,7 @@ export default function HomePage() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-fd-secondary text-fd-secondary-foreground hover:bg-fd-secondary/80 transition-colors"
             >
-              <PackageIcon className="w-5 h-5" />
+              <SiNpm className="w-5 h-5" />
               <span className="font-semibold">npm</span>
             </a>
             <a
@@ -36,7 +38,7 @@ export default function HomePage() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-fd-secondary text-fd-secondary-foreground hover:bg-fd-secondary/80 transition-colors"
             >
-              <Github className="w-5 h-5" />
+              <FaGithub className="w-5 h-5" />
               <span className="font-semibold">GitHub</span>
             </a>
           </div>
@@ -45,7 +47,7 @@ export default function HomePage() {
             className="inline-flex items-center  text-fd-foreground font-semibold  transition-all duration-200 group underline mt-4"
           >
             Documentation
-            <ArrowRightIcon className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+            <FaArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-0.5 transition-transform" />
           </Link>
         </div>
       </div>

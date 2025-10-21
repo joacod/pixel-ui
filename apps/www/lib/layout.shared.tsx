@@ -1,5 +1,6 @@
 import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared'
-import { Github, Package } from 'lucide-react'
+import { SiNpm } from 'react-icons/si'
+import { FaGithub } from 'react-icons/fa'
 import { LIBRARY_VERSION, NPM_PACKAGE_URL, GITHUB_REPO_URL } from './config'
 
 /**
@@ -21,13 +22,13 @@ export function baseOptions(): BaseLayoutProps {
     // see https://fumadocs.dev/docs/ui/navigation/links
     links: [
       {
-        icon: <Package />,
+        icon: <SiNpm />,
         text: `v${LIBRARY_VERSION}`,
         url: NPM_PACKAGE_URL,
         external: true,
       },
       {
-        icon: <Github />,
+        icon: <FaGithub />,
         text: 'GitHub',
         url: GITHUB_REPO_URL,
         external: true,
