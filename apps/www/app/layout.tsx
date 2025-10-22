@@ -9,6 +9,7 @@ import { Analytics } from '@vercel/analytics/next'
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-sans',
+  preload: true,
 })
 
 export const metadata: Metadata = {
