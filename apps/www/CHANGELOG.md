@@ -1,5 +1,16 @@
 # www
 
+## 0.1.2
+
+### Patch Changes
+
+- 742f39d: Optimize documentation site with Next.js 16 improvements
+
+  Performance enhancements for faster builds and page loads.
+
+  - Enable Turbopack for production builds with `--turbo` flag
+  - Add font preloading to Inter configuration for faster initial page loads
+
 ## 0.1.1
 
 ### Patch Changes
