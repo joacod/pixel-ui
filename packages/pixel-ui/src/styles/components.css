@@ -1,4 +1,4 @@
-/*! tailwindcss v4.1.14 | MIT License | https://tailwindcss.com */
+/*! tailwindcss v4.1.18 | MIT License | https://tailwindcss.com */
 @layer properties;
 :root, :host {
   --color-nes-black: #000000;
@@ -574,8 +574,36 @@
     --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
+  .shadow-\[2px_2px_0_0_theme\(colors\.nes\.accent\)\] {
+    --tw-shadow: 2px 2px 0 0 var(--tw-shadow-color, #51df21);
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
   .shadow-\[2px_2px_0_0_theme\(colors\.nes\.black\)\] {
     --tw-shadow: 2px 2px 0 0 var(--tw-shadow-color, #000000);
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .shadow-\[2px_2px_0_0_theme\(colors\.nes\.error\)\] {
+    --tw-shadow: 2px 2px 0 0 var(--tw-shadow-color, #fe7269);
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .shadow-\[2px_2px_0_0_theme\(colors\.nes\.gray\)\] {
+    --tw-shadow: 2px 2px 0 0 var(--tw-shadow-color, #a1a1a1);
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .shadow-\[2px_2px_0_0_theme\(colors\.nes\.primary\)\] {
+    --tw-shadow: 2px 2px 0 0 var(--tw-shadow-color, #3337fe);
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .shadow-\[2px_2px_0_0_theme\(colors\.nes\.secondary\)\] {
+    --tw-shadow: 2px 2px 0 0 var(--tw-shadow-color, #f15bfe);
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .shadow-\[2px_2px_0_0_theme\(colors\.nes\.success\)\] {
+    --tw-shadow: 2px 2px 0 0 var(--tw-shadow-color, #7fff7f);
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .shadow-\[2px_2px_0_0_theme\(colors\.nes\.warning\)\] {
+    --tw-shadow: 2px 2px 0 0 var(--tw-shadow-color, #adb600);
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
   .shadow-\[4px_4px_0_0_theme\(colors\.nes\.black\)\] {
@@ -615,9 +643,51 @@
       }
     }
   }
+  .focus-within\:shadow-\[3px_3px_0_0_theme\(colors\.nes\.accent\)\] {
+    &:focus-within {
+      --tw-shadow: 3px 3px 0 0 var(--tw-shadow-color, #51df21);
+      box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    }
+  }
   .focus-within\:shadow-\[3px_3px_0_0_theme\(colors\.nes\.black\)\] {
     &:focus-within {
       --tw-shadow: 3px 3px 0 0 var(--tw-shadow-color, #000000);
+      box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    }
+  }
+  .focus-within\:shadow-\[3px_3px_0_0_theme\(colors\.nes\.error\)\] {
+    &:focus-within {
+      --tw-shadow: 3px 3px 0 0 var(--tw-shadow-color, #fe7269);
+      box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    }
+  }
+  .focus-within\:shadow-\[3px_3px_0_0_theme\(colors\.nes\.gray\)\] {
+    &:focus-within {
+      --tw-shadow: 3px 3px 0 0 var(--tw-shadow-color, #a1a1a1);
+      box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    }
+  }
+  .focus-within\:shadow-\[3px_3px_0_0_theme\(colors\.nes\.primary\)\] {
+    &:focus-within {
+      --tw-shadow: 3px 3px 0 0 var(--tw-shadow-color, #3337fe);
+      box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    }
+  }
+  .focus-within\:shadow-\[3px_3px_0_0_theme\(colors\.nes\.secondary\)\] {
+    &:focus-within {
+      --tw-shadow: 3px 3px 0 0 var(--tw-shadow-color, #f15bfe);
+      box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    }
+  }
+  .focus-within\:shadow-\[3px_3px_0_0_theme\(colors\.nes\.success\)\] {
+    &:focus-within {
+      --tw-shadow: 3px 3px 0 0 var(--tw-shadow-color, #7fff7f);
+      box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    }
+  }
+  .focus-within\:shadow-\[3px_3px_0_0_theme\(colors\.nes\.warning\)\] {
+    &:focus-within {
+      --tw-shadow: 3px 3px 0 0 var(--tw-shadow-color, #adb600);
       box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
     }
   }
@@ -722,10 +792,66 @@
       }
     }
   }
+  .hover\:shadow-\[3px_3px_0_0_theme\(colors\.nes\.accent\)\] {
+    &:hover {
+      @media (hover: hover) {
+        --tw-shadow: 3px 3px 0 0 var(--tw-shadow-color, #51df21);
+        box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+      }
+    }
+  }
   .hover\:shadow-\[3px_3px_0_0_theme\(colors\.nes\.black\)\] {
     &:hover {
       @media (hover: hover) {
         --tw-shadow: 3px 3px 0 0 var(--tw-shadow-color, #000000);
+        box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+      }
+    }
+  }
+  .hover\:shadow-\[3px_3px_0_0_theme\(colors\.nes\.error\)\] {
+    &:hover {
+      @media (hover: hover) {
+        --tw-shadow: 3px 3px 0 0 var(--tw-shadow-color, #fe7269);
+        box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+      }
+    }
+  }
+  .hover\:shadow-\[3px_3px_0_0_theme\(colors\.nes\.gray\)\] {
+    &:hover {
+      @media (hover: hover) {
+        --tw-shadow: 3px 3px 0 0 var(--tw-shadow-color, #a1a1a1);
+        box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+      }
+    }
+  }
+  .hover\:shadow-\[3px_3px_0_0_theme\(colors\.nes\.primary\)\] {
+    &:hover {
+      @media (hover: hover) {
+        --tw-shadow: 3px 3px 0 0 var(--tw-shadow-color, #3337fe);
+        box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+      }
+    }
+  }
+  .hover\:shadow-\[3px_3px_0_0_theme\(colors\.nes\.secondary\)\] {
+    &:hover {
+      @media (hover: hover) {
+        --tw-shadow: 3px 3px 0 0 var(--tw-shadow-color, #f15bfe);
+        box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+      }
+    }
+  }
+  .hover\:shadow-\[3px_3px_0_0_theme\(colors\.nes\.success\)\] {
+    &:hover {
+      @media (hover: hover) {
+        --tw-shadow: 3px 3px 0 0 var(--tw-shadow-color, #7fff7f);
+        box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+      }
+    }
+  }
+  .hover\:shadow-\[3px_3px_0_0_theme\(colors\.nes\.warning\)\] {
+    &:hover {
+      @media (hover: hover) {
+        --tw-shadow: 3px 3px 0 0 var(--tw-shadow-color, #adb600);
         box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
       }
     }
@@ -738,9 +864,51 @@
       }
     }
   }
+  .focus\:shadow-\[3px_3px_0_0_theme\(colors\.nes\.accent\)\] {
+    &:focus {
+      --tw-shadow: 3px 3px 0 0 var(--tw-shadow-color, #51df21);
+      box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    }
+  }
   .focus\:shadow-\[3px_3px_0_0_theme\(colors\.nes\.black\)\] {
     &:focus {
       --tw-shadow: 3px 3px 0 0 var(--tw-shadow-color, #000000);
+      box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    }
+  }
+  .focus\:shadow-\[3px_3px_0_0_theme\(colors\.nes\.error\)\] {
+    &:focus {
+      --tw-shadow: 3px 3px 0 0 var(--tw-shadow-color, #fe7269);
+      box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    }
+  }
+  .focus\:shadow-\[3px_3px_0_0_theme\(colors\.nes\.gray\)\] {
+    &:focus {
+      --tw-shadow: 3px 3px 0 0 var(--tw-shadow-color, #a1a1a1);
+      box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    }
+  }
+  .focus\:shadow-\[3px_3px_0_0_theme\(colors\.nes\.primary\)\] {
+    &:focus {
+      --tw-shadow: 3px 3px 0 0 var(--tw-shadow-color, #3337fe);
+      box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    }
+  }
+  .focus\:shadow-\[3px_3px_0_0_theme\(colors\.nes\.secondary\)\] {
+    &:focus {
+      --tw-shadow: 3px 3px 0 0 var(--tw-shadow-color, #f15bfe);
+      box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    }
+  }
+  .focus\:shadow-\[3px_3px_0_0_theme\(colors\.nes\.success\)\] {
+    &:focus {
+      --tw-shadow: 3px 3px 0 0 var(--tw-shadow-color, #7fff7f);
+      box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    }
+  }
+  .focus\:shadow-\[3px_3px_0_0_theme\(colors\.nes\.warning\)\] {
+    &:focus {
+      --tw-shadow: 3px 3px 0 0 var(--tw-shadow-color, #adb600);
       box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
     }
   }
@@ -978,9 +1146,51 @@
       background-color: var(--color-white);
     }
   }
+  .data-\[checked\]\:shadow-\[2px_2px_0_0_theme\(colors\.nes\.accent\)\] {
+    &[data-checked] {
+      --tw-shadow: 2px 2px 0 0 var(--tw-shadow-color, #51df21);
+      box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    }
+  }
   .data-\[checked\]\:shadow-\[2px_2px_0_0_theme\(colors\.nes\.black\)\] {
     &[data-checked] {
       --tw-shadow: 2px 2px 0 0 var(--tw-shadow-color, #000000);
+      box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    }
+  }
+  .data-\[checked\]\:shadow-\[2px_2px_0_0_theme\(colors\.nes\.error\)\] {
+    &[data-checked] {
+      --tw-shadow: 2px 2px 0 0 var(--tw-shadow-color, #fe7269);
+      box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    }
+  }
+  .data-\[checked\]\:shadow-\[2px_2px_0_0_theme\(colors\.nes\.gray\)\] {
+    &[data-checked] {
+      --tw-shadow: 2px 2px 0 0 var(--tw-shadow-color, #a1a1a1);
+      box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    }
+  }
+  .data-\[checked\]\:shadow-\[2px_2px_0_0_theme\(colors\.nes\.primary\)\] {
+    &[data-checked] {
+      --tw-shadow: 2px 2px 0 0 var(--tw-shadow-color, #3337fe);
+      box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    }
+  }
+  .data-\[checked\]\:shadow-\[2px_2px_0_0_theme\(colors\.nes\.secondary\)\] {
+    &[data-checked] {
+      --tw-shadow: 2px 2px 0 0 var(--tw-shadow-color, #f15bfe);
+      box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    }
+  }
+  .data-\[checked\]\:shadow-\[2px_2px_0_0_theme\(colors\.nes\.success\)\] {
+    &[data-checked] {
+      --tw-shadow: 2px 2px 0 0 var(--tw-shadow-color, #7fff7f);
+      box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    }
+  }
+  .data-\[checked\]\:shadow-\[2px_2px_0_0_theme\(colors\.nes\.warning\)\] {
+    &[data-checked] {
+      --tw-shadow: 2px 2px 0 0 var(--tw-shadow-color, #adb600);
       box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
     }
   }
@@ -1088,6 +1298,48 @@
   .data-\[indeterminate\]\:bg-nes-warning {
     &[data-indeterminate] {
       background-color: var(--color-nes-warning);
+    }
+  }
+  .data-\[indeterminate\]\:shadow-\[2px_2px_0_0_theme\(colors\.nes\.accent\)\] {
+    &[data-indeterminate] {
+      --tw-shadow: 2px 2px 0 0 var(--tw-shadow-color, #51df21);
+      box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    }
+  }
+  .data-\[indeterminate\]\:shadow-\[2px_2px_0_0_theme\(colors\.nes\.error\)\] {
+    &[data-indeterminate] {
+      --tw-shadow: 2px 2px 0 0 var(--tw-shadow-color, #fe7269);
+      box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    }
+  }
+  .data-\[indeterminate\]\:shadow-\[2px_2px_0_0_theme\(colors\.nes\.gray\)\] {
+    &[data-indeterminate] {
+      --tw-shadow: 2px 2px 0 0 var(--tw-shadow-color, #a1a1a1);
+      box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    }
+  }
+  .data-\[indeterminate\]\:shadow-\[2px_2px_0_0_theme\(colors\.nes\.primary\)\] {
+    &[data-indeterminate] {
+      --tw-shadow: 2px 2px 0 0 var(--tw-shadow-color, #3337fe);
+      box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    }
+  }
+  .data-\[indeterminate\]\:shadow-\[2px_2px_0_0_theme\(colors\.nes\.secondary\)\] {
+    &[data-indeterminate] {
+      --tw-shadow: 2px 2px 0 0 var(--tw-shadow-color, #f15bfe);
+      box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    }
+  }
+  .data-\[indeterminate\]\:shadow-\[2px_2px_0_0_theme\(colors\.nes\.success\)\] {
+    &[data-indeterminate] {
+      --tw-shadow: 2px 2px 0 0 var(--tw-shadow-color, #7fff7f);
+      box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    }
+  }
+  .data-\[indeterminate\]\:shadow-\[2px_2px_0_0_theme\(colors\.nes\.warning\)\] {
+    &[data-indeterminate] {
+      --tw-shadow: 2px 2px 0 0 var(--tw-shadow-color, #adb600);
+      box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
     }
   }
   .data-\[invalid\]\:border-nes-error {
