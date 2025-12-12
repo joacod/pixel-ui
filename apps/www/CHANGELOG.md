@@ -1,5 +1,20 @@
 # www
 
+## 0.1.3
+
+### Patch Changes
+
+- 8b5263e: Update documentation site dependencies
+
+  - Update Next.js to 16.0.10
+  - Update React to 19.2.3
+  - Update Tailwind CSS to 4.1.18
+  - Update @vercel/analytics to 1.6.1
+  - Update type definitions
+
+- Updated dependencies [8b5263e]
+  - @joacod/pixel-ui@0.13.1
+
 ## 0.1.2
 
 ### Patch Changes
