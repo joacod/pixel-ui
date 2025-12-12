@@ -1,7 +1,6 @@
 packages:
   - 'packages/*'
   - 'apps/*'
-
 # Security: Mitigate supply chain attacks
 # Only install packages that were published at least 3 days ago
-minimumReleaseAge: 259200000
+# minimumReleaseAge: 259200000
