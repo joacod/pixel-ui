@@ -7,13 +7,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 Pixel UI is a pixel-art styled React component library built on [Base UI](https://base-ui.com) with Tailwind CSS v4. This is a pnpm monorepo containing:
 
 - `packages/pixel-ui` - The component library (published to npm as `@joacod/pixel-ui`)
-- `apps/www` - Documentation site built with Next.js and Fumadocs
+- `apps/www` - Documentation app built with Next.js and Fumadocs (local development only)
 
 ## Essential Commands
 
 ```bash
 # Development
-pnpm dev                # Run docs site with hot reload
+pnpm dev                # Run docs app locally with hot reload
 pnpm build              # Build everything (library + docs)
 pnpm build:lib          # Build library only
 pnpm build:docs         # Build docs only
@@ -116,7 +116,7 @@ pnpm changeset
 
 ### Version Synchronization
 
-**IMPORTANT:** When asked about complete or improve current changesets that bump the `@joacod/pixel-ui` version, you MUST update the documentation site version reference:
+**IMPORTANT:** When asked about complete or improve current changesets that bump the `@joacod/pixel-ui` version, you MUST update the documentation app version reference:
 
 1. **After creating a library changeset** that changes the version (major/minor/patch)
 2. **Update** `apps/www/lib/config.ts` → Change `LIBRARY_VERSION` to match the new version
@@ -164,7 +164,7 @@ Design tokens exist in **two places**:
 
 These should be kept in sync. The CSS version is the source of truth for Tailwind utilities.
 
-**Note:** Design tokens are primarily for **internal use** by the library. The colors/sizes/spacing exports exist mainly for the documentation site and edge cases. Users should rely on the `variant` and `size` props rather than importing tokens directly.
+**Note:** Design tokens are primarily for **internal use** by the library. The colors/sizes/spacing exports exist mainly for the documentation app and edge cases. Users should rely on the `variant` and `size` props rather than importing tokens directly.
 
 ### Styling Architecture (Tailwind v4)
 
@@ -317,9 +317,9 @@ When adding new components:
 - Variant and Size types are centralized in `src/styles/tokens.ts`
 - Props interfaces should extend `PixelComponentBaseProps` or include standard props (variant, size, disabled, className)
 
-### Documentation Site
+### Documentation App
 
-- Built with Next.js 15 and Fumadocs
+- Built with Next.js 15 and Fumadocs (local development only, not deployed)
 - MDX content in `apps/www/content/docs/`
 - Automatically imports and showcases components from `@joacod/pixel-ui`
 - Run with `pnpm dev` from root
