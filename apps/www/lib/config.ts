@@ -1,5 +1,5 @@
 /**
- * Configuration for the documentation site
+ * Configuration for the documentation app
  * Update LIBRARY_VERSION when publishing new versions of @joacod/pixel-ui
  */
 export const LIBRARY_VERSION = '0.13.0'

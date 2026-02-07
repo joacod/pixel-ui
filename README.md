@@ -5,7 +5,7 @@ Opinionated pixel-art styled React component library built on [Base UI](https://
 This is a monorepo containing:
 
 - **packages/pixel-ui** - The component library (published to npm)
-- **apps/www** - Documentation site
+- **apps/www** - Documentation and component previews (local development)
 
 ---
 

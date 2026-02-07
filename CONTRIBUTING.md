@@ -38,7 +38,7 @@ Thank you for your interest in contributing to Pixel UI! We welcome contribution
 3. Test your changes:
 
    ```bash
-   # Run docs site with hot reload
+   # Run docs app locally
    pnpm dev
 
    # Type check
@@ -91,7 +91,7 @@ pixel-ui/
 │       ├── dist/          # Built files (published to npm)
 │       └── package.json   # Published as @joacod/pixel-ui
 └── apps/
-    └── www/               # Documentation site
+    └── www/               # Documentation app (local dev)
         ├── app/           # Next.js app
         └── content/       # MDX documentation
 ```

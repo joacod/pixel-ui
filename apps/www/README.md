@@ -1,8 +1,8 @@
-# 👾 Pixel UI Documentation Site
+# 👾 Pixel UI Documentation App
 
-The official documentation site for Pixel UI, built with [Fumadocs](https://fumadocs.dev) and Next.js.
+Local documentation and component preview app for Pixel UI, built with [Fumadocs](https://fumadocs.dev) and Next.js.
 
-This site serves as both the documentation and a live showcase of the Pixel UI component library.
+This app serves as both the documentation and a live showcase of the Pixel UI component library during local development.
 
 ## Development
 
