@@ -1,5 +1,17 @@
 # www
 
+## 0.1.5
+
+### Patch Changes
+
+- eac2406: Clarify documentation app is for local development only
+
+  - Updated references from "Documentation site" to "Documentation app" across README, config, and contributor docs
+  - Removed implication of a deployed documentation site
+
+- Updated dependencies [eac2406]
+  - @joacod/pixel-ui@0.13.2
+
 ## 0.1.4
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # pixel-ui
 
+## 0.13.2
+
+### Patch Changes
+
+- eac2406: Update homepage URL to point to GitHub repository
+
+  - Changed homepage from `pixel-ui.joacod.com` to GitHub repo URL since the documentation site is no longer deployed
+
 ## 0.13.1
 
 ### Patch Changes
